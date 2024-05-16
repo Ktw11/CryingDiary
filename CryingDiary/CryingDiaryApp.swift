@@ -7,14 +7,11 @@
 
 import SwiftUI
 import SwiftData
-import FirebaseCore
 
 @main
 struct CryingDiaryApp: App {
     
-    init() {
-        configureFirebaseApp()
-    }
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
@@ -34,11 +31,5 @@ struct CryingDiaryApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
-    }
-}
-
-private extension CryingDiaryApp {
-    func configureFirebaseApp() {
-        FirebaseApp.configure()
     }
 }
