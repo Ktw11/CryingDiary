@@ -17,6 +17,7 @@
 		D17BBF8E2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */; };
 		D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */; };
 		D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,7 @@
 			name = CryingDiary;
 			packageProductDependencies = (
 				D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */,
 			);
 			productName = CryingDiary;
 			productReference = D17BBF6B2BF6333A00B5AE55 /* CryingDiary.app */;
@@ -621,6 +624,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
