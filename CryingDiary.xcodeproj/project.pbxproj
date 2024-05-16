@@ -15,6 +15,7 @@
 		D17BBF822BF6333B00B5AE55 /* CryingDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF812BF6333B00B5AE55 /* CryingDiaryTests.swift */; };
 		D17BBF8C2BF6333B00B5AE55 /* CryingDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8B2BF6333B00B5AE55 /* CryingDiaryUITests.swift */; };
 		D17BBF8E2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */; };
+		D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D17BBF872BF6333B00B5AE55 /* CryingDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryingDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17BBF8B2BF6333B00B5AE55 /* CryingDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITests.swift; sourceTree = "<group>"; };
 		D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		D17BBF6D2BF6333A00B5AE55 /* CryingDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */,
 				D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */,
 				D17BBF702BF6333A00B5AE55 /* ContentView.swift */,
 				D17BBF722BF6333A00B5AE55 /* Item.swift */,
@@ -236,6 +239,7 @@
 			files = (
 				D17BBF782BF6333B00B5AE55 /* Preview Assets.xcassets in Resources */,
 				D17BBF752BF6333B00B5AE55 /* Assets.xcassets in Resources */,
+				D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
