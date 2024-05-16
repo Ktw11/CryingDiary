@@ -16,6 +16,7 @@
 		D17BBF8C2BF6333B00B5AE55 /* CryingDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8B2BF6333B00B5AE55 /* CryingDiaryUITests.swift */; };
 		D17BBF8E2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */; };
 		D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */; };
+		D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +151,9 @@
 			dependencies = (
 			);
 			name = CryingDiary;
+			packageProductDependencies = (
+				D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */,
+			);
 			productName = CryingDiary;
 			productReference = D17BBF6B2BF6333A00B5AE55 /* CryingDiary.app */;
 			productType = "com.apple.product-type.application";
@@ -221,6 +226,9 @@
 				Base,
 			);
 			mainGroup = D17BBF622BF6333A00B5AE55;
+			packageReferences = (
+				D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = D17BBF6C2BF6333A00B5AE55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -596,6 +604,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D17BBF632BF6333A00B5AE55 /* Project object */;
 }
