@@ -7,9 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import FirebaseCore
 
 @main
 struct CryingDiaryApp: App {
+    
+    init() {
+        configureFirebaseApp()
+    }
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -28,5 +34,11 @@ struct CryingDiaryApp: App {
             ContentView()
         }
         .modelContainer(sharedModelContainer)
+    }
+}
+
+private extension CryingDiaryApp {
+    func configureFirebaseApp() {
+        FirebaseApp.configure()
     }
 }
