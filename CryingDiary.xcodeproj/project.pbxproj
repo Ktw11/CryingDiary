@@ -19,7 +19,8 @@
 		D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */; };
 		D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */; };
-		D1A300ED2C27F49800CCAF92 /* FirebaseAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300EC2C27F49800CCAF92 /* FirebaseAuthProvider.swift */; };
+		D1A300ED2C27F49800CCAF92 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300EC2C27F49800CCAF92 /* FirebaseAuthManager.swift */; };
+		D1A300F12C27FA1E00CCAF92 /* AuthManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300F02C27FA1E00CCAF92 /* AuthManagable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,8 @@
 		D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
-		D1A300EC2C27F49800CCAF92 /* FirebaseAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthProvider.swift; sourceTree = "<group>"; };
+		D1A300EC2C27F49800CCAF92 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		D1A300F02C27FA1E00CCAF92 /* AuthManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +150,8 @@
 		D1A300EB2C27F47000CCAF92 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				D1A300EC2C27F49800CCAF92 /* FirebaseAuthProvider.swift */,
+				D1A300EC2C27F49800CCAF92 /* FirebaseAuthManager.swift */,
+				D1A300F02C27FA1E00CCAF92 /* AuthManagable.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -291,11 +294,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1A300F12C27FA1E00CCAF92 /* AuthManagable.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
-				D1A300ED2C27F49800CCAF92 /* FirebaseAuthProvider.swift in Sources */,
+				D1A300ED2C27F49800CCAF92 /* FirebaseAuthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
