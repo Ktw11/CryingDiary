@@ -20,7 +20,7 @@
 		D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */; };
 		D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */; };
 		D1987D722C393D620061D45F /* AppleLoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D712C393D620061D45F /* AppleLoginProvider.swift */; };
-		D1A300ED2C27F49800CCAF92 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300EC2C27F49800CCAF92 /* FirebaseAuthManager.swift */; };
+		D1A300ED2C27F49800CCAF92 /* LoginStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300EC2C27F49800CCAF92 /* LoginStateManager.swift */; };
 		D1A300F12C27FA1E00CCAF92 /* AuthManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300F02C27FA1E00CCAF92 /* AuthManagable.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1987D712C393D620061D45F /* AppleLoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginProvider.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
-		D1A300EC2C27F49800CCAF92 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		D1A300EC2C27F49800CCAF92 /* LoginStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStateManager.swift; sourceTree = "<group>"; };
 		D1A300F02C27FA1E00CCAF92 /* AuthManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				D1987D712C393D620061D45F /* AppleLoginProvider.swift */,
-				D1A300EC2C27F49800CCAF92 /* FirebaseAuthManager.swift */,
+				D1A300EC2C27F49800CCAF92 /* LoginStateManager.swift */,
 				D1A300F02C27FA1E00CCAF92 /* AuthManagable.swift */,
 			);
 			path = Authentication;
@@ -303,7 +303,7 @@
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
-				D1A300ED2C27F49800CCAF92 /* FirebaseAuthManager.swift in Sources */,
+				D1A300ED2C27F49800CCAF92 /* LoginStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

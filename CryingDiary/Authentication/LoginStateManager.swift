@@ -1,5 +1,5 @@
 //
-//  FirebaseAuthManager.swift
+//  LoginStateManager.swift
 //  CryingDiary
 //
 //  Created by 공태웅 on 6/23/24.
@@ -9,7 +9,14 @@ import Foundation
 import FirebaseAuth
 
 @Observable
-final class FirebaseAuthManager: AuthManagable {
+final class LoginStateManager {
+    
+    // MARK: Lifecycle
+    
+    init() {
+        setUpStateListener()
+    }
+    
     // MARK: Properties
     
     // TODO: - User 정보를 담은 객체를 가지도록 수정 필요
@@ -17,13 +24,9 @@ final class FirebaseAuthManager: AuthManagable {
     
     // TODO: - Auth 객체 주입해주기
     private let auth: Auth = Auth.auth()
-    
-    init() {
-        setUpStateListener()
-    }
 }
 
-private extension FirebaseAuthManager {
+private extension LoginStateManager {
     func setUpStateListener() {
         auth.addStateDidChangeListener { [weak self] auth, firebaseUser in
             self?.setUserName(to: firebaseUser?.displayName)
