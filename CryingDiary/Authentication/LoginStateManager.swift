@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 
 @Observable
-final class LoginStateManager {
+final class LoginStateManager: LoginStateManagable {
     
     // MARK: Lifecycle
     
