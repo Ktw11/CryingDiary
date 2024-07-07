@@ -9,7 +9,7 @@ import Foundation
 import CryptoKit
 import AuthenticationServices
 
-final class AppleLoginHelper: NSObject {
+final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
 
     // MARK: Definitions
     
