@@ -1,5 +1,5 @@
 //
-//  AppleLoginProvider.swift
+//  AppleLoginHelper.swift
 //  CryingDiary
 //
 //  Created by 공태웅 on 7/6/24.
@@ -9,7 +9,7 @@ import Foundation
 import CryptoKit
 import AuthenticationServices
 
-final class AppleLoginProvider: NSObject {
+final class AppleLoginHelper: NSObject {
 
     // MARK: Definitions
     
@@ -38,7 +38,7 @@ final class AppleLoginProvider: NSObject {
     }
 }
 
-private extension AppleLoginProvider {
+private extension AppleLoginHelper {
     func makeNonce(count: Int = 32) -> String {
         precondition(count > 0)
         
@@ -67,7 +67,7 @@ private extension AppleLoginProvider {
     }
 }
 
-extension AppleLoginProvider: ASAuthorizationControllerDelegate {
+extension AppleLoginHelper: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
         guard let nonce = currentNonce else { return }
