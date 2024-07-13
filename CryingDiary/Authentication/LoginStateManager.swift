@@ -33,9 +33,10 @@ private extension LoginStateManager {
         }
     }
     
+    // TODO: - setUserName 방식 변경 필요
     func setUserName(to name: String?) {
-        Task { @MainActor [weak self] in
-            self?.currentUserName = name
-        }
+//        Task { @MainActor [weak self] in
+//            self?.currentUserName = name
+//        }
     }
 }
