@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */; };
 		D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF702BF6333A00B5AE55 /* ContentView.swift */; };
 		D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF722BF6333A00B5AE55 /* Item.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D17BBF6B2BF6333A00B5AE55 /* CryingDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryingDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryApp.swift; sourceTree = "<group>"; };
 		D17BBF702BF6333A00B5AE55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D172BE7C2C42719E00CFA8B1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		D17BBF622BF6333A00B5AE55 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		D17BBF6D2BF6333A00B5AE55 /* CryingDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D172BE7C2C42719E00CFA8B1 /* Utils */,
 				D1A300EB2C27F47000CCAF92 /* Authentication */,
 				D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */,
 				D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */,
@@ -316,6 +327,7 @@
 			files = (
 				D1A300F12C27FA1E00CCAF92 /* LoginStateManagable.swift in Sources */,
 				D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */,
+				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D1987D7A2C3A65470061D45F /* FirebaseAuthManager.swift in Sources */,
