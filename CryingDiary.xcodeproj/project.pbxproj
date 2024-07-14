@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
+		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */; };
 		D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF702BF6333A00B5AE55 /* ContentView.swift */; };
 		D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF722BF6333A00B5AE55 /* Item.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
+		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D17BBF6B2BF6333A00B5AE55 /* CryingDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryingDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryApp.swift; sourceTree = "<group>"; };
 		D17BBF702BF6333A00B5AE55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */,
+				D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				D1987D7A2C3A65470061D45F /* FirebaseAuthManager.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */,
+				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,
 				D1987D7D2C3A68250061D45F /* AuthManagable.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
 				D1A300ED2C27F49800CCAF92 /* LoginStateManager.swift in Sources */,
