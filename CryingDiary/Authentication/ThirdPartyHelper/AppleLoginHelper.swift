@@ -6,78 +6,94 @@
 //
 
 import Foundation
-import CryptoKit
 import AuthenticationServices
 
 final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
-
+    
+    // MARK: Lifecycle
+    
+    init(authManager: AuthManagable) {
+        self.authManager = authManager
+    }
+    
     // MARK: Definitions
     
-    private enum Constants {
-        static let charSet: [Character] = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+    private actor State {
+        var isLoading: Bool = false
+        
+        func setIsLoading(to value: Bool) {
+            isLoading = value
+        }
     }
     
     // MARK: Properties
     
+    private let authManager: AuthManagable
     private var currentNonce: String? = nil
+    private var authContinuation: CheckedContinuation<ASAuthorization, Error>?
+    private let state: State = .init()
     
     // MARK: Methods
     
-    func signIn() {
-        let nonce = makeNonce()
+    func signIn() async throws {
+        guard await !state.isLoading else { return }
+        await state.setIsLoading(to: true)
+        
+        try await run {
+            let authorization = try await getAuthorizationFromApple()
+            try await trySignIn(from: authorization)
+        } defer: {
+            await state.setIsLoading(to: false)
+        }
+    }
+}
+
+private extension AppleLoginHelper {
+    func getAuthorizationFromApple() async throws -> ASAuthorization {
+        try await withCheckedThrowingContinuation { continuation in
+            self.authContinuation = continuation
+            self.performAuthRequest()
+        }
+    }
+    
+    func performAuthRequest() {
+        let nonce = CryptoUtil.makeRandomNonce()
         currentNonce = nonce
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        request.nonce = sha256(nonce)
+        request.nonce = CryptoUtil.sha256(nonce)
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
         authorizationController.delegate = self
         authorizationController.performRequests()
     }
-}
-
-private extension AppleLoginHelper {
-    func makeNonce(count: Int = 32) -> String {
-        precondition(count > 0)
-        
-        var randomBytes = [UInt8](repeating: 0, count: count)
-        let errorCode = SecRandomCopyBytes(kSecRandomDefault, randomBytes.count, &randomBytes)
-        
-        if errorCode != errSecSuccess {
-            fatalError("[AppleLoginProvider] Failed for \(errorCode)")
-        }
-        
-        let charSet: [Character] = Constants.charSet
-        let nonce = randomBytes.map { byte in
-            charSet[Int(byte) % charSet.count]
-        }
-        
-        return String(nonce)
-    }
     
-    func sha256(_ input: String) -> String {
-        let inputData = Data(input.utf8)
-        let hashedData = SHA256.hash(data: inputData)
+    func trySignIn(from authorization: ASAuthorization) async throws {
+        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
+              let nonce = currentNonce,
+              let token = credential.identityToken,
+              let tokenString = String(data: token, encoding: .utf8) else {
+            throw ThirdPartyLoginError.failedToAuthentication
+        }
         
-        return hashedData.compactMap {
-            String(format: "%02x", $0)
-        }.joined()
+        try await authManager.signInWithApple(
+            token: tokenString,
+            nonce: nonce,
+            fullName: credential.fullName
+        )
     }
 }
 
 extension AppleLoginHelper: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
-        guard let nonce = currentNonce else { return }
-        guard let token = credential.identityToken else { return }
-        guard let tokenString = String(data: token, encoding: .utf8) else { return }
-
-        // TODO: AuthManager에 결과를 넘겨주는 부분 구현 필요
+        authContinuation?.resume(returning: authorization)
+        authContinuation = nil
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // TODO: 에러 대응 구현 필요
+        authContinuation?.resume(throwing: error)
+        authContinuation = nil
     }
 }

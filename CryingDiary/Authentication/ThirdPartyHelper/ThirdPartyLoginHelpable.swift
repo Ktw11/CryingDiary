@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ThirdPartyLoginHelpable {
-    func signIn()
+    func signIn() async throws
 }

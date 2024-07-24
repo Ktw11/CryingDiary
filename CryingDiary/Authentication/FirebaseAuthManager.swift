@@ -8,30 +8,61 @@
 import Foundation
 import FirebaseAuth
 
-final actor FirebaseAuthManager: AuthManagable {
+final class FirebaseAuthManager: AuthManagable {
     
+    // MARK: Definitions
+    
+    private actor State {
+        var isLoading: Bool = false
+        
+        func setIsLoading(to value: Bool) {
+            isLoading = value
+        }
+    }
+    
+    // MARK: Properties
+    
+    private var authContinuation: CheckedContinuation<Void, Error>?
+    private let state: State = .init()
+
     // MARK: Methods
     
-    func signIn(
+    func signInWithApple(
         token: String,
         nonce: String?,
         fullName: PersonNameComponents?
-    ) async throws -> String? {
+    ) async throws {
+        guard await !state.isLoading else { return }
+        await state.setIsLoading(to: true)
+
+        let credential = OAuthProvider.appleCredential(
+            withIDToken: token,
+            rawNonce: nonce,
+            fullName: fullName
+        )
+        
+        try await run {
+            try await signIn(with: credential)
+        } defer: {
+            await state.setIsLoading(to: false)
+        }
+    }
+}
+
+private extension FirebaseAuthManager {
+    func signIn(with credential: OAuthCredential) async throws {
         try await withCheckedThrowingContinuation { continuation in
-            let credential = OAuthProvider.appleCredential(
-                withIDToken: token,
-                rawNonce: nonce,
-                fullName: fullName
-            )
+            self.authContinuation = continuation
             
-            Auth.auth().signIn(with: credential) { result, error in
+            Auth.auth().signIn(with: credential) { _, error in
                 if let error = error {
-                    continuation.resume(throwing: error)
+                    self.authContinuation?.resume(throwing: error)
+                    self.authContinuation = nil
                     return
                 }
-                
-                // TODO: - User 정보를 담은 객체를 리턴하도록 수정 필요
-                continuation.resume(returning: result?.user.displayName)
+
+                self.authContinuation?.resume()
+                self.authContinuation = nil
             }
         }
     }
