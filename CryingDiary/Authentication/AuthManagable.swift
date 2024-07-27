@@ -8,9 +8,5 @@
 import Foundation
 
 protocol AuthManagable {
-    func signInWithApple(
-        token: String,
-        nonce: String?,
-        fullName: PersonNameComponents?
-    ) async throws
+    func signInWithApple() async throws
 }

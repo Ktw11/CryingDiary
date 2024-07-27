@@ -10,42 +10,29 @@ import FirebaseAuth
 
 final class FirebaseAuthManager: AuthManagable {
     
-    // MARK: Definitions
+    // MARK: Lifecycle
     
-    private actor State {
-        var isLoading: Bool = false
-        
-        func setIsLoading(to value: Bool) {
-            isLoading = value
-        }
+    init(appleLoginHelper: ThirdPartyLoginHelpable) {
+        self.appleLoginHelper = appleLoginHelper
     }
     
     // MARK: Properties
     
+    private let appleLoginHelper: ThirdPartyLoginHelpable
     private var authContinuation: CheckedContinuation<Void, Error>?
-    private let state: State = .init()
 
     // MARK: Methods
     
-    func signInWithApple(
-        token: String,
-        nonce: String?,
-        fullName: PersonNameComponents?
-    ) async throws {
-        guard await !state.isLoading else { return }
-        await state.setIsLoading(to: true)
-
+    func signInWithApple() async throws {
+        let info = try await appleLoginHelper.signIn()
+        
         let credential = OAuthProvider.appleCredential(
-            withIDToken: token,
-            rawNonce: nonce,
-            fullName: fullName
+            withIDToken: info.token,
+            rawNonce: info.nonce,
+            fullName: info.fullName
         )
         
-        try await run {
-            try await signIn(with: credential)
-        } defer: {
-            await state.setIsLoading(to: false)
-        }
+        try await signIn(with: credential)
     }
 }
 
