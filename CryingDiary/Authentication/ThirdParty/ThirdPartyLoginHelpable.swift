@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ThirdPartyLoginHelpable {
+protocol ThirdPartyLoginHelpable: Sendable {
     func signIn() async throws -> AppleLoginInfo
 }

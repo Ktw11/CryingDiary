@@ -9,11 +9,25 @@ import Foundation
 import AuthenticationServices
 
 final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
+    
+    // MARK: Definitions
+    
+    private actor State {
+        var currentNonce: String? = nil
+        var authContinuation: CheckedContinuation<ASAuthorization, Error>? = nil
+        
+        func setNonce(to nonce: String?) {
+            currentNonce = nonce
+        }
+        
+        func setAuthContinuation(to continuation: CheckedContinuation<ASAuthorization, Error>?) {
+            authContinuation = continuation
+        }
+    }
 
     // MARK: Properties
-    
-    private var currentNonce: String? = nil
-    private var authContinuation: CheckedContinuation<ASAuthorization, Error>?
+
+    private let state: State = .init()
     
     // MARK: Methods
     
@@ -26,14 +40,16 @@ final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
 private extension AppleLoginHelper {
     func getAuthorizationFromApple() async throws -> ASAuthorization {
         try await withCheckedThrowingContinuation { continuation in
-            self.authContinuation = continuation
-            self.performAuthRequest()
+            Task {
+                await self.state.setAuthContinuation(to: continuation)
+                await self.performAuthRequest()
+            }
         }
     }
     
-    func performAuthRequest() {
+    func performAuthRequest() async {
         let nonce = CryptoUtil.makeRandomNonce()
-        currentNonce = nonce
+        await state.setNonce(to: nonce)
         
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
@@ -47,7 +63,7 @@ private extension AppleLoginHelper {
 
     func getLoginInfo(from authorization: ASAuthorization) async throws -> AppleLoginInfo {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
-              let nonce = currentNonce,
+              let nonce = await state.currentNonce,
               let token = credential.identityToken,
               let tokenString = String(data: token, encoding: .utf8) else {
             throw ThirdPartyLoginError.failedToAuthentication
@@ -63,12 +79,16 @@ private extension AppleLoginHelper {
 
 extension AppleLoginHelper: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        authContinuation?.resume(returning: authorization)
-        authContinuation = nil
+        Task {
+            await self.state.authContinuation?.resume(returning: authorization)
+            await self.state.setAuthContinuation(to: nil)
+        }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        authContinuation?.resume(throwing: error)
-        authContinuation = nil
+        Task {
+            await self.state.authContinuation?.resume(throwing: error)
+            await self.state.setAuthContinuation(to: nil)
+        }
     }
 }
