@@ -9,8 +9,8 @@ import Foundation
 
 @discardableResult
 func run<T>(
-    _ operation: () async throws -> T,
-    defer deferredOperation: () async throws -> Void
+    _ operation: @Sendable () async throws -> T,
+    defer deferredOperation: @Sendable () async throws -> Void
 ) async throws -> T {
     do {
         let result = try await operation()
