@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AuthManagable {
+protocol AuthManagable: Sendable {
     func signInWithApple() async throws
 }

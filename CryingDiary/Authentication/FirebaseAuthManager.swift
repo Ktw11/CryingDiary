@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FirebaseAuth
+@preconcurrency import FirebaseAuth
 
 final class FirebaseAuthManager: AuthManagable {
     
@@ -16,10 +16,20 @@ final class FirebaseAuthManager: AuthManagable {
         self.appleLoginHelper = appleLoginHelper
     }
     
+    // MARK: Definitions
+    
+    private actor State {
+        var authContinuation: CheckedContinuation<Void, Error>?
+        
+        func setAuthContinuation(to continuation: CheckedContinuation<Void, Error>?) {
+            authContinuation = continuation
+        }
+    }
+    
     // MARK: Properties
     
     private let appleLoginHelper: ThirdPartyLoginHelpable
-    private var authContinuation: CheckedContinuation<Void, Error>?
+    private let state: State = .init()
 
     // MARK: Methods
     
@@ -39,17 +49,17 @@ final class FirebaseAuthManager: AuthManagable {
 private extension FirebaseAuthManager {
     func signIn(with credential: OAuthCredential) async throws {
         try await withCheckedThrowingContinuation { continuation in
-            self.authContinuation = continuation
-            
-            Auth.auth().signIn(with: credential) { _, error in
-                if let error = error {
-                    self.authContinuation?.resume(throwing: error)
-                    self.authContinuation = nil
-                    return
-                }
+            Task {
+                await self.state.setAuthContinuation(to: continuation)
 
-                self.authContinuation?.resume()
-                self.authContinuation = nil
+                do {
+                    try await Auth.auth().signIn(with: credential)
+                    await self.state.authContinuation?.resume()
+                    await self.state.setAuthContinuation(to: nil)
+                } catch {
+                    await self.state.authContinuation?.resume(throwing: error)
+                    await self.state.setAuthContinuation(to: nil)
+                }
             }
         }
     }
