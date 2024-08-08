@@ -33,6 +33,18 @@ final class FirebaseAuthManager: AuthManagable {
 
     // MARK: Methods
     
+    func signIn(with type: ThirdPartyLoginType) async throws {
+        switch type {
+        case .apple:
+            try await signInWithApple()
+        case .kakao:
+            // TODO: KAKAO 로그인 구현 필요
+            assertionFailure()
+        }
+    }
+}
+
+private extension FirebaseAuthManager {
     func signInWithApple() async throws {
         let info = try await appleLoginHelper.signIn()
         
@@ -44,9 +56,7 @@ final class FirebaseAuthManager: AuthManagable {
         
         try await signIn(with: credential)
     }
-}
-
-private extension FirebaseAuthManager {
+    
     func signIn(with credential: OAuthCredential) async throws {
         try await withCheckedThrowingContinuation { continuation in
             Task {

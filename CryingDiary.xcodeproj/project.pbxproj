@@ -28,6 +28,7 @@
 		D1987D7D2C3A68250061D45F /* AuthManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D7C2C3A68250061D45F /* AuthManagable.swift */; };
 		D1A300ED2C27F49800CCAF92 /* LoginStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300EC2C27F49800CCAF92 /* LoginStateStore.swift */; };
 		D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */; };
+		D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
 		D1A300EC2C27F49800CCAF92 /* LoginStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStateStore.swift; sourceTree = "<group>"; };
 		D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginInfo.swift; sourceTree = "<group>"; };
+		D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			children = (
 				D1E350032C54EE7A00016666 /* Apple */,
 				D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */,
+				D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */,
 				D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */,
 			);
 			path = ThirdParty;
@@ -351,6 +354,7 @@
 				D1987D7D2C3A68250061D45F /* AuthManagable.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
 				D1A300ED2C27F49800CCAF92 /* LoginStateStore.swift in Sources */,
+				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

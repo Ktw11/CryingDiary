@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AuthManagable: Sendable {
-    func signInWithApple() async throws
+    func signIn(with type: ThirdPartyLoginType) async throws
 }
