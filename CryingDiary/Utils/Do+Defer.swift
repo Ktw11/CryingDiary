@@ -21,3 +21,17 @@ func run<T>(
         throw error
     }
 }
+
+func run(
+    _ operation: @Sendable () async throws -> Void,
+    catch catchOperation: @Sendable (Error) -> Void,
+    defer deferredOperation: @Sendable () async -> Void
+) async  {
+    do {
+        try await operation()
+        await deferredOperation()
+    } catch {
+        catchOperation(error)
+        await deferredOperation()
+    }
+}
