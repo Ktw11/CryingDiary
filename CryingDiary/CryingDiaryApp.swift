@@ -25,10 +25,15 @@ struct CryingDiaryApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    private let authManager = FirebaseAuthManager(
+        appleLoginHelper: AppleLoginHelper()
+    )
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.authManager, authManager)
         }
         .modelContainer(sharedModelContainer)
     }

@@ -9,33 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    // MARK: Properties
+    
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
+    @State private var loginStateStore: LoginStateStorable = LoginStateStore()
+
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
+        ZStack {
+            if let id = loginStateStore.currentUserId {
+                Text("@@@ 로그인 햇음: \(id)")
+            } else {
+                LoginView()
             }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
         }
     }
 
