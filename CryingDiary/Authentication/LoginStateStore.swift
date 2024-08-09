@@ -8,8 +8,12 @@
 import Foundation
 import FirebaseAuth
 
+protocol LoginStateStorable {
+    var currentUserId: String? { get }
+}
+
 @Observable
-final class LoginStateStore {
+final class LoginStateStore: LoginStateStorable {
     
     // MARK: Lifecycle
     
