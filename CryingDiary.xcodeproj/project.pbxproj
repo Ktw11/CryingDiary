@@ -22,11 +22,11 @@
 		D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */; };
 		D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */; };
+		D1803DCE2C67456100B16223 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1803DCD2C67456100B16223 /* UserStore.swift */; };
 		D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D712C393D620061D45F /* AppleLoginHelper.swift */; };
 		D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */; };
 		D1987D7A2C3A65470061D45F /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D792C3A65470061D45F /* FirebaseAuthManager.swift */; };
 		D1987D7D2C3A68250061D45F /* AuthManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D7C2C3A68250061D45F /* AuthManagable.swift */; };
-		D1A300ED2C27F49800CCAF92 /* LoginStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A300EC2C27F49800CCAF92 /* LoginStateStore.swift */; };
 		D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */; };
 		D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */; };
 		D1E350102C65EE6C00016666 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500F2C65EE6C00016666 /* LoginView.swift */; };
@@ -68,12 +68,12 @@
 		D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1803DCD2C67456100B16223 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D1987D712C393D620061D45F /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginHelpable.swift; sourceTree = "<group>"; };
 		D1987D792C3A65470061D45F /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		D1987D7C2C3A68250061D45F /* AuthManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManagable.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
-		D1A300EC2C27F49800CCAF92 /* LoginStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStateStore.swift; sourceTree = "<group>"; };
 		D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginInfo.swift; sourceTree = "<group>"; };
 		D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginType.swift; sourceTree = "<group>"; };
 		D1E3500F2C65EE6C00016666 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				D1987D782C3A64030061D45F /* ThirdParty */,
-				D1A300EC2C27F49800CCAF92 /* LoginStateStore.swift */,
+				D1803DCD2C67456100B16223 /* UserStore.swift */,
 				D1987D792C3A65470061D45F /* FirebaseAuthManager.swift */,
 				D1987D7C2C3A68250061D45F /* AuthManagable.swift */,
 			);
@@ -381,6 +381,7 @@
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D1987D7A2C3A65470061D45F /* FirebaseAuthManager.swift in Sources */,
+				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */,
 				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,
@@ -388,7 +389,6 @@
 				D1E350102C65EE6C00016666 /* LoginView.swift in Sources */,
 				D1E350152C65F66300016666 /* AuthManagerKey.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
-				D1A300ED2C27F49800CCAF92 /* LoginStateStore.swift in Sources */,
 				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 				D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */,

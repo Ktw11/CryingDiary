@@ -14,11 +14,11 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
-    @State private var loginStateStore: LoginStateStorable = LoginStateStore()
+    @State private var userStore: UserStorable = UserStore()
 
     var body: some View {
         ZStack {
-            if let id = loginStateStore.currentUserId {
+            if let id = userStore.currentUserId {
                 Text("@@@ 로그인 햇음: \(id)")
             } else {
                 LoginView()
