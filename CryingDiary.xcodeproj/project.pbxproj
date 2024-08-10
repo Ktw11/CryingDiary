@@ -11,6 +11,9 @@
 		D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398722C674E03004A0FAE /* AuthControllable.swift */; };
 		D13398752C675471004A0FAE /* AuthControllerKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398742C675471004A0FAE /* AuthControllerKey.swift */; };
 		D13398772C6756CD004A0FAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398762C6756CD004A0FAE /* HomeView.swift */; };
+		D13398792C67662C004A0FAE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D13398782C67662C004A0FAE /* FirebaseFirestore */; };
+		D133987B2C67662C004A0FAE /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D133987A2C67662C004A0FAE /* FirebaseFirestoreCombine-Community */; };
+		D133987D2C67662C004A0FAE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D133987C2C67662C004A0FAE /* FirebaseFirestoreSwift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -88,8 +91,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D133987D2C67662C004A0FAE /* FirebaseFirestoreSwift in Frameworks */,
 				D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				D133987B2C67662C004A0FAE /* FirebaseFirestoreCombine-Community in Frameworks */,
 				D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */,
+				D13398792C67662C004A0FAE /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +265,9 @@
 			packageProductDependencies = (
 				D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */,
+				D13398782C67662C004A0FAE /* FirebaseFirestore */,
+				D133987A2C67662C004A0FAE /* FirebaseFirestoreCombine-Community */,
+				D133987C2C67662C004A0FAE /* FirebaseFirestoreSwift */,
 			);
 			productName = CryingDiary;
 			productReference = D17BBF6B2BF6333A00B5AE55 /* CryingDiary.app */;
@@ -744,6 +753,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D13398782C67662C004A0FAE /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		D133987A2C67662C004A0FAE /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		D133987C2C67662C004A0FAE /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D17BBF9C2BF635DD00B5AE55 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
