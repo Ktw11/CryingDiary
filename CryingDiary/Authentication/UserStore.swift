@@ -25,14 +25,12 @@ final class UserStore: UserStorable {
     
     // TODO: - User 정보를 담은 객체를 가지도록 수정 필요
     @MainActor private(set) var currentUserId: String?
-    
-    // TODO: - Auth 객체 주입해주기
     private let auth: Auth = Auth.auth()
 }
 
 private extension UserStore {
     func setUpListener() {
-        auth.addStateDidChangeListener { [weak self] auth, firebaseUser in
+        auth.addStateDidChangeListener { [weak self] _, firebaseUser in
             self?.setCurrentUser(to: firebaseUser?.uid)
         }
     }
