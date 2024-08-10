@@ -10,6 +10,7 @@
 		D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398702C674DEC004A0FAE /* FirebaseAuthController.swift */; };
 		D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398722C674E03004A0FAE /* AuthControllable.swift */; };
 		D13398752C675471004A0FAE /* AuthControllerKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398742C675471004A0FAE /* AuthControllerKey.swift */; };
+		D13398772C6756CD004A0FAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398762C6756CD004A0FAE /* HomeView.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -55,6 +56,7 @@
 		D13398702C674DEC004A0FAE /* FirebaseAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthController.swift; sourceTree = "<group>"; };
 		D13398722C674E03004A0FAE /* AuthControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllable.swift; sourceTree = "<group>"; };
 		D13398742C675471004A0FAE /* AuthControllerKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllerKey.swift; sourceTree = "<group>"; };
+		D13398762C6756CD004A0FAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E3500F2C65EE6C00016666 /* LoginView.swift */,
+				D13398762C6756CD004A0FAE /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */,
+				D13398772C6756CD004A0FAE /* HomeView.swift in Sources */,
 				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,
 				D1E350102C65EE6C00016666 /* LoginView.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,

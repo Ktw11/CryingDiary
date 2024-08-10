@@ -26,14 +26,9 @@ struct CryingDiaryApp: App {
         }
     }()
     
-    private let authController = FirebaseAuthController(
-        appleLoginHelper: AppleLoginHelper()
-    )
-
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.authController, authController)
         }
         .modelContainer(sharedModelContainer)
     }

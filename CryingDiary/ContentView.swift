@@ -14,16 +14,26 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
+    @State private var alertTitle: String?
+    @State private var authController = FirebaseAuthController(
+        appleLoginHelper: AppleLoginHelper()
+    )
     @State private var userStore: UserStorable = UserStore()
 
     var body: some View {
         ZStack {
-            if let id = userStore.currentUserId {
-                Text("@@@ 로그인 햇음: \(id)")
+            if let userId = userStore.currentUserId {
+                HomeView(userId: userId, alertTitle: $alertTitle)
             } else {
-                LoginView()
+                LoginView(alertTitle: $alertTitle)
             }
         }
+        .alert(alertTitle ?? "@@@ default message", isPresented: Binding.constant(alertTitle != nil)) {
+            Button("@@@ OK", role: .cancel) {
+                alertTitle = nil
+            }
+        }
+        .environment(\.authController, authController)
     }
 
     private func addItem() {

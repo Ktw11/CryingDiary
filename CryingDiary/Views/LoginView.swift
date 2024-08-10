@@ -10,8 +10,8 @@ import SwiftUI
 struct LoginView: View {
     // MARK: Properties
     
+    @Binding var alertTitle: String?
     @State private var showProgressView: Bool = false
-    @State private var alertTitle: String?
     @Environment(\.authController) private var authController
     
     var body: some View {
@@ -26,11 +26,6 @@ struct LoginView: View {
             
             ProgressView()
                 .opacity(showProgressView ? 1.0 : 0)
-        }
-        .alert(alertTitle ?? "@@@ default message", isPresented: Binding.constant(alertTitle != nil)) {
-            Button("@@@ OK", role: .cancel) {
-                alertTitle = nil
-            }
         }
     }
 }
@@ -58,5 +53,5 @@ private extension LoginView {
 }
 
 #Preview {
-    LoginView()
+    LoginView(alertTitle: .constant(nil))
 }
