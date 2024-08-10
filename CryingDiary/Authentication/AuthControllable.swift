@@ -1,12 +1,12 @@
 //
-//  AuthManagable.swift
+//  AuthControllable.swift
 //  CryingDiary
 //
-//  Created by 공태웅 on 7/7/24.
+//  Created by 공태웅 on 8/10/24.
 //
 
 import Foundation
 
-protocol AuthManagable: Sendable {
+protocol AuthControllable: Sendable {
     func signIn(with type: ThirdPartyLoginType) async throws
 }

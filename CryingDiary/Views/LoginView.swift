@@ -12,7 +12,7 @@ struct LoginView: View {
     
     @State private var showProgressView: Bool = false
     @State private var alertTitle: String?
-    @Environment(\.authManager) private var authManager
+    @Environment(\.authController) private var authController
     
     var body: some View {
         ZStack {
@@ -47,7 +47,7 @@ private extension LoginView {
         
         Task {
             do {
-                try await authManager.signIn(with: type)
+                try await authController.signIn(with: type)
             } catch {
                 alertTitle = "@@@ 에러 발생"
             }

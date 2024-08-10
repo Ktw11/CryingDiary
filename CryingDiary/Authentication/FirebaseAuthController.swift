@@ -1,14 +1,14 @@
 //
-//  FirebaseAuthManager.swift
+//  FirebaseAuthController.swift
 //  CryingDiary
 //
-//  Created by 공태웅 on 7/7/24.
+//  Created by 공태웅 on 8/10/24.
 //
 
 import Foundation
 @preconcurrency import FirebaseAuth
 
-final class FirebaseAuthManager: AuthManagable {
+final class FirebaseAuthController: AuthControllable {
     
     // MARK: Lifecycle
     
@@ -28,6 +28,7 @@ final class FirebaseAuthManager: AuthManagable {
     
     // MARK: Properties
     
+    private let auth: Auth = Auth.auth()
     private let appleLoginHelper: ThirdPartyLoginHelpable
     private let state: State = .init()
 
@@ -44,7 +45,7 @@ final class FirebaseAuthManager: AuthManagable {
     }
 }
 
-private extension FirebaseAuthManager {
+private extension FirebaseAuthController {
     func signInWithApple() async throws {
         let info = try await appleLoginHelper.signIn()
         
@@ -59,11 +60,11 @@ private extension FirebaseAuthManager {
     
     func signIn(with credential: OAuthCredential) async throws {
         try await withCheckedThrowingContinuation { continuation in
-            Task {
+            Task { @MainActor in
                 await self.state.setAuthContinuation(to: continuation)
 
                 do {
-                    try await Auth.auth().signIn(with: credential)
+                    try await self.auth.signIn(with: credential)
                     await self.state.authContinuation?.resume()
                     await self.state.setAuthContinuation(to: nil)
                 } catch {
