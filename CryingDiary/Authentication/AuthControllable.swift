@@ -9,4 +9,5 @@ import Foundation
 
 protocol AuthControllable: Sendable {
     func signIn(with type: ThirdPartyLoginType) async throws
+    func signOut() throws
 }

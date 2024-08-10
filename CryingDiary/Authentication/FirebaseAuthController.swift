@@ -43,6 +43,10 @@ final class FirebaseAuthController: AuthControllable {
             assertionFailure()
         }
     }
+    
+    func signOut() throws {
+        try auth.signOut()
+    }
 }
 
 private extension FirebaseAuthController {
