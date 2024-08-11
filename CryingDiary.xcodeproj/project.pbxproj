@@ -14,6 +14,11 @@
 		D13398792C67662C004A0FAE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D13398782C67662C004A0FAE /* FirebaseFirestore */; };
 		D133987B2C67662C004A0FAE /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D133987A2C67662C004A0FAE /* FirebaseFirestoreCombine-Community */; };
 		D133987D2C67662C004A0FAE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D133987C2C67662C004A0FAE /* FirebaseFirestoreSwift */; };
+		D13398802C676DCD004A0FAE /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133987F2C676DCD004A0FAE /* FirestoreRepository.swift */; };
+		D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398812C676EF9004A0FAE /* UserRepository.swift */; };
+		D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398832C689F91004A0FAE /* RepositoryError.swift */; };
+		D13398872C689FE1004A0FAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398862C689FE1004A0FAE /* User.swift */; };
+		D13398892C68A14E004A0FAE /* UserSignInInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398882C68A14E004A0FAE /* UserSignInInfo.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -60,6 +65,11 @@
 		D13398722C674E03004A0FAE /* AuthControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllable.swift; sourceTree = "<group>"; };
 		D13398742C675471004A0FAE /* AuthControllerKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllerKey.swift; sourceTree = "<group>"; };
 		D13398762C6756CD004A0FAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D133987F2C676DCD004A0FAE /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
+		D13398812C676EF9004A0FAE /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		D13398832C689F91004A0FAE /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
+		D13398862C689FE1004A0FAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D13398882C68A14E004A0FAE /* UserSignInInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInInfo.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -116,6 +126,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D133987E2C676D97004A0FAE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D133987F2C676DCD004A0FAE /* FirestoreRepository.swift */,
+				D13398812C676EF9004A0FAE /* UserRepository.swift */,
+				D13398832C689F91004A0FAE /* RepositoryError.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D13398852C689FD1004A0FAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D13398862C689FE1004A0FAE /* User.swift */,
+				D13398882C68A14E004A0FAE /* UserSignInInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D172BE7C2C42719E00CFA8B1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +177,8 @@
 		D17BBF6D2BF6333A00B5AE55 /* CryingDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D13398852C689FD1004A0FAE /* Model */,
+				D133987E2C676D97004A0FAE /* Repository */,
 				D1E350112C65F60F00016666 /* Environment */,
 				D1E3500E2C65EE5B00016666 /* Views */,
 				D172BE7C2C42719E00CFA8B1 /* Utils */,
@@ -391,19 +422,24 @@
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
+				D13398892C68A14E004A0FAE /* UserSignInInfo.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
+				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */,
+				D13398872C689FE1004A0FAE /* User.swift in Sources */,
 				D13398772C6756CD004A0FAE /* HomeView.swift in Sources */,
 				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,
 				D1E350102C65EE6C00016666 /* LoginView.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
 				D13398752C675471004A0FAE /* AuthControllerKey.swift in Sources */,
+				D13398802C676DCD004A0FAE /* FirestoreRepository.swift in Sources */,
 				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 				D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */,
+				D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */,
 				D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
