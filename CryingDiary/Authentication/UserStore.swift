@@ -9,7 +9,7 @@ import Foundation
 @preconcurrency import FirebaseAuth
 
 protocol UserStorable: Sendable {
-    @MainActor var currentUserId: String? { get }
+    @MainActor var user: User? { get }
 }
 
 @Observable
@@ -17,14 +17,16 @@ final class UserStore: UserStorable {
     
     // MARK: Lifecycle
     
-    init() {
+    init(userRepository: UserRepositoryType) {
+        self.userRepository = userRepository
+
         setUpListener()
     }
     
     // MARK: Properties
-    
-    // TODO: - User 정보를 담은 객체를 가지도록 수정 필요
-    @MainActor private(set) var currentUserId: String?
+
+    @MainActor private(set) var user: User?
+    private let userRepository: UserRepositoryType
     private let auth: Auth = Auth.auth()
 }
 
@@ -35,9 +37,14 @@ private extension UserStore {
         }
     }
     
-    func setCurrentUser(to id: String?) {
-        Task { @MainActor [weak self] in
-            self?.currentUserId = id
+    func setCurrentUser(to firebaseUserId: String?) {
+        Task { @MainActor in
+            guard let firebaseUserId else {
+                self.user = nil
+                return
+            }
+            
+            self.user = try? await self.userRepository.retreiveUser(id: firebaseUserId)
         }
     }
 }

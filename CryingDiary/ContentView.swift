@@ -18,12 +18,12 @@ struct ContentView: View {
     @State private var authController = FirebaseAuthController(
         appleLoginHelper: AppleLoginHelper()
     )
-    @State private var userStore: UserStorable = UserStore()
+    @State private var userStore: UserStorable = UserStore(userRepository: UserRepository())
 
     var body: some View {
         ZStack {
-            if let userId = userStore.currentUserId {
-                HomeView(userId: userId, alertTitle: $alertTitle)
+            if let user = userStore.user {
+                HomeView(userId: user.id, alertTitle: $alertTitle)
             } else {
                 LoginView(alertTitle: $alertTitle)
             }

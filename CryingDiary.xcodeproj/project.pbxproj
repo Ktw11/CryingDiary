@@ -18,7 +18,6 @@
 		D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398812C676EF9004A0FAE /* UserRepository.swift */; };
 		D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398832C689F91004A0FAE /* RepositoryError.swift */; };
 		D13398872C689FE1004A0FAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398862C689FE1004A0FAE /* User.swift */; };
-		D13398892C68A14E004A0FAE /* UserSignInInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398882C68A14E004A0FAE /* UserSignInInfo.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -69,7 +68,6 @@
 		D13398812C676EF9004A0FAE /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		D13398832C689F91004A0FAE /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		D13398862C689FE1004A0FAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D13398882C68A14E004A0FAE /* UserSignInInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignInInfo.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				D13398862C689FE1004A0FAE /* User.swift */,
-				D13398882C68A14E004A0FAE /* UserSignInInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -422,7 +419,6 @@
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
-				D13398892C68A14E004A0FAE /* UserSignInInfo.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
 				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,

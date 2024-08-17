@@ -44,7 +44,7 @@ private extension LoginView {
             do {
                 try await authController.signIn(with: type)
             } catch {
-                alertTitle = "@@@ 에러 발생"
+                alertTitle = "@@@ 에러 발생 \(error)"
             }
             
             showProgressView = false

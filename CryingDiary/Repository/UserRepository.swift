@@ -9,8 +9,7 @@ import Foundation
 @preconcurrency import FirebaseFirestore
 
 protocol UserRepositoryType: Sendable {
-    func getUser(id: String) async throws -> User
-    func getUser(signInInfo: UserSignInInfo) async throws -> User
+    func retreiveUser(id: String) async throws -> User
 }
 
 final actor UserRepository: UserRepositoryType {
@@ -32,44 +31,38 @@ final actor UserRepository: UserRepositoryType {
     
     // MARK: Methods
     
-    func getUser(id: String) async throws -> User {
-        try await self.getUser(id: id, signInInfo: nil)
-    }
-    
-    func getUser(signInInfo: UserSignInInfo) async throws -> User {
-        try await self.getUser(id: signInInfo.id, signInInfo: signInInfo)
+    func retreiveUser(id: String) async throws -> User {
+        let userRefernce = db.collection(CollectionKey.users)
+            .document(id)
+        
+        let snapshot = try await userRefernce
+            .getDocument()
+
+        if snapshot.exists {
+            return try getUser(from: snapshot)
+        } else {
+            return try await storeUser(id: id, at: userRefernce)
+        }
     }
 }
 
 private extension UserRepository {
-    func getUser(id: String, signInInfo: UserSignInInfo?) async throws -> User {
-        let snapshot = try await db.collection(CollectionKey.users)
-            .document(id)
-            .getDocument()
-        
-        if let data = snapshot.data() {
-            guard let name = data[FieldKey.id] as? String,
-                  let id = data[FieldKey.name] as? String else {
-                throw RepositoryError.invalidData
-            }
-            return User(id: id, name: name)
-        } else {
-            guard let signInInfo else { throw RepositoryError.userNotFound }
-            return try await registerUser(signInInfo: signInInfo)
-        }
+    func getUser(from snapshot: DocumentSnapshot) throws -> User {
+        guard let data = snapshot.data() else { throw RepositoryError.userNotFound }
+        guard let user = convertToUser(data: data) else { throw RepositoryError.invalidData }
+        return user
     }
     
-    func registerUser(signInInfo: UserSignInInfo) async throws -> User {
-        try await db.collection(CollectionKey.users)
-            .document(signInInfo.id)
-            .setData([
-                FieldKey.id: signInInfo.id,
-                FieldKey.name: signInInfo.name
-            ])
+    func convertToUser(data dictionary: [String: Any]) -> User? {
+        guard let id = dictionary[FieldKey.id] as? String else { return nil }
         
-        return User(
-            id: signInInfo.id,
-            name: signInInfo.name
-        )
+        return User(id: id)
+    }
+    
+    func storeUser(id: String, at reference: DocumentReference) async throws -> User {
+        let userData: [String: Any] = [FieldKey.id: id]
+        try await reference.setData(userData)
+        
+        return User(id: id)
     }
 }
