@@ -74,6 +74,7 @@
 		D13398862C689FE1004A0FAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D13398912C70988C004A0FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D13398992C71E602004A0FAE /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
+		D133989F2C71EC7F004A0FAE /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 		D17BBF622BF6333A00B5AE55 = {
 			isa = PBXGroup;
 			children = (
+				D133989F2C71EC7F004A0FAE /* Secret.xcconfig */,
 				D17BBF6D2BF6333A00B5AE55 /* CryingDiary */,
 				D17BBF802BF6333B00B5AE55 /* CryingDiaryTests */,
 				D17BBF8A2BF6333B00B5AE55 /* CryingDiaryUITests */,
@@ -614,6 +616,7 @@
 		};
 		D17BBF922BF6333B00B5AE55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D133989F2C71EC7F004A0FAE /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -647,6 +650,7 @@
 		};
 		D17BBF932BF6333B00B5AE55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D133989F2C71EC7F004A0FAE /* Secret.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
