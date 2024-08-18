@@ -21,6 +21,7 @@
 		D133988C2C7097BB004A0FAE /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D133988B2C7097BB004A0FAE /* KakaoSDKAuth */; };
 		D133988E2C7097BB004A0FAE /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = D133988D2C7097BB004A0FAE /* KakaoSDKCommon */; };
 		D13398902C7097BB004A0FAE /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = D133988F2C7097BB004A0FAE /* KakaoSDKUser */; };
+		D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398992C71E602004A0FAE /* AppKeys.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -72,6 +73,7 @@
 		D13398832C689F91004A0FAE /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		D13398862C689FE1004A0FAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D13398912C70988C004A0FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D13398992C71E602004A0FAE /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				D1E350122C65F63000016666 /* Key */,
 				D1E350162C65F69900016666 /* EnvironmentValues+Extension.swift */,
+				D13398992C71E602004A0FAE /* AppKeys.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 				D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */,
+				D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */,
 				D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */,
 				D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */,
 			);
