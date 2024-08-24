@@ -9,5 +9,6 @@ import Foundation
 
 enum ThirdPartyLoginError: Error {
     case failedToAuthentication
+    case invalidUserInfo
     case unknown
 }

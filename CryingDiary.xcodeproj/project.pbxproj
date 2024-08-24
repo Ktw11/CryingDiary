@@ -22,6 +22,9 @@
 		D133988E2C7097BB004A0FAE /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = D133988D2C7097BB004A0FAE /* KakaoSDKCommon */; };
 		D13398902C7097BB004A0FAE /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = D133988F2C7097BB004A0FAE /* KakaoSDKUser */; };
 		D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398992C71E602004A0FAE /* AppKeys.swift */; };
+		D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */; };
+		D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */; };
+		D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -74,7 +77,10 @@
 		D13398862C689FE1004A0FAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D13398912C70988C004A0FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D13398992C71E602004A0FAE /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
+		D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginHelper.swift; sourceTree = "<group>"; };
 		D133989F2C71EC7F004A0FAE /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
+		D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginHelpable.swift; sourceTree = "<group>"; };
+		D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginResult.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -150,6 +156,16 @@
 				D13398862C689FE1004A0FAE /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D133989B2C71E740004A0FAE /* Kakao */ = {
+			isa = PBXGroup;
+			children = (
+				D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */,
+				D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */,
+				D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */,
+			);
+			path = Kakao;
 			sourceTree = "<group>";
 		};
 		D172BE7C2C42719E00CFA8B1 /* Utils */ = {
@@ -232,6 +248,7 @@
 		D1987D782C3A64030061D45F /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				D133989B2C71E740004A0FAE /* Kakao */,
 				D1E350032C54EE7A00016666 /* Apple */,
 				D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */,
 				D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */,
@@ -436,9 +453,11 @@
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
+				D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
 				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
+				D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */,
 				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */,
@@ -449,6 +468,7 @@
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
 				D13398752C675471004A0FAE /* AuthControllerKey.swift in Sources */,
 				D13398802C676DCD004A0FAE /* FirestoreRepository.swift in Sources */,
+				D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */,
 				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 				D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */,
