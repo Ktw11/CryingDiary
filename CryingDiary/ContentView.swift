@@ -16,7 +16,8 @@ struct ContentView: View {
 
     @State private var alertTitle: String?
     @State private var authController = FirebaseAuthController(
-        appleLoginHelper: AppleLoginHelper()
+        appleLoginHelper: AppleLoginHelper(),
+        kakaoLoginHelper: KakaoLoginHelper()
     )
     @State private var userStore: UserStorable = UserStore(userRepository: UserRepository())
 

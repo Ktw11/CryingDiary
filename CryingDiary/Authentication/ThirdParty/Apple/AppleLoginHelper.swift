@@ -8,7 +8,7 @@
 import Foundation
 import AuthenticationServices
 
-final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
+final class AppleLoginHelper: NSObject, AppleLoginHelpable {
     
     // MARK: Definitions
     

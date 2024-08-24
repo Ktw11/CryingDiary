@@ -12,8 +12,12 @@ final class FirebaseAuthController: AuthControllable {
     
     // MARK: Lifecycle
     
-    init(appleLoginHelper: ThirdPartyLoginHelpable) {
+    init(
+        appleLoginHelper: AppleLoginHelpable,
+        kakaoLoginHelper: EmailLoginHelpable
+    ) {
         self.appleLoginHelper = appleLoginHelper
+        self.kakaoLoginHelper = kakaoLoginHelper
     }
     
     // MARK: Definitions
@@ -29,7 +33,8 @@ final class FirebaseAuthController: AuthControllable {
     // MARK: Properties
     
     private let auth: Auth = Auth.auth()
-    private let appleLoginHelper: ThirdPartyLoginHelpable
+    private let appleLoginHelper: AppleLoginHelpable
+    private let kakaoLoginHelper: EmailLoginHelpable
     private let state: State = .init()
 
     // MARK: Methods
@@ -39,8 +44,7 @@ final class FirebaseAuthController: AuthControllable {
         case .apple:
             try await signInWithApple()
         case .kakao:
-            // TODO: KAKAO 로그인 구현 필요
-            assertionFailure()
+            try await signInKakao()
         }
     }
     
@@ -62,6 +66,15 @@ private extension FirebaseAuthController {
         try await signIn(with: credential)
     }
     
+    func signInKakao() async throws {
+        let result = try await kakaoLoginHelper.signIn()
+        do {
+            try await signIn(email: result.email, password: result.password)
+        } catch {
+            throw error
+        }
+    }
+    
     func signIn(with credential: OAuthCredential) async throws {
         try await withCheckedThrowingContinuation { continuation in
             Task { @MainActor in
@@ -76,6 +89,25 @@ private extension FirebaseAuthController {
                     await self.state.setAuthContinuation(to: nil)
                 }
             }
+        }
+    }
+    
+    func signIn(email: String, password: String) async throws {
+        do {
+            try await auth.createUser(withEmail: email, password: password)
+        } catch {
+            try await handleCreateUserError(error, email: email, password: password)
+        }
+    }
+    
+    func handleCreateUserError(_ error: Error, email: String, password: String) async throws {
+        let firebaseErrorCode = AuthErrorCode(_nsError: (error as NSError)).code
+        
+        if firebaseErrorCode == .emailAlreadyInUse {
+            try await auth.signIn(withEmail: email, password: password)
+            return
+        } else {
+            throw error
         }
     }
 }

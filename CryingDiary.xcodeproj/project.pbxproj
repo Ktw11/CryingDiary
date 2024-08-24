@@ -23,6 +23,7 @@
 		D13398902C7097BB004A0FAE /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = D133988F2C7097BB004A0FAE /* KakaoSDKUser */; };
 		D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398992C71E602004A0FAE /* AppKeys.swift */; };
 		D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */; };
+		D13398A12C79AE2B004A0FAE /* AppleLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */; };
 		D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */; };
 		D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
@@ -42,7 +43,6 @@
 		D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */; };
 		D1803DCE2C67456100B16223 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1803DCD2C67456100B16223 /* UserStore.swift */; };
 		D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D712C393D620061D45F /* AppleLoginHelper.swift */; };
-		D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */; };
 		D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */; };
 		D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */; };
 		D1E350102C65EE6C00016666 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500F2C65EE6C00016666 /* LoginView.swift */; };
@@ -79,6 +79,7 @@
 		D13398992C71E602004A0FAE /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginHelper.swift; sourceTree = "<group>"; };
 		D133989F2C71EC7F004A0FAE /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
+		D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelpable.swift; sourceTree = "<group>"; };
 		D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginHelpable.swift; sourceTree = "<group>"; };
 		D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginResult.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1803DCD2C67456100B16223 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D1987D712C393D620061D45F /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
-		D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginHelpable.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
 		D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginInfo.swift; sourceTree = "<group>"; };
 		D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginType.swift; sourceTree = "<group>"; };
@@ -250,7 +250,6 @@
 			children = (
 				D133989B2C71E740004A0FAE /* Kakao */,
 				D1E350032C54EE7A00016666 /* Apple */,
-				D1987D742C39505C0061D45F /* ThirdPartyLoginHelpable.swift */,
 				D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */,
 				D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */,
 			);
@@ -272,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				D1987D712C393D620061D45F /* AppleLoginHelper.swift */,
+				D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */,
 				D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */,
 			);
 			path = Apple;
@@ -452,6 +452,7 @@
 				D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */,
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */,
+				D13398A12C79AE2B004A0FAE /* AppleLoginHelpable.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
 				D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
@@ -460,7 +461,6 @@
 				D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */,
 				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
-				D1987D752C39505C0061D45F /* ThirdPartyLoginHelpable.swift in Sources */,
 				D13398872C689FE1004A0FAE /* User.swift in Sources */,
 				D13398772C6756CD004A0FAE /* HomeView.swift in Sources */,
 				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,

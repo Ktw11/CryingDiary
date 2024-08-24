@@ -16,11 +16,17 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 20) {
                 Button(action: {
                     signIn(with: .apple)
                 }, label: {
                     appleLoginView
+                })
+                
+                Button(action: {
+                    signIn(with: .kakao)
+                }, label: {
+                    kakaoLoginView
                 })
             }
             
@@ -34,6 +40,12 @@ private extension LoginView {
     @ViewBuilder
     var appleLoginView: some View {
         Text("@@@ Login To Apple")
+            .font(.title)
+    }
+    
+    @ViewBuilder
+    var kakaoLoginView: some View {
+        Text("@@@ Login To Kakao")
             .font(.title)
     }
     

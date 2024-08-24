@@ -8,5 +8,8 @@
 import SwiftUI
 
 struct AuthControllerKey: EnvironmentKey {
-    static let defaultValue: any AuthControllable = FirebaseAuthController(appleLoginHelper: AppleLoginHelper())
+    static let defaultValue: any AuthControllable = FirebaseAuthController(
+        appleLoginHelper: AppleLoginHelper(),
+        kakaoLoginHelper: KakaoLoginHelper()
+    )
 }
