@@ -12,4 +12,9 @@ extension EnvironmentValues {
         get { self[AuthControllerKey.self] }
         set { self[AuthControllerKey.self] = newValue }
     }
+    
+    var userStore: any UserStorable {
+        get { self[UserStoreKey.self] }
+        set { self[UserStoreKey.self] = newValue }
+    }
 }

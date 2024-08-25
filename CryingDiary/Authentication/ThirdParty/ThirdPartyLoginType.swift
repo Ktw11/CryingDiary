@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ThirdPartyLoginType: Sendable {
+enum ThirdPartyLoginType: String, Sendable {
     case apple
     case kakao
 }

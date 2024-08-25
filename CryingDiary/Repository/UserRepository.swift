@@ -9,7 +9,7 @@ import Foundation
 @preconcurrency import FirebaseFirestore
 
 protocol UserRepositoryType: Sendable {
-    func retreiveUser(id: String) async throws -> User
+    func retreiveUser(id: String, loginType: ThirdPartyLoginType) async throws -> User
 }
 
 final actor UserRepository: UserRepositoryType {
@@ -22,7 +22,7 @@ final actor UserRepository: UserRepositoryType {
 
     private enum FieldKey {
         static let id: String = "id"
-        static let name: String = "name"
+        static let loginType: String = "login_type"
     }
     
     // MARK: Properties
@@ -30,8 +30,8 @@ final actor UserRepository: UserRepositoryType {
     private let db = Firestore.firestore()
     
     // MARK: Methods
-    
-    func retreiveUser(id: String) async throws -> User {
+
+    func retreiveUser(id: String, loginType: ThirdPartyLoginType) async throws -> User {
         let userRefernce = db.collection(CollectionKey.users)
             .document(id)
         
@@ -41,7 +41,7 @@ final actor UserRepository: UserRepositoryType {
         if snapshot.exists {
             return try getUser(from: snapshot)
         } else {
-            return try await storeUser(id: id, at: userRefernce)
+            return try await storeUser(id: id, loginType: loginType, at: userRefernce)
         }
     }
 }
@@ -54,15 +54,26 @@ private extension UserRepository {
     }
     
     func convertToUser(data dictionary: [String: Any]) -> User? {
-        guard let id = dictionary[FieldKey.id] as? String else { return nil }
+        guard let id = dictionary[FieldKey.id] as? String,
+              let loginTypeString = dictionary[FieldKey.loginType] as? String,
+              let loginType = ThirdPartyLoginType(rawValue: loginTypeString) else {
+            return nil
+        }
         
-        return User(id: id)
+        return User(id: id, loginType: loginType)
     }
     
-    func storeUser(id: String, at reference: DocumentReference) async throws -> User {
-        let userData: [String: Any] = [FieldKey.id: id]
+    func storeUser(
+        id: String,
+        loginType: ThirdPartyLoginType,
+        at reference: DocumentReference
+    ) async throws -> User {
+        let userData: [String: Any] = [
+            FieldKey.id: id,
+            FieldKey.loginType: loginType.rawValue
+        ]
         try await reference.setData(userData)
         
-        return User(id: id)
+        return User(id: id, loginType: loginType)
     }
 }

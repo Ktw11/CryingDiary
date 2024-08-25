@@ -26,6 +26,7 @@
 		D13398A12C79AE2B004A0FAE /* AppleLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */; };
 		D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */; };
 		D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */; };
+		D13398AB2C7B0455004A0FAE /* UserStoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -82,6 +83,7 @@
 		D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelpable.swift; sourceTree = "<group>"; };
 		D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginHelpable.swift; sourceTree = "<group>"; };
 		D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginResult.swift; sourceTree = "<group>"; };
+		D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreKey.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				D13398742C675471004A0FAE /* AuthControllerKey.swift */,
+				D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */,
 			);
 			path = Key;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 				D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */,
 				D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */,
+				D13398AB2C7B0455004A0FAE /* UserStoreKey.swift in Sources */,
 				D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */,
 				D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */,
 			);

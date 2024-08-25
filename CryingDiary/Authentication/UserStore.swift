@@ -10,6 +10,8 @@ import Foundation
 
 protocol UserStorable: Sendable {
     @MainActor var user: User? { get }
+    
+    @MainActor func setLoginType(to type: ThirdPartyLoginType?)
 }
 
 @Observable
@@ -26,8 +28,16 @@ final class UserStore: UserStorable {
     // MARK: Properties
 
     @MainActor private(set) var user: User?
+    @MainActor private var loginType: ThirdPartyLoginType?
     private let userRepository: UserRepositoryType
     private let auth: Auth = Auth.auth()
+    
+    // MARK: Methods
+    
+    @MainActor
+    func setLoginType(to type: ThirdPartyLoginType?) {
+        self.loginType = type
+    }
 }
 
 private extension UserStore {
@@ -39,12 +49,12 @@ private extension UserStore {
     
     func setCurrentUser(to firebaseUserId: String?) {
         Task { @MainActor in
-            guard let firebaseUserId else {
+            guard let firebaseUserId, let loginType = loginType else {
                 self.user = nil
                 return
             }
             
-            self.user = try? await self.userRepository.retreiveUser(id: firebaseUserId)
+            self.user = try? await self.userRepository.retreiveUser(id: firebaseUserId, loginType: loginType)
         }
     }
 }

@@ -13,6 +13,7 @@ struct LoginView: View {
     @Binding var alertTitle: String?
     @State private var showProgressView: Bool = false
     @Environment(\.authController) private var authController
+    @Environment(\.userStore) private var userStore
     
     var body: some View {
         ZStack {
@@ -51,11 +52,13 @@ private extension LoginView {
     
     func signIn(with type: ThirdPartyLoginType) {
         showProgressView = true
+        userStore.setLoginType(to: type)
         
         Task {
             do {
                 try await authController.signIn(with: type)
             } catch {
+                userStore.setLoginType(to: nil)
                 alertTitle = "@@@ 에러 발생 \(error)"
             }
             

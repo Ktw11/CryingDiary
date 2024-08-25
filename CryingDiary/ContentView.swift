@@ -19,7 +19,7 @@ struct ContentView: View {
         appleLoginHelper: AppleLoginHelper(),
         kakaoLoginHelper: KakaoLoginHelper()
     )
-    @State private var userStore: UserStorable = UserStore(userRepository: UserRepository())
+    @State private var userStore = UserStore(userRepository: UserRepository())
 
     var body: some View {
         ZStack {
@@ -35,6 +35,7 @@ struct ContentView: View {
             }
         }
         .environment(\.authController, authController)
+        .environment(\.userStore, userStore)
     }
 
     private func addItem() {
