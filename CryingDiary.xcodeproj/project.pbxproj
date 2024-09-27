@@ -27,6 +27,11 @@
 		D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */; };
 		D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */; };
 		D13398AB2C7B0455004A0FAE /* UserStoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */; };
+		D16971D52CA6C9F7003D3E06 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971D42CA6C9F7003D3E06 /* HttpMethod.swift */; };
+		D16971DC2CA6CC69003D3E06 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971DB2CA6CC69003D3E06 /* NetworkProvider.swift */; };
+		D16971DE2CA6D8D3003D3E06 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971DD2CA6D8D3003D3E06 /* NetworkError.swift */; };
+		D16971E42CA6DC2E003D3E06 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971E32CA6DC2E003D3E06 /* API.swift */; };
+		D16971E62CA6DFD0003D3E06 /* NetworkProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971E52CA6DFD0003D3E06 /* NetworkProvidable.swift */; };
 		D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */; };
 		D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */; };
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
@@ -84,6 +89,11 @@
 		D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginHelpable.swift; sourceTree = "<group>"; };
 		D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginResult.swift; sourceTree = "<group>"; };
 		D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreKey.swift; sourceTree = "<group>"; };
+		D16971D42CA6C9F7003D3E06 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		D16971DB2CA6CC69003D3E06 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		D16971DD2CA6D8D3003D3E06 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		D16971E32CA6DC2E003D3E06 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D16971E52CA6DFD0003D3E06 /* NetworkProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvidable.swift; sourceTree = "<group>"; };
 		D172BE7B2C42706600CFA8B1 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
 		D172BE7E2C43B80B00CFA8B1 /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
 		D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
@@ -170,6 +180,18 @@
 			path = Kakao;
 			sourceTree = "<group>";
 		};
+		D16971D32CA6C8BB003D3E06 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D16971D42CA6C9F7003D3E06 /* HttpMethod.swift */,
+				D16971E32CA6DC2E003D3E06 /* API.swift */,
+				D16971DB2CA6CC69003D3E06 /* NetworkProvider.swift */,
+				D16971DD2CA6D8D3003D3E06 /* NetworkError.swift */,
+				D16971E52CA6DFD0003D3E06 /* NetworkProvidable.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		D172BE7C2C42719E00CFA8B1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +225,7 @@
 		D17BBF6D2BF6333A00B5AE55 /* CryingDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D16971D32CA6C8BB003D3E06 /* Networking */,
 				D13398912C70988C004A0FAE /* Info.plist */,
 				D13398852C689FD1004A0FAE /* Model */,
 				D133987E2C676D97004A0FAE /* Repository */,
@@ -453,8 +476,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */,
+				D16971DE2CA6D8D3003D3E06 /* NetworkError.swift in Sources */,
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */,
+				D16971E62CA6DFD0003D3E06 /* NetworkProvidable.swift in Sources */,
 				D13398A12C79AE2B004A0FAE /* AppleLoginHelpable.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
 				D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */,
@@ -462,6 +487,7 @@
 				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */,
+				D16971DC2CA6CC69003D3E06 /* NetworkProvider.swift in Sources */,
 				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D13398872C689FE1004A0FAE /* User.swift in Sources */,
@@ -476,8 +502,10 @@
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
 				D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */,
 				D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */,
+				D16971D52CA6C9F7003D3E06 /* HttpMethod.swift in Sources */,
 				D13398AB2C7B0455004A0FAE /* UserStoreKey.swift in Sources */,
 				D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */,
+				D16971E42CA6DC2E003D3E06 /* API.swift in Sources */,
 				D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
