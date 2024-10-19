@@ -12,7 +12,7 @@ enum AppKeys {
     
     private enum Key {
         static let kakaoAppKey = "KakaoAppKey"
-        static let baseURL = "baseURL"
+        static let baseURL = "BaseURL"
     }
     
     // MARK: Properties
