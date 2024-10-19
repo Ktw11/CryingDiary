@@ -10,11 +10,11 @@ import KakaoSDKAuth
 import KakaoSDKUser
  
 @MainActor
-final class KakaoLoginHelper: EmailLoginHelpable {
+final class KakaoLoginHelper: ThirdPartyLoginHelpable {
     
     // MARK: Methods
     
-    func signIn() async throws -> EmailLoginResult {
+    func getToken() async throws -> String {
         let signInMethod = AuthApi.hasToken() ? loginWithToken : loginWithService
         
         return try await withCheckedThrowingContinuation { continuation in
@@ -31,17 +31,19 @@ final class KakaoLoginHelper: EmailLoginHelpable {
 }
 
 private extension KakaoLoginHelper {
-    func loginWithToken(completion: @escaping (Result<EmailLoginResult, Error>) -> Void) {
-        UserApi.shared.accessTokenInfo { _, error in
+    func loginWithToken(completion: @escaping (Result<String, Error>) -> Void) {
+        UserApi.shared.accessTokenInfo { tokenInfo, error in
             if let _ = error {
                 self.loginWithService { completion($0) }
+            } else if let tokenInfo, let id = tokenInfo.id.flatMap(String.init) {
+                completion(.success(id))
             } else {
-                self.getLoginResult { completion($0) }
+                self.loginWithService { completion($0) }
             }
         }
     }
     
-    func loginWithService(completion: @escaping (Result<EmailLoginResult, Error>) -> Void) {
+    func loginWithService(completion: @escaping (Result<String, Error>) -> Void) {
         if UserApi.isKakaoTalkLoginAvailable() {
             loginWithApp { completion($0) }
         } else {
@@ -49,43 +51,25 @@ private extension KakaoLoginHelper {
         }
     }
     
-    func loginWithApp(completion: @escaping (Result<EmailLoginResult, Error>) -> Void) {
+    func loginWithApp(completion: @escaping (Result<String, Error>) -> Void) {
         UserApi.shared.loginWithKakaoTalk { token, error in
-            guard error == nil, token != nil else {
+            guard error == nil, let token else {
                 completion(.failure(ThirdPartyLoginError.failedToAuthentication))
                 return
             }
             
-            self.getLoginResult { completion($0) }
+            completion(.success(token.accessToken))
         }
     }
     
-    @MainActor
-    func loginWithWeb(completion: @escaping (Result<EmailLoginResult, Error>) -> Void) {
+    func loginWithWeb(completion: @escaping (Result<String, Error>) -> Void) {
         UserApi.shared.loginWithKakaoAccount { token, error in
-            guard error == nil, token != nil else {
+            guard error == nil, let token else {
                 completion(.failure(ThirdPartyLoginError.failedToAuthentication))
                 return
             }
             
-            self.getLoginResult { completion($0) }
-        }
-    }
-    
-    func getLoginResult(completion: @escaping (Result<EmailLoginResult, Error>) -> Void) {
-        UserApi.shared.me { user, error in
-            guard error == nil else {
-                completion(.failure(ThirdPartyLoginError.failedToAuthentication))
-                return
-            }
-            guard let email = user?.kakaoAccount?.email,
-                  let userId = user?.id else {
-                completion(.failure(ThirdPartyLoginError.invalidUserInfo))
-                return
-            }
-            
-            let info = EmailLoginResult(email: email, password: String(userId))
-            completion(.success(info))
+            completion(.success(token.accessToken))
         }
     }
 }

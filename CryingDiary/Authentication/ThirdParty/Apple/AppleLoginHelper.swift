@@ -8,7 +8,7 @@
 import Foundation
 import AuthenticationServices
 
-final class AppleLoginHelper: NSObject, AppleLoginHelpable {
+final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
     
     // MARK: Definitions
     
@@ -31,7 +31,7 @@ final class AppleLoginHelper: NSObject, AppleLoginHelpable {
     
     // MARK: Methods
     
-    func signIn() async throws -> AppleLoginInfo {
+    func getToken() async throws -> String {
         let authorization = try await getAuthorizationFromApple()
         return try await getLoginInfo(from: authorization)
     }
@@ -61,19 +61,14 @@ private extension AppleLoginHelper {
         authorizationController.performRequests()
     }
 
-    func getLoginInfo(from authorization: ASAuthorization) async throws -> AppleLoginInfo {
+    func getLoginInfo(from authorization: ASAuthorization) async throws -> String {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
               let nonce = await state.currentNonce,
               let token = credential.identityToken,
               let tokenString = String(data: token, encoding: .utf8) else {
             throw ThirdPartyLoginError.failedToAuthentication
         }
-        
-        return AppleLoginInfo(
-            token: tokenString,
-            nonce: nonce,
-            fullName: credential.fullName
-        )
+        return tokenString
     }
 }
 

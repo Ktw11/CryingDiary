@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct User {
+struct User: Decodable {
     let id: String
-    let loginType: ThirdPartyLoginType
+    let loginType: String
+    let refreshToken: String
 }

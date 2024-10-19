@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct LoginView: View {
+
     // MARK: Properties
     
+    let viewModel: LoginViewModelType
     @Binding var alertTitle: String?
-    @State private var showProgressView: Bool = false
-    @Environment(\.authController) private var authController
-    @Environment(\.userStore) private var userStore
     
     var body: some View {
         ZStack {
@@ -32,7 +31,7 @@ struct LoginView: View {
             }
             
             ProgressView()
-                .opacity(showProgressView ? 1.0 : 0)
+                .opacity(viewModel.showProgressView ? 1.0 : 0)
         }
     }
 }
@@ -51,22 +50,19 @@ private extension LoginView {
     }
     
     func signIn(with type: ThirdPartyLoginType) {
-        showProgressView = true
-        userStore.setLoginType(to: type)
-        
         Task {
             do {
-                try await authController.signIn(with: type)
+                try await viewModel.signIn(with: type)
             } catch {
-                userStore.setLoginType(to: nil)
                 alertTitle = "@@@ 에러 발생 \(error)"
             }
-            
-            showProgressView = false
         }
     }
 }
 
 #Preview {
-    LoginView(alertTitle: .constant(nil))
+    let dependency = DependencyContainerKey.defaultValue
+    LoginView(
+        viewModel: LoginViewModel(authController: dependency.authController), alertTitle: .constant(nil)
+    )
 }

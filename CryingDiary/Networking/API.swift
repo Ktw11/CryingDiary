@@ -14,16 +14,27 @@ protocol API: Sendable {
     var headers: [String: String] { get }
     var queryParameters: [String: String]? { get }
     var bodyParameters: [String: String]? { get }
+    var needsAuthorization: Bool { get }
 }
 
 extension API {
-    func makeURLRequest() throws -> URLRequest {
+    var baseURLString: String { AppKeys.baseURL }
+    var headers: [String: String] { [:] }
+    var queryParameters: [String: String]? { nil }
+    var bodyParameters: [String: String]? { nil }
+    var needsAuthorization: Bool { true }
+    
+    func makeURLRequest(accessToken: String?) throws -> URLRequest {
         guard var urlComponents = URLComponents(string: baseURLString) else {
             throw NetworkError.invalidURL
         }
         
         if let queryParameters {
             urlComponents.queryItems = queryParameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        }
+        if let accessToken, needsAuthorization {
+            let item = URLQueryItem(name: "Authorization", value: "Bearer \(accessToken)")
+            urlComponents.queryItems?.append(item)
         }
         
         guard let url = urlComponents.url?.appendingPathComponent(path) else {

@@ -12,26 +12,28 @@ enum AppKeys {
     
     private enum Key {
         static let kakaoAppKey = "KakaoAppKey"
+        static let baseURL = "baseURL"
     }
     
     // MARK: Properties
     
-    @MainActor
     static let kakaoAppKey: String = {
-        guard let key = infoDictionary[Key.kakaoAppKey] as? String else {
+        guard let key = infoDictionary?[Key.kakaoAppKey] as? String else {
             fatalError()
         }
         return key
     }()
-
+    
+    static let baseURL: String = {
+        guard let key = infoDictionary?[Key.baseURL] as? String else {
+            fatalError()
+        }
+        return key
+    }()
 }
 
 private extension AppKeys {
-    @MainActor
-    private static let infoDictionary: [String: Any] = {
-        guard let dictionary = Bundle.main.infoDictionary else {
-            fatalError()
-        }
-        return dictionary
-    }()
+    static var infoDictionary: [String: Any]? {
+        Bundle.main.infoDictionary
+    }
 }

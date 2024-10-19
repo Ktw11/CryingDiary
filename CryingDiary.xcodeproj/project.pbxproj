@@ -7,15 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398702C674DEC004A0FAE /* FirebaseAuthController.swift */; };
 		D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398722C674E03004A0FAE /* AuthControllable.swift */; };
-		D13398752C675471004A0FAE /* AuthControllerKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398742C675471004A0FAE /* AuthControllerKey.swift */; };
 		D13398772C6756CD004A0FAE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398762C6756CD004A0FAE /* HomeView.swift */; };
 		D13398792C67662C004A0FAE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D13398782C67662C004A0FAE /* FirebaseFirestore */; };
 		D133987B2C67662C004A0FAE /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = D133987A2C67662C004A0FAE /* FirebaseFirestoreCombine-Community */; };
 		D133987D2C67662C004A0FAE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D133987C2C67662C004A0FAE /* FirebaseFirestoreSwift */; };
-		D13398802C676DCD004A0FAE /* FirestoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133987F2C676DCD004A0FAE /* FirestoreRepository.swift */; };
-		D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398812C676EF9004A0FAE /* UserRepository.swift */; };
 		D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398832C689F91004A0FAE /* RepositoryError.swift */; };
 		D13398872C689FE1004A0FAE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398862C689FE1004A0FAE /* User.swift */; };
 		D133988C2C7097BB004A0FAE /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D133988B2C7097BB004A0FAE /* KakaoSDKAuth */; };
@@ -23,10 +19,6 @@
 		D13398902C7097BB004A0FAE /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = D133988F2C7097BB004A0FAE /* KakaoSDKUser */; };
 		D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398992C71E602004A0FAE /* AppKeys.swift */; };
 		D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */; };
-		D13398A12C79AE2B004A0FAE /* AppleLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */; };
-		D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */; };
-		D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */; };
-		D13398AB2C7B0455004A0FAE /* UserStoreKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */; };
 		D16971D52CA6C9F7003D3E06 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971D42CA6C9F7003D3E06 /* HttpMethod.swift */; };
 		D16971DC2CA6CC69003D3E06 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971DB2CA6CC69003D3E06 /* NetworkProvider.swift */; };
 		D16971DE2CA6D8D3003D3E06 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16971DD2CA6D8D3003D3E06 /* NetworkError.swift */; };
@@ -47,9 +39,20 @@
 		D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */; };
 		D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */; };
-		D1803DCE2C67456100B16223 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1803DCD2C67456100B16223 /* UserStore.swift */; };
 		D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D712C393D620061D45F /* AppleLoginHelper.swift */; };
-		D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */; };
+		D1B2B34E2CA8181F007E6356 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */; };
+		D1B2B3562CA95820007E6356 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3552CA95820007E6356 /* SignInResponse.swift */; };
+		D1B2B3582CA96459007E6356 /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3572CA96459007E6356 /* TokenStore.swift */; };
+		D1B2B35A2CA970A6007E6356 /* TokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3592CA970A6007E6356 /* TokenAPI.swift */; };
+		D1B2B35D2CC3934B007E6356 /* DependencyContainerKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B35C2CC3934B007E6356 /* DependencyContainerKey.swift */; };
+		D1B2B3602CC39420007E6356 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B35F2CC39420007E6356 /* DependencyContainer.swift */; };
+		D1B2B3622CC39488007E6356 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3612CC39488007E6356 /* LoginViewModel.swift */; };
+		D1B2B3662CC39543007E6356 /* ContentViewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3652CC39543007E6356 /* ContentViewScene.swift */; };
+		D1B2B3682CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3672CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift */; };
+		D1BB74912CA7FC6700AAE836 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB74902CA7FC6700AAE836 /* AuthController.swift */; };
+		D1BB74932CA7FE5100AAE836 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB74922CA7FE5100AAE836 /* ContentViewModel.swift */; };
+		D1BB74962CA802EF00AAE836 /* LoginInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB74952CA802EF00AAE836 /* LoginInfoRepository.swift */; };
+		D1BB74982CA808A500AAE836 /* LoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB74972CA808A500AAE836 /* LoginInfo.swift */; };
 		D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */; };
 		D1E350102C65EE6C00016666 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500F2C65EE6C00016666 /* LoginView.swift */; };
 		D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E350162C65F69900016666 /* EnvironmentValues+Extension.swift */; };
@@ -73,22 +76,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D13398702C674DEC004A0FAE /* FirebaseAuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthController.swift; sourceTree = "<group>"; };
 		D13398722C674E03004A0FAE /* AuthControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllable.swift; sourceTree = "<group>"; };
-		D13398742C675471004A0FAE /* AuthControllerKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllerKey.swift; sourceTree = "<group>"; };
 		D13398762C6756CD004A0FAE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D133987F2C676DCD004A0FAE /* FirestoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreRepository.swift; sourceTree = "<group>"; };
-		D13398812C676EF9004A0FAE /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		D13398832C689F91004A0FAE /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		D13398862C689FE1004A0FAE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D13398912C70988C004A0FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D13398992C71E602004A0FAE /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginHelper.swift; sourceTree = "<group>"; };
 		D133989F2C71EC7F004A0FAE /* Secret.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secret.xcconfig; sourceTree = "<group>"; };
-		D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelpable.swift; sourceTree = "<group>"; };
-		D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginHelpable.swift; sourceTree = "<group>"; };
-		D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginResult.swift; sourceTree = "<group>"; };
-		D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoreKey.swift; sourceTree = "<group>"; };
 		D16971D42CA6C9F7003D3E06 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		D16971DB2CA6CC69003D3E06 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		D16971DD2CA6D8D3003D3E06 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -110,10 +105,21 @@
 		D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1803DCD2C67456100B16223 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D1987D712C393D620061D45F /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
-		D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginInfo.swift; sourceTree = "<group>"; };
+		D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		D1B2B3552CA95820007E6356 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		D1B2B3572CA96459007E6356 /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
+		D1B2B3592CA970A6007E6356 /* TokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPI.swift; sourceTree = "<group>"; };
+		D1B2B35C2CC3934B007E6356 /* DependencyContainerKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainerKey.swift; sourceTree = "<group>"; };
+		D1B2B35F2CC39420007E6356 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		D1B2B3612CC39488007E6356 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D1B2B3652CC39543007E6356 /* ContentViewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewScene.swift; sourceTree = "<group>"; };
+		D1B2B3672CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginHelpable.swift; sourceTree = "<group>"; };
+		D1BB74902CA7FC6700AAE836 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		D1BB74922CA7FE5100AAE836 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		D1BB74952CA802EF00AAE836 /* LoginInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfoRepository.swift; sourceTree = "<group>"; };
+		D1BB74972CA808A500AAE836 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginType.swift; sourceTree = "<group>"; };
 		D1E3500F2C65EE6C00016666 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D1E350162C65F69900016666 /* EnvironmentValues+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Extension.swift"; sourceTree = "<group>"; };
@@ -155,8 +161,7 @@
 		D133987E2C676D97004A0FAE /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				D133987F2C676DCD004A0FAE /* FirestoreRepository.swift */,
-				D13398812C676EF9004A0FAE /* UserRepository.swift */,
+				D1BB74952CA802EF00AAE836 /* LoginInfoRepository.swift */,
 				D13398832C689F91004A0FAE /* RepositoryError.swift */,
 			);
 			path = Repository;
@@ -166,6 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				D13398862C689FE1004A0FAE /* User.swift */,
+				D1BB74972CA808A500AAE836 /* LoginInfo.swift */,
+				D1B2B3552CA95820007E6356 /* SignInResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,8 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				D133989C2C71E752004A0FAE /* KakaoLoginHelper.swift */,
-				D13398A62C79CA44004A0FAE /* EmailLoginHelpable.swift */,
-				D13398A82C79CA56004A0FAE /* EmailLoginResult.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 		D16971D32CA6C8BB003D3E06 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D1B2B35B2CA970C1007E6356 /* APIs */,
 				D16971D42CA6C9F7003D3E06 /* HttpMethod.swift */,
 				D16971E32CA6DC2E003D3E06 /* API.swift */,
 				D16971DB2CA6CC69003D3E06 /* NetworkProvider.swift */,
@@ -225,6 +231,9 @@
 		D17BBF6D2BF6333A00B5AE55 /* CryingDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D1B2B35E2CC3940D007E6356 /* Dependency */,
+				D1B2B34C2CA8180E007E6356 /* APIs */,
+				D1BB74942CA7FE5900AAE836 /* View */,
 				D16971D32CA6C8BB003D3E06 /* Networking */,
 				D13398912C70988C004A0FAE /* Info.plist */,
 				D13398852C689FD1004A0FAE /* Model */,
@@ -237,7 +246,6 @@
 				D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */,
 				D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */,
 				D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */,
-				D17BBF702BF6333A00B5AE55 /* ContentView.swift */,
 				D17BBF722BF6333A00B5AE55 /* Item.swift */,
 				D17BBF742BF6333B00B5AE55 /* Assets.xcassets */,
 				D17BBF762BF6333B00B5AE55 /* Preview Content */,
@@ -276,6 +284,7 @@
 				D133989B2C71E740004A0FAE /* Kakao */,
 				D1E350032C54EE7A00016666 /* Apple */,
 				D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */,
+				D1B2B3672CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift */,
 				D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */,
 			);
 			path = ThirdParty;
@@ -285,19 +294,51 @@
 			isa = PBXGroup;
 			children = (
 				D1987D782C3A64030061D45F /* ThirdParty */,
-				D1803DCD2C67456100B16223 /* UserStore.swift */,
 				D13398722C674E03004A0FAE /* AuthControllable.swift */,
-				D13398702C674DEC004A0FAE /* FirebaseAuthController.swift */,
+				D1B2B3572CA96459007E6356 /* TokenStore.swift */,
+				D1BB74902CA7FC6700AAE836 /* AuthController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		D1B2B34C2CA8180E007E6356 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		D1B2B35B2CA970C1007E6356 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				D1B2B3592CA970A6007E6356 /* TokenAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		D1B2B35E2CC3940D007E6356 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				D1B2B35F2CC39420007E6356 /* DependencyContainer.swift */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		D1BB74942CA7FE5900AAE836 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D17BBF702BF6333A00B5AE55 /* ContentView.swift */,
+				D1BB74922CA7FE5100AAE836 /* ContentViewModel.swift */,
+				D1B2B3652CC39543007E6356 /* ContentViewScene.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D1E350032C54EE7A00016666 /* Apple */ = {
 			isa = PBXGroup;
 			children = (
 				D1987D712C393D620061D45F /* AppleLoginHelper.swift */,
-				D13398A02C79AE2B004A0FAE /* AppleLoginHelpable.swift */,
-				D1E350012C54EC2B00016666 /* AppleLoginInfo.swift */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -306,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E3500F2C65EE6C00016666 /* LoginView.swift */,
+				D1B2B3612CC39488007E6356 /* LoginViewModel.swift */,
 				D13398762C6756CD004A0FAE /* HomeView.swift */,
 			);
 			path = Views;
@@ -324,8 +366,7 @@
 		D1E350122C65F63000016666 /* Key */ = {
 			isa = PBXGroup;
 			children = (
-				D13398742C675471004A0FAE /* AuthControllerKey.swift */,
-				D13398AA2C7B0455004A0FAE /* UserStoreKey.swift */,
+				D1B2B35C2CC3934B007E6356 /* DependencyContainerKey.swift */,
 			);
 			path = Key;
 			sourceTree = "<group>";
@@ -478,34 +519,37 @@
 				D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */,
 				D16971DE2CA6D8D3003D3E06 /* NetworkError.swift in Sources */,
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
-				D1E350022C54EC2B00016666 /* AppleLoginInfo.swift in Sources */,
 				D16971E62CA6DFD0003D3E06 /* NetworkProvidable.swift in Sources */,
-				D13398A12C79AE2B004A0FAE /* AppleLoginHelpable.swift in Sources */,
+				D1BB74962CA802EF00AAE836 /* LoginInfoRepository.swift in Sources */,
 				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
-				D13398A72C79CA44004A0FAE /* EmailLoginHelpable.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
+				D1BB74982CA808A500AAE836 /* LoginInfo.swift in Sources */,
 				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
-				D13398A92C79CA56004A0FAE /* EmailLoginResult.swift in Sources */,
+				D1B2B34E2CA8181F007E6356 /* AuthAPI.swift in Sources */,
 				D16971DC2CA6CC69003D3E06 /* NetworkProvider.swift in Sources */,
-				D1803DCE2C67456100B16223 /* UserStore.swift in Sources */,
+				D1BB74912CA7FC6700AAE836 /* AuthController.swift in Sources */,
+				D1B2B35A2CA970A6007E6356 /* TokenAPI.swift in Sources */,
 				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D13398872C689FE1004A0FAE /* User.swift in Sources */,
 				D13398772C6756CD004A0FAE /* HomeView.swift in Sources */,
+				D1B2B3662CC39543007E6356 /* ContentViewScene.swift in Sources */,
 				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,
+				D1B2B35D2CC3934B007E6356 /* DependencyContainerKey.swift in Sources */,
 				D1E350102C65EE6C00016666 /* LoginView.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
-				D13398752C675471004A0FAE /* AuthControllerKey.swift in Sources */,
-				D13398802C676DCD004A0FAE /* FirestoreRepository.swift in Sources */,
+				D1B2B3682CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift in Sources */,
 				D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */,
+				D1B2B3582CA96459007E6356 /* TokenStore.swift in Sources */,
+				D1BB74932CA7FE5100AAE836 /* ContentViewModel.swift in Sources */,
 				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
+				D1B2B3622CC39488007E6356 /* LoginViewModel.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
-				D13398712C674DEC004A0FAE /* FirebaseAuthController.swift in Sources */,
 				D133989A2C71E602004A0FAE /* AppKeys.swift in Sources */,
 				D16971D52CA6C9F7003D3E06 /* HttpMethod.swift in Sources */,
-				D13398AB2C7B0455004A0FAE /* UserStoreKey.swift in Sources */,
-				D13398822C676EF9004A0FAE /* UserRepository.swift in Sources */,
 				D16971E42CA6DC2E003D3E06 /* API.swift in Sources */,
+				D1B2B3562CA95820007E6356 /* SignInResponse.swift in Sources */,
+				D1B2B3602CC39420007E6356 /* DependencyContainer.swift in Sources */,
 				D1E350172C65F69900016666 /* EnvironmentValues+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -654,7 +698,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -685,7 +729,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,7 +763,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -742,7 +786,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBJ2Q72Z5X;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gtw.CryingDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -761,7 +805,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBJ2Q72Z5X;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = gtw.CryingDiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -783,7 +827,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gtw.CryingDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CryingDiary;
 			};
@@ -800,7 +844,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gtw.CryingDiaryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = CryingDiary;
 			};

@@ -9,6 +9,6 @@ import Foundation
 
 typealias ResponseType = Decodable & Sendable
 
-protocol NetworkProvidable {
-    func request<Response: ResponseType>(api: API) async throws -> Response
+protocol NetworkProvidable: Sendable {
+    func request<Response: ResponseType>(api: API, decodingType: Response.Type) async throws -> Response
 }

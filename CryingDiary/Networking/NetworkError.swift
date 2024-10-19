@@ -12,4 +12,5 @@ enum NetworkError: Error {
     case decodingFailed
     case unacceptableStatusCode
     case failedInGeneral(Error)
+    case AuthenticationFailed
 }

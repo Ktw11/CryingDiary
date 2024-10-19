@@ -11,30 +11,30 @@ final actor NetworkProvider: NetworkProvidable {
     
     // MARK: Lifecycle
     
-    init(session: URLSession = .shared) {
+    init(
+        session: URLSession = .shared,
+        tokenStore: TokenStorable
+    ) {
         self.session = session
+        self.tokenStore = tokenStore
     }
     
     // MARK: Properties
     
     private let session: URLSession
+    private let tokenStore: TokenStorable
     
     // MARK: Methods
     
-    func request<Response: ResponseType>(api: API) async throws -> Response {
-        let data = try await requestData(api: api)
-        
-        do {
-            return try JSONDecoder().decode(Response.self, from: data)
-        } catch {
-            throw NetworkError.decodingFailed
-        }
+    func request<Response: ResponseType>(api: API, decodingType: Response.Type) async throws -> Response {
+        try await request<Response>(api: api, decodingType: decodingType, retry: true)
     }
 }
 
 private extension NetworkProvider {
     func requestData(api: API, retry: Bool = true) async throws -> Data {
-        let request: URLRequest = try api.makeURLRequest()
+        let accessToken = await tokenStore.accessToken
+        let request: URLRequest = try api.makeURLRequest(accessToken: accessToken)
         
         let (data, response): (Data, URLResponse)
         do {
@@ -48,8 +48,7 @@ private extension NetworkProvider {
         }
         
         if httpResponse.statusCode == 401 && retry {
-            #warning("token 갱신 로직 추가 필요")
-//            try await refreshAuthToken()
+            try await refreshTokens()
             
             return try await requestData(api: api, retry: false)
         }
@@ -60,4 +59,35 @@ private extension NetworkProvider {
         
         return data
     }
+    
+    func request<Response: ResponseType>(
+        api: API,
+        decodingType: Response.Type,
+        retry: Bool = true
+    ) async throws -> Response {
+        let data = try await requestData(api: api, retry: retry)
+        
+        do {
+            return try JSONDecoder().decode(decodingType.self, from: data)
+        } catch {
+            throw NetworkError.decodingFailed
+        }
+    }
+    
+    func refreshTokens() async throws {
+        guard let currentRefreshToken = await tokenStore.refreshToken else { throw NetworkError.AuthenticationFailed }
+
+        do {
+            let api = RefreshAPI(refreshToken: currentRefreshToken)
+            let response = try await request(api: api, decodingType: TokenResponse.self, retry: false)
+            await tokenStore.updateTokens(accessToken: response.accessToken, refreshToken: response.refreshToken)
+        } catch {
+            throw NetworkError.AuthenticationFailed
+        }
+    }
+}
+
+private struct TokenResponse: Decodable {
+    let accessToken: String
+    let refreshToken: String
 }

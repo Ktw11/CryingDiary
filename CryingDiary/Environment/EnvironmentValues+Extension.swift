@@ -8,13 +8,8 @@
 import SwiftUI
 
 extension EnvironmentValues {
-    var authController: any AuthControllable {
-        get { self[AuthControllerKey.self] }
-        set { self[AuthControllerKey.self] = newValue }
-    }
-    
-    var userStore: any UserStorable {
-        get { self[UserStoreKey.self] }
-        set { self[UserStoreKey.self] = newValue }
+    var dependencyContainer: DependencyContainable {
+        get { self[DependencyContainerKey.self] }
+        set { self[DependencyContainerKey.self] = newValue }
     }
 }
