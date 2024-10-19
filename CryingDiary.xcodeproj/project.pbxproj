@@ -29,7 +29,6 @@
 		D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D172BE802C43BC3100CFA8B1 /* ThirdPartyLoginError.swift */; };
 		D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */; };
 		D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF702BF6333A00B5AE55 /* ContentView.swift */; };
-		D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF722BF6333A00B5AE55 /* Item.swift */; };
 		D17BBF752BF6333B00B5AE55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF742BF6333B00B5AE55 /* Assets.xcassets */; };
 		D17BBF782BF6333B00B5AE55 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF772BF6333B00B5AE55 /* Preview Assets.xcassets */; };
 		D17BBF822BF6333B00B5AE55 /* CryingDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF812BF6333B00B5AE55 /* CryingDiaryTests.swift */; };
@@ -95,7 +94,6 @@
 		D17BBF6B2BF6333A00B5AE55 /* CryingDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryingDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryApp.swift; sourceTree = "<group>"; };
 		D17BBF702BF6333A00B5AE55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D17BBF722BF6333A00B5AE55 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D17BBF742BF6333B00B5AE55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D17BBF772BF6333B00B5AE55 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D17BBF7D2BF6333B00B5AE55 /* CryingDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryingDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,7 +244,6 @@
 				D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */,
 				D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */,
 				D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */,
-				D17BBF722BF6333A00B5AE55 /* Item.swift */,
 				D17BBF742BF6333B00B5AE55 /* Assets.xcassets */,
 				D17BBF762BF6333B00B5AE55 /* Preview Content */,
 			);
@@ -530,7 +527,6 @@
 				D16971DC2CA6CC69003D3E06 /* NetworkProvider.swift in Sources */,
 				D1BB74912CA7FC6700AAE836 /* AuthController.swift in Sources */,
 				D1B2B35A2CA970A6007E6356 /* TokenAPI.swift in Sources */,
-				D17BBF732BF6333A00B5AE55 /* Item.swift in Sources */,
 				D13398872C689FE1004A0FAE /* User.swift in Sources */,
 				D13398772C6756CD004A0FAE /* HomeView.swift in Sources */,
 				D1B2B3662CC39543007E6356 /* ContentViewScene.swift in Sources */,
