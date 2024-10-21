@@ -37,7 +37,6 @@
 		D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */; };
 		D17BBF9E2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9D2BF636A000B5AE55 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D17BBFA02BF6398600B5AE55 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D17BBF9F2BF6398600B5AE55 /* FirebaseAuth */; };
-		D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */; };
 		D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D712C393D620061D45F /* AppleLoginHelper.swift */; };
 		D1B2B34E2CA8181F007E6356 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */; };
 		D1B2B3562CA95820007E6356 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3552CA95820007E6356 /* SignInResponse.swift */; };
@@ -102,7 +101,6 @@
 		D17BBF8B2BF6333B00B5AE55 /* CryingDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITests.swift; sourceTree = "<group>"; };
 		D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1987D712C393D620061D45F /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
 		D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 				D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */,
 				D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */,
 				D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */,
-				D17BBFA12BF63BDE00B5AE55 /* AppDelegate.swift */,
 				D17BBF742BF6333B00B5AE55 /* Assets.xcassets */,
 				D17BBF762BF6333B00B5AE55 /* Preview Content */,
 			);
@@ -518,7 +515,6 @@
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D16971E62CA6DFD0003D3E06 /* NetworkProvidable.swift in Sources */,
 				D1BB74962CA802EF00AAE836 /* LoginInfoRepository.swift in Sources */,
-				D17BBFA22BF63BDE00B5AE55 /* AppDelegate.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
 				D1BB74982CA808A500AAE836 /* LoginInfo.swift in Sources */,
 				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,

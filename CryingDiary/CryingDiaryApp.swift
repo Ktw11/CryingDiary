@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
-import SwiftData
+import FirebaseCore
+import KakaoSDKCommon
+import KakaoSDKAuth
 
 @main
 struct CryingDiaryApp: App {
+    
+    // MARK: Lifecycle
+    
+    init() {
+        FirebaseApp.configure()
+        KakaoSDK.initSDK(appKey: AppKeys.kakaoAppKey)
+    }
 
     // MARK: Properties
-
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 
     private let dependency: DependencyContainable = DependencyContainerKey.defaultValue
     
@@ -21,6 +28,11 @@ struct CryingDiaryApp: App {
         WindowGroup {
             ContentView(viewModel: ContentViewModel(authController: dependency.authController))
                 .environment(\.dependencyContainer, dependency)
+                .onOpenURL { url in
+                    if AuthApi.isKakaoTalkLoginUrl(url) {
+                        _ = KakaoSDKAuth.AuthController.handleOpenUrl(url: url)
+                    }
+                }
         }
     }
 }
