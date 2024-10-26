@@ -18,16 +18,22 @@ struct CryingDiaryApp: App {
     init() {
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: AppKeys.kakaoAppKey)
+        
+        let dependency = DependencyContainer.default
+        self.tokenStore = dependency.tokenStore
+        self.networkProvider = dependency.networkProvider
+        self.authController = dependency.authController
     }
 
     // MARK: Properties
 
-    private let dependency: DependencyContainable = DependencyContainerKey.defaultValue
+    private let tokenStore: TokenStorable
+    private let networkProvider: NetworkProvidable
+    private let authController: AuthControllable
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel(authController: dependency.authController))
-                .environment(\.dependencyContainer, dependency)
+            ContentView(viewModel: ContentViewModel(authController: authController, tokenStore: tokenStore))
                 .onOpenURL { url in
                     if AuthApi.isKakaoTalkLoginUrl(url) {
                         _ = KakaoSDKAuth.AuthController.handleOpenUrl(url: url)

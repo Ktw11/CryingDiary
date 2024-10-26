@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol AuthControllable: Sendable {
-    func trySignIn() async -> User?
-    func signIn(with type: ThirdPartyLoginType) async throws
+protocol AuthControllable: Sendable, AnyObject {
+    func trySignIn() async -> SignInResponse?
+    func signIn(with type: ThirdPartyLoginType) async throws -> SignInResponse
     func signOut() async throws
 }

@@ -15,7 +15,7 @@ extension AuthAPI {
     var path: String {
         switch self {
         case let .signIn(_, loginType):
-            "\(loginType.rawValue)"
+            "auth/signIn/\(loginType.rawValue)"
         }
     }
     

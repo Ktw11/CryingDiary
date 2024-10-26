@@ -8,6 +8,6 @@
 import Foundation
 
 enum ThirdPartyLoginType: String, Sendable {
-    case apple = "APPLE"
-    case kakao = "KAKAO"
+    case apple = "apple"
+    case kakao = "kakao"
 }

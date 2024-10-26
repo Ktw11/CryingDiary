@@ -18,7 +18,6 @@ struct HomeView: View {
     // MARK: Properties
     
     @Binding var alertTitle: String?
-    @Environment(\.dependencyContainer) private var dependency
     private let userId: String
     
     var body: some View {
@@ -38,7 +37,7 @@ extension HomeView {
     func signOut() {
         Task {
             do {
-                try await dependency.authController.signOut()
+//                try await dependency.authController.signOut()
             } catch {
                 self.alertTitle = "@@@ signOut 에러 발생"
             }

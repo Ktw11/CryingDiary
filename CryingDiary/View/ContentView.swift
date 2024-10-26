@@ -13,7 +13,6 @@ struct ContentView: View {
     
     let viewModel: ContentViewModelType
     @State private var alertTitle: String?
-    @Environment(\.dependencyContainer) private var dependency
 
     var body: some View {
         ZStack {
@@ -21,11 +20,16 @@ struct ContentView: View {
             case .home(let user):
                 HomeView(userId: user.id, alertTitle: $alertTitle)
             case .login:
-                LoginView(viewModel: LoginViewModel(authController: dependency.authController), alertTitle: $alertTitle)
+                LoginView { loginType in
+                    viewModel.signIn(with: loginType)
+                }
             case .splash:
                 Text("@@@ SPLASH")
                     .font(.largeTitle)
             }
+            
+            ProgressView()
+                .opacity(viewModel.showProgressView ? 1.0 : 0)
         }
         .alert(alertTitle ?? "@@@ default message", isPresented: Binding.constant(alertTitle != nil)) {
             Button("@@@ OK", role: .cancel) {
@@ -39,10 +43,11 @@ struct ContentView: View {
 }
 
 #Preview {
-    let dependency = DependencyContainerKey.defaultValue
+    let dependency = DependencyContainer.default
     ContentView(
         viewModel: ContentViewModel(
-            authController: dependency.authController
+            authController: dependency.authController,
+            tokenStore: dependency.tokenStore
         )
     )
 }

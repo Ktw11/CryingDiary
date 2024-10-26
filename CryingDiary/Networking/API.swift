@@ -19,7 +19,9 @@ protocol API: Sendable {
 
 extension API {
     var baseURLString: String { AppKeys.baseURL }
-    var headers: [String: String] { [:] }
+    var headers: [String: String] {
+        ["Content-Type": "application/json"]
+    }
     var queryParameters: [String: String]? { nil }
     var bodyParameters: [String: String]? { nil }
     var needsAuthorization: Bool { true }

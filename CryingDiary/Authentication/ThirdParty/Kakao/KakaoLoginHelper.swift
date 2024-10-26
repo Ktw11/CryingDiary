@@ -15,10 +15,8 @@ final class KakaoLoginHelper: ThirdPartyLoginHelpable {
     // MARK: Methods
     
     func getToken() async throws -> String {
-        let signInMethod = AuthApi.hasToken() ? loginWithToken : loginWithService
-        
         return try await withCheckedThrowingContinuation { continuation in
-            signInMethod { result in
+            login { result in
                 switch result {
                 case .success(let info):
                     continuation.resume(returning: info)
@@ -28,22 +26,25 @@ final class KakaoLoginHelper: ThirdPartyLoginHelpable {
             }
         }
     }
-}
-
-private extension KakaoLoginHelper {
-    func loginWithToken(completion: @escaping (Result<String, Error>) -> Void) {
-        UserApi.shared.accessTokenInfo { tokenInfo, error in
-            if let _ = error {
-                self.loginWithService { completion($0) }
-            } else if let tokenInfo, let id = tokenInfo.id.flatMap(String.init) {
-                completion(.success(id))
-            } else {
-                self.loginWithService { completion($0) }
+    
+    func getSavedToken() async -> String? {
+        guard let token = TokenManager.manager.getToken() else { return nil }
+        guard !token.isAccessTokenExpired else { return token.accessToken }
+        
+        return await withCheckedContinuation { continuation in
+            AuthApi.shared.refreshToken { token, error in
+                if error == nil, let token {
+                    continuation.resume(returning: token.accessToken)
+                } else {
+                    continuation.resume(returning: nil)
+                }
             }
         }
     }
-    
-    func loginWithService(completion: @escaping (Result<String, Error>) -> Void) {
+}
+
+private extension KakaoLoginHelper {
+    func login(completion: @escaping (Result<String, Error>) -> Void) {
         if UserApi.isKakaoTalkLoginAvailable() {
             loginWithApp { completion($0) }
         } else {
@@ -71,5 +72,11 @@ private extension KakaoLoginHelper {
             
             completion(.success(token.accessToken))
         }
+    }
+}
+
+private extension OAuthToken {
+    var isAccessTokenExpired: Bool {
+        return expiredAt < Date()
     }
 }

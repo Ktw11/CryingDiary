@@ -21,8 +21,8 @@ final actor NetworkProvider: NetworkProvidable {
     
     // MARK: Properties
     
-    private let session: URLSession
     private let tokenStore: TokenStorable
+    private let session: URLSession
     
     // MARK: Methods
     
@@ -44,7 +44,7 @@ private extension NetworkProvider {
         }
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.unacceptableStatusCode
+            throw NetworkError.invalidResponse
         }
         
         if httpResponse.statusCode == 401 && retry {
@@ -75,14 +75,14 @@ private extension NetworkProvider {
     }
     
     func refreshTokens() async throws {
-        guard let currentRefreshToken = await tokenStore.refreshToken else { throw NetworkError.AuthenticationFailed }
+        guard let currentRefreshToken = await tokenStore.refreshToken else { throw NetworkError.authenticationFailed }
 
         do {
             let api = RefreshAPI(refreshToken: currentRefreshToken)
             let response = try await request(api: api, decodingType: TokenResponse.self, retry: false)
             await tokenStore.updateTokens(accessToken: response.accessToken, refreshToken: response.refreshToken)
         } catch {
-            throw NetworkError.AuthenticationFailed
+            throw NetworkError.authenticationFailed
         }
     }
 }

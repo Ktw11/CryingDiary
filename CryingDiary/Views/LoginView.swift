@@ -11,27 +11,23 @@ struct LoginView: View {
 
     // MARK: Properties
     
-    let viewModel: LoginViewModelType
-    @Binding var alertTitle: String?
+    var tapLoginButton: (ThirdPartyLoginType) -> Void
     
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
                 Button(action: {
-                    signIn(with: .apple)
+                    tapLoginButton(.apple)
                 }, label: {
                     appleLoginView
                 })
                 
                 Button(action: {
-                    signIn(with: .kakao)
+                    tapLoginButton(.kakao)
                 }, label: {
                     kakaoLoginView
                 })
             }
-            
-            ProgressView()
-                .opacity(viewModel.showProgressView ? 1.0 : 0)
         }
     }
 }
@@ -48,21 +44,11 @@ private extension LoginView {
         Text("@@@ Login To Kakao")
             .font(.title)
     }
-    
-    func signIn(with type: ThirdPartyLoginType) {
-        Task {
-            do {
-                try await viewModel.signIn(with: type)
-            } catch {
-                alertTitle = "@@@ 에러 발생 \(error)"
-            }
-        }
-    }
 }
 
 #Preview {
-    let dependency = DependencyContainerKey.defaultValue
+    let dependency = DependencyContainer.default
     LoginView(
-        viewModel: LoginViewModel(authController: dependency.authController), alertTitle: .constant(nil)
+        tapLoginButton: { _ in }
     )
 }
