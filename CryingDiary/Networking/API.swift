@@ -34,10 +34,6 @@ extension API {
         if let queryParameters {
             urlComponents.queryItems = queryParameters.map { URLQueryItem(name: $0.key, value: $0.value) }
         }
-        if let accessToken, needsAuthorization {
-            let item = URLQueryItem(name: "Authorization", value: "Bearer \(accessToken)")
-            urlComponents.queryItems?.append(item)
-        }
         
         guard let url = urlComponents.url?.appendingPathComponent(path) else {
             throw NetworkError.invalidURL
@@ -54,6 +50,10 @@ extension API {
             request.setValue($1, forHTTPHeaderField: $0)
         }
         
+        if let accessToken, needsAuthorization {
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        }
+
         return request
     }
 }

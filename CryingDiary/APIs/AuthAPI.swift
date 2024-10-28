@@ -9,6 +9,7 @@ import Foundation
 
 enum AuthAPI: API {
     case signIn(token: String, type: ThirdPartyLoginType)
+    case signOut(userId: String, token: String, type: ThirdPartyLoginType)
 }
 
 extension AuthAPI {
@@ -16,12 +17,14 @@ extension AuthAPI {
         switch self {
         case let .signIn(_, loginType):
             "auth/signIn/\(loginType.rawValue)"
+        case let .signOut(userId, token, loginType):
+            "auth/signOut/\(loginType.rawValue)"
         }
     }
     
     var method: HttpMethod {
         switch self {
-        case .signIn:
+        case .signIn, .signOut:
             .post
         }
     }
@@ -30,6 +33,8 @@ extension AuthAPI {
         switch self {
         case let .signIn(token, _):
             return ["token": token]
+        case let .signOut(userId, token, _):
+            return ["token": token, "userId": userId]
         }
     }
 
@@ -37,6 +42,8 @@ extension AuthAPI {
         switch self {
         case .signIn:
             false
+        case .signOut:
+            true
         }
     }
 }

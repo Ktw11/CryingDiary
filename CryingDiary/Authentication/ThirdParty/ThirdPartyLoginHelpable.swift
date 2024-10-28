@@ -9,5 +9,5 @@ import Foundation
 
 protocol ThirdPartyLoginHelpable: Sendable {
     func getToken() async throws -> String
-    func getSavedToken() async -> String?
+    func getSavedToken(needRequest: Bool) async -> String?
 }

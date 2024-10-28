@@ -25,6 +25,7 @@ final actor AuthController {
     
     // MARK: Properties
     
+    private var loginType: ThirdPartyLoginType?
     private let networkProvider: NetworkProvidable
     private let loginInfoRepository: LoginInfoRepositoryType
     private let appleLoginHelper: ThirdPartyLoginHelpable
@@ -34,10 +35,11 @@ final actor AuthController {
 extension AuthController: AuthControllable {
     func trySignIn() async -> SignInResponse? {
         guard let info = await loginInfoRepository.retrieve() else { return nil }
-        guard let thirdPatryToken = await getThirdPartyAccessToken(info: info) else { return nil }
+        guard let thirdPatryToken = await getThirdPartyAccessToken(loginType: info.loginType) else { return nil }
         
         let api = AuthAPI.signIn(token: thirdPatryToken, type: info.loginType)
         guard let response = try? await networkProvider.request(api: api, decodingType: SignInResponse.self) else { return nil }
+        loginType = info.loginType
         return response
     }
     
@@ -52,21 +54,28 @@ extension AuthController: AuthControllable {
         let api = AuthAPI.signIn(token: token, type: type)
         let response = try await networkProvider.request(api: api, decodingType: SignInResponse.self)
         saveLoginInfo(thirdPatryToken: token, loginType: type)
+        loginType = type
         return response
     }
     
-    func signOut() throws {
-        #warning("로그아웃 구현 필요")
+    func signOut(userId: String) async throws {
+        guard let loginType else { throw AuthControllerError.notFoundLoginType }
+        guard let token = await getThirdPartyAccessToken(loginType: loginType, needRequest: true) else { throw AuthControllerError.notFoundToken }
+        
+        let api = AuthAPI.signOut(userId: userId, token: token, type: loginType)
+        try await networkProvider.request(api: api)
+        resetLoginInfo()
     }
 }
 
 private extension AuthController {
-    func getThirdPartyAccessToken(info: LoginInfo) async -> String? {
-        switch info.loginType {
+    func getThirdPartyAccessToken(loginType: ThirdPartyLoginType, needRequest: Bool = false) async -> String? {
+        #warning("apple 구현 필요")
+        return switch loginType {
         case .apple:
             ""
         case .kakao:
-            await kakaoLoginHelper.getSavedToken()
+            await kakaoLoginHelper.getSavedToken(needRequest: needRequest)
         }
     }
     
@@ -75,6 +84,12 @@ private extension AuthController {
             try? await loginInfoRepository.save(
                 info: .init(thirdPatryToken: thirdPatryToken, loginType: loginType)
             )
+        }
+    }
+    
+    func resetLoginInfo() {
+        Task.detached { [loginInfoRepository] in
+            try? await loginInfoRepository.reset()
         }
     }
 }

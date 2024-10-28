@@ -36,8 +36,8 @@ final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
         return try await getLoginInfo(from: authorization)
     }
     
-    func getSavedToken() async -> String? {
-        #warning("자동 로그인 구현 필요")  
+    func getSavedToken(needRequest: Bool) async -> String? {
+        #warning("자동 로그인 구현 필요")
         return ""
     }
 }

@@ -10,21 +10,23 @@ import SwiftUI
 struct HomeView: View {
     // MARK: Lifecycle
     
-    init(userId: String, alertTitle: Binding<String?>) {
+    init(userId: String, alertTitle: Binding<String?>, tapLogoutButton: @escaping () -> Void) {
         self.userId = userId
         self._alertTitle = alertTitle
+        self.tapLogoutButton = tapLogoutButton
     }
     
     // MARK: Properties
     
-    @Binding var alertTitle: String?
+    var tapLogoutButton: () -> Void
     private let userId: String
+    @Binding var alertTitle: String?
     
     var body: some View {
         VStack(spacing: 15) {
             Text("@@@ 로그인 햇음: \(userId)")
             Button(action: {
-                signOut()
+                tapLogoutButton()
             }, label: {
                 Text("@@@ Logout")
                     .font(.title2)
@@ -33,18 +35,6 @@ struct HomeView: View {
     }
 }
 
-extension HomeView {
-    func signOut() {
-        Task {
-            do {
-//                try await dependency.authController.signOut()
-            } catch {
-                self.alertTitle = "@@@ signOut 에러 발생"
-            }
-        }
-    }
-}
-
 #Preview {
-    HomeView(userId: "User", alertTitle: .constant(nil))
+    HomeView(userId: "User", alertTitle: .constant(nil), tapLogoutButton: { })
 }

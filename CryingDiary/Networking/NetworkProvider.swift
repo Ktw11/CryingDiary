@@ -29,13 +29,17 @@ final actor NetworkProvider: NetworkProvidable {
     func request<Response: ResponseType>(api: API, decodingType: Response.Type) async throws -> Response {
         try await request<Response>(api: api, decodingType: decodingType, retry: true)
     }
+    
+    func request(api: API) async throws {
+        _ = try await requestData(api: api, retry: true)
+    }
 }
 
 private extension NetworkProvider {
     func requestData(api: API, retry: Bool = true) async throws -> Data {
         let accessToken = await tokenStore.accessToken
         let request: URLRequest = try api.makeURLRequest(accessToken: accessToken)
-        
+
         let (data, response): (Data, URLResponse)
         do {
             (data, response) = try await session.data(for: request)

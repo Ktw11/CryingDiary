@@ -11,4 +11,5 @@ typealias ResponseType = Decodable & Sendable
 
 protocol NetworkProvidable: Sendable {
     func request<Response: ResponseType>(api: API, decodingType: Response.Type) async throws -> Response
+    func request(api: API) async throws
 }

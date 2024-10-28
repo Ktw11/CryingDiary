@@ -52,6 +52,7 @@
 		D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */; };
 		D1E350102C65EE6C00016666 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500F2C65EE6C00016666 /* LoginView.swift */; };
 		D1E8B5D62CCA659B003AE939 /* DependencyContainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E8B5D52CCA659B003AE939 /* DependencyContainable.swift */; };
+		D1E8B5D82CCCDC13003AE939 /* AuthControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E8B5D72CCCDC13003AE939 /* AuthControllerError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		D1E3500C2C64E58D00016666 /* ThirdPartyLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginType.swift; sourceTree = "<group>"; };
 		D1E3500F2C65EE6C00016666 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D1E8B5D52CCA659B003AE939 /* DependencyContainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainable.swift; sourceTree = "<group>"; };
+		D1E8B5D72CCCDC13003AE939 /* AuthControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllerError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +289,7 @@
 				D13398722C674E03004A0FAE /* AuthControllable.swift */,
 				D1B2B3572CA96459007E6356 /* TokenStore.swift */,
 				D1BB74902CA7FC6700AAE836 /* AuthController.swift */,
+				D1E8B5D72CCCDC13003AE939 /* AuthControllerError.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				D1E350102C65EE6C00016666 /* LoginView.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
 				D1B2B3682CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift in Sources */,
+				D1E8B5D82CCCDC13003AE939 /* AuthControllerError.swift in Sources */,
 				D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */,
 				D1B2B3582CA96459007E6356 /* TokenStore.swift in Sources */,
 				D1BB74932CA7FE5100AAE836 /* ContentViewModel.swift in Sources */,
