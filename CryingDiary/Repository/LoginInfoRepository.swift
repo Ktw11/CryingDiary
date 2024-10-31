@@ -43,7 +43,7 @@ final actor LoginInfoRepository: LoginInfoRepositoryType {
         return infos?
             .compactMap { info -> LoginInfo? in
                 guard let convertedType = ThirdPartyLoginType(rawValue: info.loginType) else { return nil }
-                return LoginInfo(thirdPatryToken: info.thirdPatryToken, loginType: convertedType)
+                return LoginInfo(refreshToken: info.refreshToken, loginType: convertedType)
             }
             .first
     }
@@ -60,17 +60,17 @@ final actor LoginInfoRepository: LoginInfoRepositoryType {
 
 @Model
 private final class PersistedLoginInfo {
-    @Attribute(.unique) var thirdPatryToken: String
+    @Attribute(.unique) var refreshToken: String
     var loginType: String
     
-    init(thirdPatryToken: String, loginType: ThirdPartyLoginType) {
-        self.thirdPatryToken = thirdPatryToken
+    init(refreshToken: String, loginType: ThirdPartyLoginType) {
+        self.refreshToken = refreshToken
         self.loginType = loginType.rawValue
     }
 }
 
 private extension LoginInfo {
     var toPersisted: PersistedLoginInfo {
-        PersistedLoginInfo(thirdPatryToken: thirdPatryToken, loginType: loginType)
+        PersistedLoginInfo(refreshToken: refreshToken, loginType: loginType)
     }
 }

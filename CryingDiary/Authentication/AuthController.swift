@@ -35,11 +35,12 @@ final actor AuthController {
 extension AuthController: AuthControllable {
     func trySignIn() async -> SignInResponse? {
         guard let info = await loginInfoRepository.retrieve() else { return nil }
-        guard let thirdPatryToken = await getThirdPartyAccessToken(loginType: info.loginType) else { return nil }
-        
-        let api = AuthAPI.signIn(token: thirdPatryToken, type: info.loginType)
+
+        let api = AuthAPI.autoSignIn(refreshToken: info.refreshToken)
         guard let response = try? await networkProvider.request(api: api, decodingType: SignInResponse.self) else { return nil }
+        saveLoginInfo(refreshToken: response.user.refreshToken, loginType: info.loginType)
         loginType = info.loginType
+        print("@@@ auto login 성공 \(info.loginType)")
         return response
     }
     
@@ -53,13 +54,15 @@ extension AuthController: AuthControllable {
         
         let api = AuthAPI.signIn(token: token, type: type)
         let response = try await networkProvider.request(api: api, decodingType: SignInResponse.self)
-        saveLoginInfo(thirdPatryToken: token, loginType: type)
+        saveLoginInfo(refreshToken: response.user.refreshToken, loginType: type)
         loginType = type
+        print("@@@ 그냥 login 성공 \(type)")
         return response
     }
     
     func signOut(userId: String) async throws {
         guard let loginType else { throw AuthControllerError.notFoundLoginType }
+        // logout 하는데 이게 필요한가
         guard let token = await getThirdPartyAccessToken(loginType: loginType, needRequest: true) else { throw AuthControllerError.notFoundToken }
         
         let api = AuthAPI.signOut(userId: userId, token: token, type: loginType)
@@ -69,6 +72,7 @@ extension AuthController: AuthControllable {
 }
 
 private extension AuthController {
+    // 이건 없어지겠구만
     func getThirdPartyAccessToken(loginType: ThirdPartyLoginType, needRequest: Bool = false) async -> String? {
         #warning("apple 구현 필요")
         return switch loginType {
@@ -79,10 +83,10 @@ private extension AuthController {
         }
     }
     
-    func saveLoginInfo(thirdPatryToken: String, loginType: ThirdPartyLoginType) {
+    func saveLoginInfo(refreshToken: String, loginType: ThirdPartyLoginType) {
         Task.detached { [loginInfoRepository] in
             try? await loginInfoRepository.save(
-                info: .init(thirdPatryToken: thirdPatryToken, loginType: loginType)
+                info: .init(refreshToken: refreshToken, loginType: loginType)
             )
         }
     }

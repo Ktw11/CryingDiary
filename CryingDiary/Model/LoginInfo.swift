@@ -8,6 +8,6 @@
 import Foundation
 
 struct LoginInfo {
-    let thirdPatryToken: String
+    let refreshToken: String
     let loginType: ThirdPartyLoginType
 }

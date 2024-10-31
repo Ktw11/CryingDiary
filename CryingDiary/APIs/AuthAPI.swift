@@ -9,6 +9,7 @@ import Foundation
 
 enum AuthAPI: API {
     case signIn(token: String, type: ThirdPartyLoginType)
+    case autoSignIn(refreshToken: String)
     case signOut(userId: String, token: String, type: ThirdPartyLoginType)
 }
 
@@ -17,14 +18,16 @@ extension AuthAPI {
         switch self {
         case let .signIn(_, loginType):
             "auth/signIn/\(loginType.rawValue)"
-        case let .signOut(userId, token, loginType):
+        case .autoSignIn:
+            "auth/autoSignIn"
+        case let .signOut(_, _, loginType):
             "auth/signOut/\(loginType.rawValue)"
         }
     }
     
     var method: HttpMethod {
         switch self {
-        case .signIn, .signOut:
+        case .signIn, .autoSignIn, .signOut:
             .post
         }
     }
@@ -33,6 +36,8 @@ extension AuthAPI {
         switch self {
         case let .signIn(token, _):
             return ["token": token]
+        case let .autoSignIn(refreshToken):
+            return ["refreshToken": refreshToken]
         case let .signOut(userId, token, _):
             return ["token": token, "userId": userId]
         }
@@ -40,7 +45,7 @@ extension AuthAPI {
 
     var needsAuthorization: Bool {
         switch self {
-        case .signIn:
+        case .signIn, .autoSignIn:
             false
         case .signOut:
             true
