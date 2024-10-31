@@ -13,13 +13,8 @@ final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
     // MARK: Definitions
     
     private actor State {
-        var currentNonce: String? = nil
         var authContinuation: CheckedContinuation<ASAuthorization, Error>? = nil
-        
-        func setNonce(to nonce: String?) {
-            currentNonce = nonce
-        }
-        
+
         func setAuthContinuation(to continuation: CheckedContinuation<ASAuthorization, Error>?) {
             authContinuation = continuation
         }
@@ -54,8 +49,6 @@ private extension AppleLoginHelper {
     
     func performAuthRequest() async {
         let nonce = CryptoUtil.makeRandomNonce()
-        await state.setNonce(to: nonce)
-        
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -68,12 +61,11 @@ private extension AppleLoginHelper {
 
     func getLoginInfo(from authorization: ASAuthorization) async throws -> String {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
-              let nonce = await state.currentNonce,
-              let token = credential.identityToken,
-              let tokenString = String(data: token, encoding: .utf8) else {
+              let authCodeData = credential.authorizationCode,
+              let authCodeString = String(data: authCodeData, encoding: .utf8) else {
             throw ThirdPartyLoginError.failedToAuthentication
         }
-        return tokenString
+        return authCodeString
     }
 }
 
