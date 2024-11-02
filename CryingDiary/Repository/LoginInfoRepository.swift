@@ -49,6 +49,7 @@ final actor LoginInfoRepository: LoginInfoRepositoryType {
     }
 
     func save(info: LoginInfo) throws {
+        try reset()
         modelContext.insert(info.toPersisted)
         try modelContext.save()
     }
