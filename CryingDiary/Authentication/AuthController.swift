@@ -40,7 +40,7 @@ extension AuthController: AuthControllable {
         guard let response = try? await networkProvider.request(api: api, decodingType: SignInResponse.self) else { return nil }
         saveLoginInfo(refreshToken: response.user.refreshToken, loginType: info.loginType)
         loginType = info.loginType
-        print("@@@ auto login 성공 \(info.loginType)")
+
         return response
     }
     
@@ -56,7 +56,7 @@ extension AuthController: AuthControllable {
         let response = try await networkProvider.request(api: api, decodingType: SignInResponse.self)
         saveLoginInfo(refreshToken: response.user.refreshToken, loginType: type)
         loginType = type
-        print("@@@ 그냥 login 성공 \(type)")
+
         return response
     }
     
@@ -72,7 +72,6 @@ extension AuthController: AuthControllable {
 }
 
 private extension AuthController {
-    // 이건 없어지겠구만
     func getThirdPartyAccessToken(loginType: ThirdPartyLoginType, needRequest: Bool = false) async -> String? {
         #warning("apple 구현 필요")
         return switch loginType {
