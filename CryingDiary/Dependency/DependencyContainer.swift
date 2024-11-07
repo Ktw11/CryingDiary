@@ -16,8 +16,7 @@ struct DependencyContainer: DependencyContainable {
         AuthController(
             networkProvider: networkProvider,
             loginInfoRepository: loginInfoRepository,
-            appleLoginHelper: AppleLoginHelper(),
-            kakaoLoginHelper: KakaoLoginHelper()
+            loginHelperFactory: LoginHelperFactory()
         )
     }
 }
