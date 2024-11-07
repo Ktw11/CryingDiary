@@ -12,6 +12,12 @@ import KakaoSDKUser
 @MainActor
 final class KakaoLoginHelper: ThirdPartyLoginHelpable {
     
+//    // MARK: Properties
+//    
+//    var loginType: ThirdPartyLoginType {
+//        
+//    }
+    
     // MARK: Methods
     
     func getToken() async throws -> String {

@@ -14,13 +14,11 @@ final actor AuthController {
     init(
         networkProvider: NetworkProvidable,
         loginInfoRepository: LoginInfoRepositoryType,
-        appleLoginHelper: ThirdPartyLoginHelpable,
-        kakaoLoginHelper: ThirdPartyLoginHelpable
+        loginHelperFactory: LoginHelperFactoryType
     ) {
         self.networkProvider = networkProvider
         self.loginInfoRepository = loginInfoRepository
-        self.appleLoginHelper = appleLoginHelper
-        self.kakaoLoginHelper = kakaoLoginHelper
+        self.loginHelperFactory = loginHelperFactory
     }
     
     // MARK: Properties
@@ -28,8 +26,7 @@ final actor AuthController {
     private var loginType: ThirdPartyLoginType?
     private let networkProvider: NetworkProvidable
     private let loginInfoRepository: LoginInfoRepositoryType
-    private let appleLoginHelper: ThirdPartyLoginHelpable
-    private let kakaoLoginHelper: ThirdPartyLoginHelpable
+    private let loginHelperFactory: LoginHelperFactoryType
 }
 
 extension AuthController: AuthControllable {
@@ -45,12 +42,9 @@ extension AuthController: AuthControllable {
     }
     
     func signIn(with type: ThirdPartyLoginType) async throws -> SignInResponse {
-        let token = switch type {
-        case .apple:
-            try await appleLoginHelper.getToken()
-        case .kakao:
-            try await kakaoLoginHelper.getToken()
-        }
+        let token = try await loginHelperFactory
+            .getHelper(loginType: type)
+            .getToken()
         
         let api = AuthAPI.signIn(token: token, type: type)
         let response = try await networkProvider.request(api: api, decodingType: SignInResponse.self)
@@ -65,13 +59,9 @@ extension AuthController: AuthControllable {
         
         resetLoginInfo()
         try await networkProvider.request(api: AuthAPI.signOut)
-        
-        switch loginType {
-        case .apple:
-            try await appleLoginHelper.signOut()
-        case .kakao:
-            try await kakaoLoginHelper.signOut()
-        }
+        try await loginHelperFactory
+            .getHelper(loginType: loginType)
+            .signOut()
     }
 }
 
