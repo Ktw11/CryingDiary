@@ -31,12 +31,8 @@ final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
         return try await getLoginInfo(from: authorization)
     }
     
-    func getSavedToken(needRequest: Bool) async -> String? {
-        // 이떄부턴 Apple Refresh Token을 사용하자
-        // 이 아니고, 우리서버의 ACCESS, REFRESH를 사용해야지
-        // 카카오도 수정해야지
-        #warning("자동 로그인 구현 필요")
-        return ""
+    func signOut() async throws {
+        // do nothing
     }
 }
 

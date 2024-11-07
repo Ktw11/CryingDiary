@@ -10,5 +10,5 @@ import Foundation
 protocol AuthControllable: Sendable, AnyObject {
     func trySignIn() async -> SignInResponse?
     func signIn(with type: ThirdPartyLoginType) async throws -> SignInResponse
-    func signOut(userId: String) async throws
+    func signOut() async throws
 }

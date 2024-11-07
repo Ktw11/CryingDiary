@@ -65,13 +65,11 @@ extension ContentViewModel: ContentViewModelType {
     
     func signOut() {
         Task { [authController, weak self] in
-            guard case let .home(user) = self?.scene else { return }
-            
             self?.showProgressView = true
             defer { self?.showProgressView = false }
             
             do {
-                try await authController.signOut(userId: user.id)
+                try await authController.signOut()
                 self?.scene = .login
             } catch {
                 #warning("Toast or Alert 추가")

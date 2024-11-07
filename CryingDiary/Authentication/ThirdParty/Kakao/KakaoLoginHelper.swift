@@ -27,13 +27,15 @@ final class KakaoLoginHelper: ThirdPartyLoginHelpable {
         }
     }
     
-    func getSavedToken(needRequest: Bool) async -> String? {
-        if let token = await retrieveToken() {
-            return token
-        } else if needRequest {
-            return try? await getToken()
-        } else {
-            return nil
+    func signOut() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            UserApi.shared.logout { error in
+                if let error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume(returning: Void())
+                }
+            }
         }
     }
 }
@@ -67,26 +69,5 @@ private extension KakaoLoginHelper {
             
             completion(.success(token.accessToken))
         }
-    }
-    
-    func retrieveToken() async -> String? {
-        guard let token = TokenManager.manager.getToken() else { return nil }
-        guard !token.isAccessTokenExpired else { return token.accessToken }
-        
-        return await withCheckedContinuation { continuation in
-            AuthApi.shared.refreshToken { token, error in
-                if error == nil, let token {
-                    continuation.resume(returning: token.accessToken)
-                } else {
-                    continuation.resume(returning: nil)
-                }
-            }
-        }
-    }
-}
-
-private extension OAuthToken {
-    var isAccessTokenExpired: Bool {
-        return expiredAt < Date()
     }
 }

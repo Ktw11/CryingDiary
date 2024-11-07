@@ -60,28 +60,22 @@ extension AuthController: AuthControllable {
         return response
     }
     
-    func signOut(userId: String) async throws {
+    func signOut() async throws {
         guard let loginType else { throw AuthControllerError.notFoundLoginType }
-        // logout 하는데 이게 필요한가
-        guard let token = await getThirdPartyAccessToken(loginType: loginType, needRequest: true) else { throw AuthControllerError.notFoundToken }
         
-        let api = AuthAPI.signOut(userId: userId, token: token, type: loginType)
-        try await networkProvider.request(api: api)
         resetLoginInfo()
+        try await networkProvider.request(api: AuthAPI.signOut)
+        
+        switch loginType {
+        case .apple:
+            try await appleLoginHelper.signOut()
+        case .kakao:
+            try await kakaoLoginHelper.signOut()
+        }
     }
 }
 
 private extension AuthController {
-    func getThirdPartyAccessToken(loginType: ThirdPartyLoginType, needRequest: Bool = false) async -> String? {
-        #warning("apple 구현 필요")
-        return switch loginType {
-        case .apple:
-            ""
-        case .kakao:
-            await kakaoLoginHelper.getSavedToken(needRequest: needRequest)
-        }
-    }
-    
     func saveLoginInfo(refreshToken: String, loginType: ThirdPartyLoginType) {
         Task.detached { [loginInfoRepository] in
             try? await loginInfoRepository.save(
