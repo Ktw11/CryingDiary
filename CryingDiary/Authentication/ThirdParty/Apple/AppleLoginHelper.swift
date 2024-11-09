@@ -34,6 +34,10 @@ final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
     func signOut() async throws {
         // do nothing
     }
+    
+    func unlink() async throws {
+        // do nothing
+    }
 }
 
 private extension AppleLoginHelper {

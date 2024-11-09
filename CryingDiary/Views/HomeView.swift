@@ -10,15 +10,22 @@ import SwiftUI
 struct HomeView: View {
     // MARK: Lifecycle
     
-    init(userId: String, alertTitle: Binding<String?>, tapLogoutButton: @escaping () -> Void) {
+    init(
+        userId: String,
+        alertTitle: Binding<String?>,
+        tapLogoutButton: @escaping () -> Void,
+        tapUnlinkButton: @escaping () -> Void
+    ) {
         self.userId = userId
         self._alertTitle = alertTitle
         self.tapLogoutButton = tapLogoutButton
+        self.tapUnlinkButton = tapUnlinkButton
     }
     
     // MARK: Properties
     
     var tapLogoutButton: () -> Void
+    var tapUnlinkButton: () -> Void
     private let userId: String
     @Binding var alertTitle: String?
     
@@ -31,10 +38,17 @@ struct HomeView: View {
                 Text("@@@ Logout")
                     .font(.title2)
             })
+            Spacer()
+            Button(action: {
+                tapUnlinkButton()
+            }, label: {
+                Text("@@@ Unlink")
+                    .font(.title2)
+            })
         }
     }
 }
 
 #Preview {
-    HomeView(userId: "User", alertTitle: .constant(nil), tapLogoutButton: { })
+    HomeView(userId: "User", alertTitle: .constant(nil), tapLogoutButton: {}, tapUnlinkButton: {})
 }

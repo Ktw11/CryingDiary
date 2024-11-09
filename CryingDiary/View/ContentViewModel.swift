@@ -15,6 +15,7 @@ protocol ContentViewModelType: Observable {
     func signIn(with type: ThirdPartyLoginType)
     func signInWithSavedToken()
     func signOut()
+    func unlink()
 }
 
 @Observable
@@ -70,6 +71,20 @@ extension ContentViewModel: ContentViewModelType {
             
             do {
                 try await authController.signOut()
+                self?.scene = .login
+            } catch {
+                #warning("Toast or Alert 추가")
+            }
+        }
+    }
+    
+    func unlink() {
+        Task { [authController, weak self] in
+            self?.showProgressView = true
+            defer { self?.showProgressView = false }
+            
+            do {
+                try await authController.unlink()
                 self?.scene = .login
             } catch {
                 #warning("Toast or Alert 추가")

@@ -18,9 +18,11 @@ struct ContentView: View {
         ZStack {
             switch viewModel.scene {
             case .home(let user):
-                HomeView(userId: user.id, alertTitle: $alertTitle) {
+                HomeView(userId: user.id, alertTitle: $alertTitle, tapLogoutButton: {
                     viewModel.signOut()
-                }
+                }, tapUnlinkButton: {
+                    viewModel.unlink()
+                })
             case .login:
                 LoginView { loginType in
                     viewModel.signIn(with: loginType)
