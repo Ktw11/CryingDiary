@@ -11,13 +11,7 @@ import KakaoSDKUser
  
 @MainActor
 final class KakaoLoginHelper: ThirdPartyLoginHelpable {
-    
-//    // MARK: Properties
-//    
-//    var loginType: ThirdPartyLoginType {
-//        
-//    }
-    
+
     // MARK: Methods
     
     func getToken() async throws -> String {
@@ -36,6 +30,18 @@ final class KakaoLoginHelper: ThirdPartyLoginHelpable {
     func signOut() async throws {
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             UserApi.shared.logout { error in
+                if let error {
+                    continuation.resume(throwing: error)
+                } else {
+                    continuation.resume(returning: Void())
+                }
+            }
+        }
+    }
+    
+    func unlink() async throws {
+        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            UserApi.shared.unlink { error in
                 if let error {
                     continuation.resume(throwing: error)
                 } else {

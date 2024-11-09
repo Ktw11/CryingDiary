@@ -55,13 +55,15 @@ extension AuthController: AuthControllable {
     }
     
     func signOut() async throws {
-        guard let loginType else { throw AuthControllerError.notFoundLoginType }
-        
-        resetLoginInfo()
         try await networkProvider.request(api: AuthAPI.signOut)
-        try await loginHelperFactory
-            .getHelper(loginType: loginType)
-            .signOut()
+        try await getCurrentLoginHelper().signOut()
+        resetLoginInfo()
+    }
+    
+    func unlink() async throws {
+        try await networkProvider.request(api: AuthAPI.unlink)
+        try await getCurrentLoginHelper().unlink()
+        resetLoginInfo()
     }
 }
 
@@ -78,5 +80,10 @@ private extension AuthController {
         Task.detached { [loginInfoRepository] in
             try? await loginInfoRepository.reset()
         }
+    }
+    
+    func getCurrentLoginHelper() throws -> ThirdPartyLoginHelpable {
+        guard let loginType else { throw AuthControllerError.notFoundLoginType }
+        return loginHelperFactory.getHelper(loginType: loginType)
     }
 }

@@ -11,6 +11,7 @@ enum AuthAPI: API {
     case signIn(token: String, type: ThirdPartyLoginType)
     case autoSignIn(refreshToken: String)
     case signOut
+    case unlink
 }
 
 extension AuthAPI {
@@ -22,12 +23,14 @@ extension AuthAPI {
             "auth/autoSignIn"
         case .signOut:
             "auth/signOut"
+        case .unlink:
+            "auth/unlink"
         }
     }
     
     var method: HttpMethod {
         switch self {
-        case .signIn, .autoSignIn, .signOut:
+        case .signIn, .autoSignIn, .signOut, .unlink:
             .post
         }
     }
@@ -38,7 +41,7 @@ extension AuthAPI {
             return ["token": token]
         case let .autoSignIn(refreshToken):
             return ["refreshToken": refreshToken]
-        case .signOut:
+        case .signOut, .unlink:
             return nil
         }
     }
@@ -47,7 +50,7 @@ extension AuthAPI {
         switch self {
         case .signIn, .autoSignIn:
             false
-        case .signOut:
+        case .signOut, .unlink:
             true
         }
     }

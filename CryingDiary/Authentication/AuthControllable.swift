@@ -11,4 +11,5 @@ protocol AuthControllable: Sendable, AnyObject {
     func trySignIn() async -> SignInResponse?
     func signIn(with type: ThirdPartyLoginType) async throws -> SignInResponse
     func signOut() async throws
+    func unlink() async throws
 }

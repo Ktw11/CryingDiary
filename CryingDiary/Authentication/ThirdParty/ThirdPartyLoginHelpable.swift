@@ -10,4 +10,5 @@ import Foundation
 protocol ThirdPartyLoginHelpable: Sendable {
     func getToken() async throws -> String
     func signOut() async throws
+    func unlink() async throws
 }
