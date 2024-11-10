@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FirebaseCore
 import KakaoSDKCommon
 import KakaoSDKAuth
 
@@ -16,7 +15,6 @@ struct CryingDiaryApp: App {
     // MARK: Lifecycle
     
     init() {
-        FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: AppKeys.kakaoAppKey)
         
         let dependency = DependencyContainer.default
