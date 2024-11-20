@@ -10,19 +10,22 @@ import SwiftUI
 struct ContentView: View {
     
     // MARK: Properties
-    
-    let viewModel: ContentViewModelType
-    @State private var alertTitle: String?
+
+    var viewModel: ContentViewModelType
+    @Environment(GlobalAppState.self) var appState
 
     var body: some View {
         ZStack {
-            switch viewModel.scene {
+            switch appState.scene {
             case .home(let user):
-                HomeView(userId: user.id, alertTitle: $alertTitle, tapLogoutButton: {
-                    viewModel.signOut()
-                }, tapUnlinkButton: {
-                    viewModel.unlink()
-                })
+                HomeView(
+                    userId: user.id,
+                    tapLogoutButton: {
+                        viewModel.signOut()
+                    }, tapUnlinkButton: {
+                        viewModel.unlink()
+                    }
+                )
             case .login:
                 LoginView { loginType in
                     viewModel.signIn(with: loginType)
@@ -35,23 +38,16 @@ struct ContentView: View {
             ProgressView()
                 .opacity(viewModel.showProgressView ? 1.0 : 0)
         }
-        .alert(alertTitle ?? "@@@ default message", isPresented: Binding.constant(alertTitle != nil)) {
-            Button("@@@ OK", role: .cancel) {
-                alertTitle = nil
-            }
-        }
         .onAppear {
+            viewModel.setAppStateUpdatable(appState)
             viewModel.signInWithSavedToken()
         }
     }
 }
 
 #Preview {
-    let dependency = DependencyContainer.default
+    let dependency = DependencyContainer.previewDefault
     ContentView(
-        viewModel: ContentViewModel(
-            authController: dependency.authController,
-            tokenStore: dependency.tokenStore
-        )
+        viewModel: dependency.makeContentViewModel()
     )
 }

@@ -31,8 +31,13 @@
 		D17BBF822BF6333B00B5AE55 /* CryingDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF812BF6333B00B5AE55 /* CryingDiaryTests.swift */; };
 		D17BBF8C2BF6333B00B5AE55 /* CryingDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8B2BF6333B00B5AE55 /* CryingDiaryUITests.swift */; };
 		D17BBF8E2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */; };
-		D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */; };
 		D17C81E92CDCDF6600D3BA72 /* LoginHelperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81E82CDCDF6600D3BA72 /* LoginHelperFactory.swift */; };
+		D17C81EC2CDF195A00D3BA72 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81EB2CDF195A00D3BA72 /* Toast.swift */; };
+		D17C81EF2CDF1A5D00D3BA72 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81EE2CDF1A5D00D3BA72 /* View+Extension.swift */; };
+		D17C81F22CDF1B3C00D3BA72 /* ToastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81F12CDF1B3C00D3BA72 /* ToastsView.swift */; };
+		D17C81F42CE09B4B00D3BA72 /* EnvironmentValues+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81F32CE09B4B00D3BA72 /* EnvironmentValues+Extension.swift */; };
+		D17C81FE2CE0A31300D3BA72 /* DependencyContainer+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81FD2CE0A31300D3BA72 /* DependencyContainer+Previews.swift */; };
+		D17C82002CE0B33E00D3BA72 /* GlobalAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C81FF2CE0B33E00D3BA72 /* GlobalAppState.swift */; };
 		D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1987D712C393D620061D45F /* AppleLoginHelper.swift */; };
 		D1B2B34E2CA8181F007E6356 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */; };
 		D1B2B3562CA95820007E6356 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B2B3552CA95820007E6356 /* SignInResponse.swift */; };
@@ -49,6 +54,9 @@
 		D1E350102C65EE6C00016666 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E3500F2C65EE6C00016666 /* LoginView.swift */; };
 		D1E8B5D62CCA659B003AE939 /* DependencyContainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E8B5D52CCA659B003AE939 /* DependencyContainable.swift */; };
 		D1E8B5D82CCCDC13003AE939 /* AuthControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E8B5D72CCCDC13003AE939 /* AuthControllerError.swift */; };
+		D1FF373E2CE9B98C00A5D06F /* ToastWindowWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF373D2CE9B98C00A5D06F /* ToastWindowWrapper.swift */; };
+		D1FF37442CE9D2A000A5D06F /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF37432CE9D2A000A5D06F /* AppScene.swift */; };
+		D1FF37472CEDF54500A5D06F /* TouchPassThroughWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF37462CEDF54500A5D06F /* TouchPassThroughWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +103,13 @@
 		D17BBF872BF6333B00B5AE55 /* CryingDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryingDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17BBF8B2BF6333B00B5AE55 /* CryingDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITests.swift; sourceTree = "<group>"; };
 		D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D17C81E82CDCDF6600D3BA72 /* LoginHelperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelperFactory.swift; sourceTree = "<group>"; };
+		D17C81EB2CDF195A00D3BA72 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		D17C81EE2CDF1A5D00D3BA72 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D17C81F12CDF1B3C00D3BA72 /* ToastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastsView.swift; sourceTree = "<group>"; };
+		D17C81F32CE09B4B00D3BA72 /* EnvironmentValues+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Extension.swift"; sourceTree = "<group>"; };
+		D17C81FD2CE0A31300D3BA72 /* DependencyContainer+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+Previews.swift"; sourceTree = "<group>"; };
+		D17C81FF2CE0B33E00D3BA72 /* GlobalAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAppState.swift; sourceTree = "<group>"; };
 		D1987D712C393D620061D45F /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryingDiary.entitlements; sourceTree = "<group>"; };
 		D1B2B34D2CA8181F007E6356 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
@@ -114,6 +127,9 @@
 		D1E3500F2C65EE6C00016666 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D1E8B5D52CCA659B003AE939 /* DependencyContainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainable.swift; sourceTree = "<group>"; };
 		D1E8B5D72CCCDC13003AE939 /* AuthControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllerError.swift; sourceTree = "<group>"; };
+		D1FF373D2CE9B98C00A5D06F /* ToastWindowWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindowWrapper.swift; sourceTree = "<group>"; };
+		D1FF37432CE9D2A000A5D06F /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
+		D1FF37462CEDF54500A5D06F /* TouchPassThroughWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPassThroughWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +174,10 @@
 			children = (
 				D13398862C689FE1004A0FAE /* User.swift */,
 				D1BB74972CA808A500AAE836 /* LoginInfo.swift */,
+				D17C81EB2CDF195A00D3BA72 /* Toast.swift */,
+				D17C81FF2CE0B33E00D3BA72 /* GlobalAppState.swift */,
 				D1B2B3552CA95820007E6356 /* SignInResponse.swift */,
+				D1FF37432CE9D2A000A5D06F /* AppScene.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +236,8 @@
 		D17BBF6D2BF6333A00B5AE55 /* CryingDiary */ = {
 			isa = PBXGroup;
 			children = (
+				D1FF37452CEDF53300A5D06F /* Common */,
+				D17C81ED2CDF1A0900D3BA72 /* Extensions */,
 				D1B2B35E2CC3940D007E6356 /* Dependency */,
 				D1B2B34C2CA8180E007E6356 /* APIs */,
 				D1BB74942CA7FE5900AAE836 /* View */,
@@ -229,7 +250,6 @@
 				D172BE7C2C42719E00CFA8B1 /* Utils */,
 				D1A300EB2C27F47000CCAF92 /* Authentication */,
 				D1A300EA2C27E85E00CCAF92 /* CryingDiary.entitlements */,
-				D17BBF9A2BF634F100B5AE55 /* GoogleService-Info.plist */,
 				D17BBF6E2BF6333A00B5AE55 /* CryingDiaryApp.swift */,
 				D17BBF742BF6333B00B5AE55 /* Assets.xcassets */,
 				D17BBF762BF6333B00B5AE55 /* Preview Content */,
@@ -260,6 +280,23 @@
 				D17BBF8D2BF6333B00B5AE55 /* CryingDiaryUITestsLaunchTests.swift */,
 			);
 			path = CryingDiaryUITests;
+			sourceTree = "<group>";
+		};
+		D17C81ED2CDF1A0900D3BA72 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D17C81EE2CDF1A5D00D3BA72 /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D17C81F02CDF1AF600D3BA72 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				D17C81F12CDF1B3C00D3BA72 /* ToastsView.swift */,
+				D1FF373D2CE9B98C00A5D06F /* ToastWindowWrapper.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		D1987D782C3A64030061D45F /* ThirdParty */ = {
@@ -307,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B2B35F2CC39420007E6356 /* DependencyContainer.swift */,
+				D17C81FD2CE0A31300D3BA72 /* DependencyContainer+Previews.swift */,
 				D1E8B5D52CCA659B003AE939 /* DependencyContainable.swift */,
 			);
 			path = Dependency;
@@ -333,6 +371,7 @@
 		D1E3500E2C65EE5B00016666 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D17C81F02CDF1AF600D3BA72 /* Toast */,
 				D1E3500F2C65EE6C00016666 /* LoginView.swift */,
 				D13398762C6756CD004A0FAE /* HomeView.swift */,
 			);
@@ -343,8 +382,17 @@
 			isa = PBXGroup;
 			children = (
 				D13398992C71E602004A0FAE /* AppKeys.swift */,
+				D17C81F32CE09B4B00D3BA72 /* EnvironmentValues+Extension.swift */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		D1FF37452CEDF53300A5D06F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D1FF37462CEDF54500A5D06F /* TouchPassThroughWindow.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,7 +509,6 @@
 			files = (
 				D17BBF782BF6333B00B5AE55 /* Preview Assets.xcassets in Resources */,
 				D17BBF752BF6333B00B5AE55 /* Assets.xcassets in Resources */,
-				D17BBF9B2BF634F100B5AE55 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,29 +535,38 @@
 			files = (
 				D17C81E92CDCDF6600D3BA72 /* LoginHelperFactory.swift in Sources */,
 				D1987D722C393D620061D45F /* AppleLoginHelper.swift in Sources */,
+				D17C81F42CE09B4B00D3BA72 /* EnvironmentValues+Extension.swift in Sources */,
 				D16971DE2CA6D8D3003D3E06 /* NetworkError.swift in Sources */,
 				D172BE7D2C4271C800CFA8B1 /* CryptoUtil.swift in Sources */,
 				D16971E62CA6DFD0003D3E06 /* NetworkProvidable.swift in Sources */,
 				D1BB74962CA802EF00AAE836 /* LoginInfoRepository.swift in Sources */,
 				D13398732C674E03004A0FAE /* AuthControllable.swift in Sources */,
 				D1BB74982CA808A500AAE836 /* LoginInfo.swift in Sources */,
+				D17C82002CE0B33E00D3BA72 /* GlobalAppState.swift in Sources */,
 				D13398842C689F91004A0FAE /* RepositoryError.swift in Sources */,
 				D17BBF712BF6333A00B5AE55 /* ContentView.swift in Sources */,
 				D1B2B34E2CA8181F007E6356 /* AuthAPI.swift in Sources */,
 				D16971DC2CA6CC69003D3E06 /* NetworkProvider.swift in Sources */,
+				D17C81EF2CDF1A5D00D3BA72 /* View+Extension.swift in Sources */,
 				D1BB74912CA7FC6700AAE836 /* AuthController.swift in Sources */,
+				D1FF37472CEDF54500A5D06F /* TouchPassThroughWindow.swift in Sources */,
 				D1B2B35A2CA970A6007E6356 /* TokenAPI.swift in Sources */,
 				D13398872C689FE1004A0FAE /* User.swift in Sources */,
+				D17C81F22CDF1B3C00D3BA72 /* ToastsView.swift in Sources */,
 				D13398772C6756CD004A0FAE /* HomeView.swift in Sources */,
 				D1B2B3662CC39543007E6356 /* ContentViewScene.swift in Sources */,
+				D17C81FE2CE0A31300D3BA72 /* DependencyContainer+Previews.swift in Sources */,
 				D172BE7F2C43B80B00CFA8B1 /* Do+Defer.swift in Sources */,
 				D1E350102C65EE6C00016666 /* LoginView.swift in Sources */,
+				D17C81EC2CDF195A00D3BA72 /* Toast.swift in Sources */,
 				D17BBF6F2BF6333A00B5AE55 /* CryingDiaryApp.swift in Sources */,
 				D1B2B3682CC39D7C007E6356 /* ThirdPartyLoginHelpable.swift in Sources */,
 				D1E8B5D82CCCDC13003AE939 /* AuthControllerError.swift in Sources */,
 				D133989D2C71E752004A0FAE /* KakaoLoginHelper.swift in Sources */,
 				D1B2B3582CA96459007E6356 /* TokenStore.swift in Sources */,
+				D1FF37442CE9D2A000A5D06F /* AppScene.swift in Sources */,
 				D1BB74932CA7FE5100AAE836 /* ContentViewModel.swift in Sources */,
+				D1FF373E2CE9B98C00A5D06F /* ToastWindowWrapper.swift in Sources */,
 				D1E3500D2C64E58D00016666 /* ThirdPartyLoginType.swift in Sources */,
 				D1E8B5D62CCA659B003AE939 /* DependencyContainable.swift in Sources */,
 				D172BE812C43BC3100CFA8B1 /* ThirdPartyLoginError.swift in Sources */,
@@ -692,7 +748,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryingDiary/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -726,7 +781,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryingDiary/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

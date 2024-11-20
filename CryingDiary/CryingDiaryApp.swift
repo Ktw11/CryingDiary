@@ -17,26 +17,57 @@ struct CryingDiaryApp: App {
     init() {
         KakaoSDK.initSDK(appKey: AppKeys.kakaoAppKey)
         
-        let dependency = DependencyContainer.default
-        self.tokenStore = dependency.tokenStore
-        self.networkProvider = dependency.networkProvider
-        self.authController = dependency.authController
+        let tokenStore = TokenStore()
+        let dependency = DependencyContainer(
+            tokenStore: tokenStore,
+            loginInfoRepository: LoginInfoRepository(),
+            networkProvider: NetworkProvider(tokenStore: tokenStore)
+        )
+        self.dependency = dependency
     }
-
+    
     // MARK: Properties
-
-    private let tokenStore: TokenStorable
-    private let networkProvider: NetworkProvidable
-    private let authController: AuthControllable
+    
+    @State private var toastWindow: UIWindow?
+    private var appState: GlobalAppState = .init()
+    private let dependency: DependencyContainable
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel(authController: authController, tokenStore: tokenStore))
-                .onOpenURL { url in
-                    if AuthApi.isKakaoTalkLoginUrl(url) {
-                        _ = KakaoSDKAuth.AuthController.handleOpenUrl(url: url)
-                    }
-                }
+            ContentView(viewModel: dependency.makeContentViewModel())
+            .onOpenURL { url in
+                handleURL(url)
+            }
+            .environment(appState)
+            .onAppear {
+                setUpToastWindow()
+            }
         }
+    }
+}
+
+private extension CryingDiaryApp {
+    func handleURL(_ url: URL) {
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            _ = KakaoSDKAuth.AuthController.handleOpenUrl(url: url)
+            return
+        }
+    }
+    
+    func setUpToastWindow() {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        guard toastWindow == nil else { return }
+        
+        let window = TouchPassThroughWindow(windowScene: scene)
+        @Bindable var bindableState = appState
+        let rootViewController = UIHostingController(rootView: ToastsView(toasts: $bindableState.toasts))
+        rootViewController.view.frame = window.windowScene?.keyWindow?.frame ?? .zero
+        rootViewController.view.backgroundColor = .clear
+        
+        window.rootViewController = rootViewController
+        window.backgroundColor = .clear
+        window.isUserInteractionEnabled = true
+        window.isHidden = false
+        toastWindow = window
     }
 }

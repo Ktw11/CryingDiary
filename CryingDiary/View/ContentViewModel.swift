@@ -9,9 +9,9 @@ import Foundation
 
 @MainActor
 protocol ContentViewModelType: Observable {
-    var scene: ContentViewScene { get }
     var showProgressView: Bool { get }
  
+    func setAppStateUpdatable(_ appState: AppStateUpdatable)
     func signIn(with type: ThirdPartyLoginType)
     func signInWithSavedToken()
     func signOut()
@@ -30,14 +30,19 @@ final class ContentViewModel {
     }
     
     // MARK: Properties
+
+    private weak var appState: AppStateUpdatable?
     
-    private(set) var scene: ContentViewScene = .splash
     private(set) var showProgressView: Bool = false
     private let authController: AuthControllable
     private let tokenStore: TokenStorable
 }
 
 extension ContentViewModel: ContentViewModelType {
+    func setAppStateUpdatable(_ appState: AppStateUpdatable) {
+        self.appState = appState
+    }
+    
     func signIn(with type: ThirdPartyLoginType) {
         Task { [authController, weak self] in
             self?.showProgressView = true
@@ -45,10 +50,10 @@ extension ContentViewModel: ContentViewModelType {
             
             do {
                 let response = try await authController.signIn(with: type)
-                self?.scene = .home(response.user)
+                self?.appState?.chageScene(to: .home(response.user))
                 await self?.updateTokens(with: response)
             } catch {
-                #warning("Toast or Alert 추가")
+                self?.appState?.appendToast(.init(message: "@@@ 에러가 발생했어요"))
             }
         }
     }
@@ -56,10 +61,10 @@ extension ContentViewModel: ContentViewModelType {
     func signInWithSavedToken() {
         Task { [authController, weak self] in
             if let response = await authController.trySignIn() {
-                self?.scene = .home(response.user)
+                self?.appState?.chageScene(to: .home(response.user))
                 await self?.updateTokens(with: response)
             } else {
-                self?.scene = .login
+                self?.appState?.chageScene(to: .login)
             }
         }
     }
@@ -71,9 +76,9 @@ extension ContentViewModel: ContentViewModelType {
             
             do {
                 try await authController.signOut()
-                self?.scene = .login
+                self?.appState?.chageScene(to: .login)
             } catch {
-                #warning("Toast or Alert 추가")
+                self?.appState?.appendToast(.init(message: "@@@ 에러가 발생했어요"))
             }
         }
     }
@@ -85,9 +90,9 @@ extension ContentViewModel: ContentViewModelType {
             
             do {
                 try await authController.unlink()
-                self?.scene = .login
+                self?.appState?.chageScene(to: .login)
             } catch {
-                #warning("Toast or Alert 추가")
+                self?.appState?.appendToast(.init(message: "@@@ 에러가 발생했어요"))
             }
         }
     }

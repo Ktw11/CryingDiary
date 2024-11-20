@@ -12,12 +12,10 @@ struct HomeView: View {
     
     init(
         userId: String,
-        alertTitle: Binding<String?>,
         tapLogoutButton: @escaping () -> Void,
         tapUnlinkButton: @escaping () -> Void
     ) {
         self.userId = userId
-        self._alertTitle = alertTitle
         self.tapLogoutButton = tapLogoutButton
         self.tapUnlinkButton = tapUnlinkButton
     }
@@ -27,7 +25,6 @@ struct HomeView: View {
     var tapLogoutButton: () -> Void
     var tapUnlinkButton: () -> Void
     private let userId: String
-    @Binding var alertTitle: String?
     
     var body: some View {
         VStack(spacing: 15) {
@@ -50,5 +47,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(userId: "User", alertTitle: .constant(nil), tapLogoutButton: {}, tapUnlinkButton: {})
+    HomeView(userId: "User", tapLogoutButton: {}, tapUnlinkButton: {})
 }
