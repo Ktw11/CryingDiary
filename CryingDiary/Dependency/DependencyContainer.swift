@@ -6,17 +6,41 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct DependencyContainer: DependencyContainable {
-    let tokenStore: TokenStorable
-    let loginInfoRepository: LoginInfoRepositoryType
-    let networkProvider: NetworkProvidable
+struct DependencyContainer {
     
-    var authController: AuthControllable {
-        AuthController(
+    // MARK: Lifecycle
+    
+    init(
+        tokenStore: TokenStorable,
+        loginInfoRepository: LoginInfoRepositoryType,
+        networkProvider: NetworkProvidable
+    ) {
+        self.tokenStore = tokenStore
+        self.loginInfoRepository = loginInfoRepository
+        self.networkProvider = networkProvider
+        self.authController = AuthController(
             networkProvider: networkProvider,
             loginInfoRepository: loginInfoRepository,
             loginHelperFactory: LoginHelperFactory()
+        )
+    }
+    
+    // MARK: Properties
+    
+    private let tokenStore: TokenStorable
+    private let loginInfoRepository: LoginInfoRepositoryType
+    private let networkProvider: NetworkProvidable
+    private let authController: AuthControllable
+}
+
+extension DependencyContainer: DependencyContainable {
+    @MainActor
+    func makeContentViewModel() -> ContentViewModelType {
+        ContentViewModel(
+            authController: authController,
+            tokenStore: tokenStore
         )
     }
 }
