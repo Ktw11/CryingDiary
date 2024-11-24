@@ -47,7 +47,9 @@ extension AuthController: AuthControllable {
             .getToken()
         
         let api = AuthAPI.signIn(token: token, type: type)
+
         let response = try await networkProvider.request(api: api, decodingType: SignInResponse.self)
+
         saveLoginInfo(refreshToken: response.user.refreshToken, loginType: type)
         loginType = type
 

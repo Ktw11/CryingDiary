@@ -47,7 +47,6 @@ private extension LoginView {
 }
 
 #Preview {
-    let dependency = DependencyContainer.previewDefault
     LoginView(
         tapLoginButton: { _ in }
     )

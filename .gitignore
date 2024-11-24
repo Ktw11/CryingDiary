@@ -92,3 +92,11 @@ iOSInjectionProject/
 
 # Custom
 *.xcconfig
+
+
+### Tuist derived files ###
+graph.dot
+Derived/
+
+### Tuist managed dependencies ###
+Tuist/.build

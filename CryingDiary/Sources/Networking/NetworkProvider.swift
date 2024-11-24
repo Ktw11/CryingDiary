@@ -39,7 +39,7 @@ private extension NetworkProvider {
     func requestData(api: API, retry: Bool = true) async throws -> Data {
         let accessToken = await tokenStore.accessToken
         let request: URLRequest = try api.makeURLRequest(accessToken: accessToken)
-
+        
         let (data, response): (Data, URLResponse)
         do {
             (data, response) = try await session.data(for: request)
