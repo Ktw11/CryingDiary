@@ -8,6 +8,7 @@
 import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
+import Network
 
 @main
 struct CryingDiaryApp: App {
@@ -21,7 +22,10 @@ struct CryingDiaryApp: App {
         let dependency = DependencyContainer(
             tokenStore: tokenStore,
             loginInfoRepository: LoginInfoRepository(),
-            networkProvider: NetworkProvider(tokenStore: tokenStore)
+            networkProvider: NetworkProvider(
+                configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL),
+                tokenStore: tokenStore
+            )
         )
         self.dependency = dependency
     }

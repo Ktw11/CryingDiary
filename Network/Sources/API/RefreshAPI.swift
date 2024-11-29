@@ -1,6 +1,6 @@
 //
-//  TokenAPI.swift
-//  CryingDiary
+//  RefreshAPI.swift
+//  Network
 //
 //  Created by 공태웅 on 9/29/24.
 //
@@ -26,5 +26,13 @@ extension RefreshAPI {
 
     var needsAuthorization: Bool {
         true
+    }
+    
+    var headers: [String : String] {
+        [:]
+    }
+    
+    var queryParameters: [String : String]? {
+        nil
     }
 }

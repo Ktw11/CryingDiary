@@ -1,14 +1,13 @@
 //
 //  API.swift
-//  CryingDiary
+//  Network
 //
 //  Created by 공태웅 on 9/27/24.
 //
 
 import Foundation
 
-protocol API: Sendable {
-    var baseURLString: String { get }
+public protocol API: Sendable {
     var path: String { get }
     var method: HttpMethod { get }
     var headers: [String: String] { get }
@@ -18,15 +17,7 @@ protocol API: Sendable {
 }
 
 extension API {
-    var baseURLString: String { AppKeys.baseURL }
-    var headers: [String: String] {
-        ["Content-Type": "application/json"]
-    }
-    var queryParameters: [String: String]? { nil }
-    var bodyParameters: [String: String]? { nil }
-    var needsAuthorization: Bool { true }
-    
-    func makeURLRequest(accessToken: String?) throws -> URLRequest {
+    func makeURLRequest(baseURLString: String, accessToken: String?) throws -> URLRequest {
         guard var urlComponents = URLComponents(string: baseURLString) else {
             throw NetworkError.invalidURL
         }

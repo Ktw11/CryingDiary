@@ -22,14 +22,10 @@ extension Targets {
         sources: ["\(Names.cryingDiary)/Sources/**"],
         resources: ["\(Names.cryingDiary)/Resources/**"],
         dependencies: [
-            .external(name: "KakaoSDK")
+            .external(name: "KakaoSDK"),
+            .target(name: Names.network),
         ],
-        settings: .settings(
-            configurations: [
-                .debug(name: ConfigurationName.debugName, xcconfig: Configurations.debugPath),
-                .release(name: ConfigurationName.releaseName, xcconfig: Configurations.releasePath),
-            ]
-        )
+        settings: Settings.commonModule
     )
     
     public static let cryingDiaryTests = TestTargets.make(from: Self.cryingDiary)

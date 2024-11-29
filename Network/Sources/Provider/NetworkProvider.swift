@@ -1,36 +1,39 @@
 //
 //  NetworkProvider.swift
-//  CryingDiary
+//  Network
 //
 //  Created by 공태웅 on 9/27/24.
 //
 
 import Foundation
 
-final actor NetworkProvider: NetworkProvidable {
+public final actor NetworkProvider: NetworkProvidable {
     
     // MARK: Lifecycle
     
-    init(
+    public init(
         session: URLSession = .shared,
+        configuration: NetworkConfigurable,
         tokenStore: TokenStorable
     ) {
         self.session = session
+        self.configuration = configuration
         self.tokenStore = tokenStore
     }
     
     // MARK: Properties
     
     private let tokenStore: TokenStorable
+    private let configuration: NetworkConfigurable
     private let session: URLSession
     
     // MARK: Methods
     
-    func request<Response: ResponseType>(api: API, decodingType: Response.Type) async throws -> Response {
+    public func request<Response: ResponseType>(api: API, decodingType: Response.Type) async throws -> Response {
         try await request<Response>(api: api, decodingType: decodingType, retry: true)
     }
     
-    func request(api: API) async throws {
+    public func request(api: API) async throws {
         _ = try await requestData(api: api, retry: true)
     }
 }
@@ -38,7 +41,7 @@ final actor NetworkProvider: NetworkProvidable {
 private extension NetworkProvider {
     func requestData(api: API, retry: Bool = true) async throws -> Data {
         let accessToken = await tokenStore.accessToken
-        let request: URLRequest = try api.makeURLRequest(accessToken: accessToken)
+        let request: URLRequest = try api.makeURLRequest(baseURLString: configuration.baseURLString, accessToken: accessToken)
         
         let (data, response): (Data, URLResponse)
         do {

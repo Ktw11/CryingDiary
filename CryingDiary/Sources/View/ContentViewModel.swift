@@ -6,6 +6,8 @@
 //
 
 import Foundation
+#warning("todo: Network 의존 제거 필요")
+import Network
 
 @MainActor
 protocol ContentViewModelType: Observable {

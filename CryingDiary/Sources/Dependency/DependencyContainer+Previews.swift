@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 extension DependencyContainer {
     @MainActor
@@ -14,7 +15,10 @@ extension DependencyContainer {
         return DependencyContainer(
             tokenStore: tokenStore,
             loginInfoRepository: LoginInfoRepository(),
-            networkProvider: NetworkProvider(tokenStore: tokenStore)
+            networkProvider: NetworkProvider(
+                configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL),
+                tokenStore: tokenStore
+            )
         )
     }
 }

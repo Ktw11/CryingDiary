@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 enum AuthAPI: API {
     case signIn(token: String, type: ThirdPartyLoginType)

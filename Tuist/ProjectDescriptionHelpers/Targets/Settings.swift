@@ -8,6 +8,15 @@ public enum Settings {
         "CODE_SIGN_IDENTITY": "Apple Development",
         "DEVELOPMENT_TEAM": "$(DEV_TEAM_ID)",
         "PROVISIONING_PROFILE_SPECIFIER": "",
-        "CODE_SIGN_STYLE": "Automatic"
+        "CODE_SIGN_STYLE": "Automatic",
+        "ENABLE_TESTABILITY": "YES"
     ]
+    
+    public static let commonModule: ProjectDescription.Settings = .settings(
+        base: Settings.baseSettings,
+        configurations: [
+            .debug(name: ConfigurationName.debugName, xcconfig: Configurations.debugPath),
+            .release(name: ConfigurationName.releaseName, xcconfig: Configurations.releasePath),
+        ]
+    )
 }

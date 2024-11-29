@@ -202,6 +202,34 @@
                ReferencedContainer = "container:Tuist/.build/tuist-derived/KakaoOpenSDK/KakaoOpenSDK.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C1F53E36B9C5F31A54B013DC"
+               BuildableName = "Network.framework"
+               BlueprintName = "Network"
+               ReferencedContainer = "container:CryingDiary.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "20CDD7F440D284602200DF43"
+               BuildableName = "NetworkTests.xctest"
+               BlueprintName = "NetworkTests"
+               ReferencedContainer = "container:CryingDiary.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -217,6 +245,16 @@
                BlueprintIdentifier = "B1C0BF53D0A4064CD8EEABC7"
                BuildableName = "CryingDiaryTests.xctest"
                BlueprintName = "CryingDiaryTests"
+               ReferencedContainer = "container:CryingDiary.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "20CDD7F440D284602200DF43"
+               BuildableName = "NetworkTests.xctest"
+               BlueprintName = "NetworkTests"
                ReferencedContainer = "container:CryingDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>

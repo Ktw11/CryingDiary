@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Network
 
 extension EnvironmentValues {
     @Entry var dependencyContainer: DependencyContainable = {
@@ -13,7 +14,10 @@ extension EnvironmentValues {
         return DependencyContainer(
             tokenStore: tokenStore,
             loginInfoRepository: LoginInfoRepository(),
-            networkProvider: NetworkProvider(tokenStore: tokenStore)
+            networkProvider: NetworkProvider(
+                configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL),
+                tokenStore: tokenStore
+            )
         )
     }()
 }

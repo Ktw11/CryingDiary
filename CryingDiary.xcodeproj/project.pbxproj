@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,12 +13,15 @@
 		0A0DACF1A025820A6E635B0B /* ContentViewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472D471B43DB21169CD2366D /* ContentViewScene.swift */; };
 		1083E723F6C0D640C1D42157 /* AppScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529AF60C251FA477111F83F4 /* AppScene.swift */; };
 		16CF579733B501CA8192B11B /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAD0ADF84C285BB3E276DA8 /* CryptoUtil.swift */; };
-		1B3AD6DFF72C5F48EF7C7617 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA006693568F0115BCB8F9F6 /* API.swift */; };
+		1CDFA0CE9A495B4E833A3201 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E61B6B281D26C3DE4D9688 /* API.swift */; };
 		2B3CB27A9A05AA05220F5AFB /* CryingDiaryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6750F5F0F0B6C8A0EB42FAE8 /* CryingDiaryApp.swift */; };
 		2FB081745CD3E2EE60D0D254 /* CryingDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A34BD7FA46B11CDB67AE24 /* CryingDiaryTests.swift */; };
+		30CD6948FCBF04390C0A3079 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A8F65B191F2DA33BFEAF47 /* AuthAPI.swift */; };
 		3150C33BAF40F17C0757DD94 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331871A0CEAA69559A07D9FC /* ContentViewModel.swift */; };
+		328FCE8410A2B50018E74478 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D920170F5914D8F1FC5BC5D7 /* NetworkProvider.swift */; };
 		3364CD6BC7655EBD782BDCA7 /* AppKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF6BAD5FC9DF1CA7C4322C /* AppKeys.swift */; };
 		3371052F9798B36EF524DBE1 /* KakaoOpenSDK_KakaoSDKCommon.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 20052915B2B80D7EC9291331 /* KakaoOpenSDK_KakaoSDKCommon.bundle */; };
+		357B40536E83E90F6C3880B0 /* RefreshAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796CEF7DD56A79CD83BF8E20 /* RefreshAPI.swift */; };
 		3A9BBDF2EDD3A54F75395BFB /* KakaoSDKFriendCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39E764F0D4238E3A2DF47A1E /* KakaoSDKFriendCore.xcframework */; };
 		3C16217DB71A1DA730E05855 /* Do+Defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391AAE31C2D1B3439252849E /* Do+Defer.swift */; };
 		3C3E2843819210CF40A5DC04 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C520A29F8A7F0B4B1D2C06DA /* Alamofire.framework */; };
@@ -26,7 +29,7 @@
 		442C794778A9B2133DB44379 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C653DE1E85D739A5AC5341E6 /* DependencyContainer.swift */; };
 		454E966A7E145B16F19FB0A0 /* KakaoSDKTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5752B527102B05AD7D9E0C60 /* KakaoSDKTemplate.framework */; };
 		45849D7C59FAB98A1DB91780 /* GlobalAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E510B2081ECD823ECD62A4F /* GlobalAppState.swift */; };
-		4859F8C9F40A255BFA4B7A98 /* TokenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E00D142F1D6B3813E8E40D5 /* TokenAPI.swift */; };
+		4C691A1774D79C4E338188CD /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E19611215A790F83F2421D0 /* Network.framework */; };
 		4FE53B1C76DE4A0486AE8569 /* AuthControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B647AFFC6255BFD875037253 /* AuthControllable.swift */; };
 		5152ED5803BAB6E61566151C /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F800E3A1F6F07CA3FCF6D147 /* SignInResponse.swift */; };
 		5369BC145F4550F134889CE3 /* EnvironmentValues+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE87BF5D6D388F73C80AB14 /* EnvironmentValues+Extension.swift */; };
@@ -36,7 +39,9 @@
 		59B13C6709E2AABC6047353A /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01EF460F906B654AB544095 /* Toast.swift */; };
 		59C24C0E024D595203DD3F16 /* TuistAssets+CryingDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351FB68A4BD5DDE6D476D89E /* TuistAssets+CryingDiary.swift */; };
 		5D568BCFEF0901AD1546F633 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB1A764BA18347406A7B9433 /* CFNetwork.framework */; };
+		5D64C1F687F5160D207BF83A /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA60477C35CEE6A5F434F8D /* NetworkConfiguration.swift */; };
 		61261855BCF95ADA2658AFC6 /* ThirdPartyLoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748D0EB15813214DB0FD0B20 /* ThirdPartyLoginType.swift */; };
+		697C221B15EFED085A84B90A /* NetworkProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339C77711BAD00F6AC5C913E /* NetworkProviderTests.swift */; };
 		6B78291733630115A94A90EB /* ToastsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E93E3C73A78A5CDBA2FD3E2 /* ToastsView.swift */; };
 		6CE79BE5503A23FC274052AB /* ThirdPartyLoginHelpable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662F85F12B311B2BD113139A /* ThirdPartyLoginHelpable.swift */; };
 		6FE66B3F1F94DE4C5B158162 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302A4EFFD00542FD68F39E8 /* View+Extension.swift */; };
@@ -46,35 +51,53 @@
 		82D57B877977E06408718CC4 /* KakaoSDKUser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0814D9A813FC36F5B73E0DA1 /* KakaoSDKUser.framework */; };
 		88E83FAC9780CC926DB6C3B1 /* KakaoSDKCert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B68AA0A452B54776627C79A /* KakaoSDKCert.framework */; };
 		8A0501C4A0E5FBF4DF5BBEFD /* KakaoSDKShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27013A0DED1029DFD3BD729 /* KakaoSDKShare.framework */; };
-		9207F1F17BBE1561A407D120 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A301E61F044821277734D8 /* NetworkError.swift */; };
+		91D5A7F4F1553577F924A168 /* API+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48883616D2A7A3267D4DFB9E /* API+Extension.swift */; };
 		925F9757F4E7F438E01707EA /* TuistBundle+CryingDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD1F2A82FE900FA5F2301B2 /* TuistBundle+CryingDiary.swift */; };
 		92C2B2FCECD69F9F16033710 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F04A0E5E671DA4A01DF61E /* HomeView.swift */; };
+		95EFE872791C8BCE3E68D605 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E19611215A790F83F2421D0 /* Network.framework */; };
+		99D18E070CE2B4FFEC54FF40 /* TokenStore+TokenStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74AD20AA88EF25A36AC5140 /* TokenStore+TokenStorable.swift */; };
 		9FE0731904E018D8450C5851 /* KakaoOpenSDK_KakaoSDKCommon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 20052915B2B80D7EC9291331 /* KakaoOpenSDK_KakaoSDKCommon.bundle */; };
 		A2193A0E72CD49427523ACF6 /* DependencyContainable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A46DEEDE327A18727DD8308 /* DependencyContainable.swift */; };
+		A3B920DDB45FC6BD3ADAF02B /* NetworkConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB2BF3250A7F73D414D2D47 /* NetworkConfigurable.swift */; };
 		A8A629B48B2BCE65C1E258F3 /* Alamofire_Alamofire.bundle in Dependencies */ = {isa = PBXBuildFile; fileRef = 6B7190C01F9A996158650C5A /* Alamofire_Alamofire.bundle */; };
 		AA88E86EB7FE1861C9F98941 /* KakaoSDKFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9965FD5E710FA3375EC0FF17 /* KakaoSDKFriend.framework */; };
 		B0BE7FD4A190DD575C43AE02 /* AppleLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB83F53C64299DA69C4C2431 /* AppleLoginHelper.swift */; };
-		B2D80612903E26713EA854E8 /* NetworkProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72EB085056EA1325D4F7CB9 /* NetworkProvidable.swift */; };
 		B97965A8A5DB1C951F4329D1 /* KakaoLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0B2DAFEFDCD342C9E68E1B /* KakaoLoginHelper.swift */; };
 		B9A20BDD80EC19DF9C201511 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B49CF874FCCC8AA069C96A00 /* Assets.xcassets */; };
 		BB8A1D73D2A6D6CB0C94EB78 /* KakaoSDKCertCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05DE20A331F3596A7211B39A /* KakaoSDKCertCore.xcframework */; };
 		BF089C54BD9464345A5C7C2E /* TokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EA5C064A99D8CCD20A2B6B /* TokenStore.swift */; };
 		BF33C1FE8740FC0DE7FBB310 /* ThirdPartyLoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BEA811504EE32FBC32B7AA /* ThirdPartyLoginError.swift */; };
+		C0F42B40978DF4E75E0827F3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F1258F2F0F61FD756DE73 /* NetworkError.swift */; };
 		C11041E3A29991A643EAF307 /* DependencyContainer+Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BCDEDF03B4720902A49402 /* DependencyContainer+Previews.swift */; };
+		C7D7A5453A047A100B972545 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9DD19AE4C8535EBF71FE70 /* XCTest.framework */; };
+		C912E2A4FB9346A6C2076800 /* NetworkProvidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD8645E6BDEF3C902253704 /* NetworkProvidable.swift */; };
 		CA8F1D8B6002DED74BE893F5 /* TouchPassThroughWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7087BAD68999755C82C0E5 /* TouchPassThroughWindow.swift */; };
 		D5AC4EEDF6F810EC752A1262 /* ToastWindowWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0882B318FCC28D8F53DC4EC /* ToastWindowWrapper.swift */; };
 		D6C3F6C6BE6B200B8DCC6C3C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9267B6CB68959D438C0AEA61 /* Preview Assets.xcassets */; };
-		D6EDB88B4617BB6D97923435 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99177708B0957EF778D8E396 /* AuthAPI.swift */; };
+		D76844A3C5AB71656653D915 /* TokenStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22102202CFF1AEC8D37123AF /* TokenStorable.swift */; };
 		D92E5482CCCB3DB97ED78B88 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08E6255C202D894F56257AE /* User.swift */; };
 		DBE0295BFE49F8C3C81F5A1B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9DD19AE4C8535EBF71FE70 /* XCTest.framework */; };
-		EB930ED91FD01A051AD39302 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0299041B57308F9579B19D /* HttpMethod.swift */; };
 		F63EA8A5D85926A869B50A02 /* Alamofire_Alamofire.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B7190C01F9A996158650C5A /* Alamofire_Alamofire.bundle */; };
 		FB94FE502390250C30D241ED /* KakaoSDKCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3003C59B370EA3560E574EA /* KakaoSDKCommon.framework */; };
-		FC99211DC0DB49E1F85BFF6E /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4761B1E97D047966C68142 /* NetworkProvider.swift */; };
+		FE5A3D6D71CC510ADAA64257 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F6A638609BA5AFA98EFD4F /* HttpMethod.swift */; };
 		FF061803F8DE131FBDF038AA /* LoginHelperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6BC94A7589B4118832525F /* LoginHelperFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0886F0847D9C3014F00CB853 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71E26D68ADE1C5F62A8F1A15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1F53E36B9C5F31A54B013DC;
+			remoteInfo = Network;
+		};
+		0E8D7DF0EFE572FAC1380EC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71E26D68ADE1C5F62A8F1A15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1F53E36B9C5F31A54B013DC;
+			remoteInfo = Network;
+		};
 		2ECAD0F063E9D35C11909739 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 71E26D68ADE1C5F62A8F1A15 /* Project object */;
@@ -85,6 +108,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		45E2498E18D6419404CC98C6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A3FDA35C6DD62FF60B2E43A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,44 +149,59 @@
 			name = Dependencies;
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		C5621A744626BCE57DC54B1A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05DE20A331F3596A7211B39A /* KakaoSDKCertCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KakaoSDKCertCore.xcframework; sourceTree = "<group>"; };
-		07A301E61F044821277734D8 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		05DE20A331F3596A7211B39A /* KakaoSDKCertCore.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:L75WVXX68A:Kakao Corp."; lastKnownFileType = wrapper.xcframework; path = KakaoSDKCertCore.xcframework; sourceTree = "<group>"; };
 		0814D9A813FC36F5B73E0DA1 /* KakaoSDKUser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKUser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E93E3C73A78A5CDBA2FD3E2 /* ToastsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastsView.swift; sourceTree = "<group>"; };
+		0F6F1258F2F0F61FD756DE73 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		1A46DEEDE327A18727DD8308 /* DependencyContainable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainable.swift; sourceTree = "<group>"; };
-		1C0299041B57308F9579B19D /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		1C8054B69F218A929512FF09 /* LoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfo.swift; sourceTree = "<group>"; };
 		1D9DD19AE4C8535EBF71FE70 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		20052915B2B80D7EC9291331 /* KakaoOpenSDK_KakaoSDKCommon.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KakaoOpenSDK_KakaoSDKCommon.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		22102202CFF1AEC8D37123AF /* TokenStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorable.swift; sourceTree = "<group>"; };
 		2D127F48D68FF7596F6B58C8 /* CryingDiary-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CryingDiary-Info.plist"; sourceTree = "<group>"; };
 		2D7087BAD68999755C82C0E5 /* TouchPassThroughWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchPassThroughWindow.swift; sourceTree = "<group>"; };
 		2DE87BF5D6D388F73C80AB14 /* EnvironmentValues+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Extension.swift"; sourceTree = "<group>"; };
 		2E510B2081ECD823ECD62A4F /* GlobalAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalAppState.swift; sourceTree = "<group>"; };
 		331871A0CEAA69559A07D9FC /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		339C77711BAD00F6AC5C913E /* NetworkProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderTests.swift; sourceTree = "<group>"; };
 		351FB68A4BD5DDE6D476D89E /* TuistAssets+CryingDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+CryingDiary.swift"; sourceTree = "<group>"; };
 		3752726AA3A74AF531939A71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		391AAE31C2D1B3439252849E /* Do+Defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Do+Defer.swift"; sourceTree = "<group>"; };
-		39E764F0D4238E3A2DF47A1E /* KakaoSDKFriendCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = KakaoSDKFriendCore.xcframework; sourceTree = "<group>"; };
+		39E764F0D4238E3A2DF47A1E /* KakaoSDKFriendCore.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:L75WVXX68A:Kakao Corp."; lastKnownFileType = wrapper.xcframework; path = KakaoSDKFriendCore.xcframework; sourceTree = "<group>"; };
 		3B68AA0A452B54776627C79A /* KakaoSDKCert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKCert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		472D471B43DB21169CD2366D /* ContentViewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewScene.swift; sourceTree = "<group>"; };
+		48883616D2A7A3267D4DFB9E /* API+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Extension.swift"; sourceTree = "<group>"; };
 		48BEA811504EE32FBC32B7AA /* ThirdPartyLoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginError.swift; sourceTree = "<group>"; };
 		529AF60C251FA477111F83F4 /* AppScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScene.swift; sourceTree = "<group>"; };
 		5752B527102B05AD7D9E0C60 /* KakaoSDKTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F04A0E5E671DA4A01DF61E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5AA60477C35CEE6A5F434F8D /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		6298B84CF8A888C05A11602D /* LoginInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInfoRepository.swift; sourceTree = "<group>"; };
 		646C954194082454D7108DC1 /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 		662F85F12B311B2BD113139A /* ThirdPartyLoginHelpable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginHelpable.swift; sourceTree = "<group>"; };
 		6750F5F0F0B6C8A0EB42FAE8 /* CryingDiaryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryApp.swift; sourceTree = "<group>"; };
 		6B7190C01F9A996158650C5A /* Alamofire_Alamofire.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Alamofire_Alamofire.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BD8645E6BDEF3C902253704 /* NetworkProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvidable.swift; sourceTree = "<group>"; };
 		6CAD0ADF84C285BB3E276DA8 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
+		6E19611215A790F83F2421D0 /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73FA222D76E99672C6078446 /* CryingDiaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CryingDiaryTests-Info.plist"; sourceTree = "<group>"; };
 		748D0EB15813214DB0FD0B20 /* ThirdPartyLoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginType.swift; sourceTree = "<group>"; };
 		78A34BD7FA46B11CDB67AE24 /* CryingDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryingDiaryTests.swift; sourceTree = "<group>"; };
+		796CEF7DD56A79CD83BF8E20 /* RefreshAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAPI.swift; sourceTree = "<group>"; };
 		7B3B0349DAD35F20CD1F8313 /* CryingDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryingDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7E00D142F1D6B3813E8E40D5 /* TokenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAPI.swift; sourceTree = "<group>"; };
 		7F4875160C1F09D01D34C862 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		80FF6BAD5FC9DF1CA7C4322C /* AppKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKeys.swift; sourceTree = "<group>"; };
 		83EA5C064A99D8CCD20A2B6B /* TokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStore.swift; sourceTree = "<group>"; };
@@ -161,36 +209,50 @@
 		8AD1F2A82FE900FA5F2301B2 /* TuistBundle+CryingDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+CryingDiary.swift"; sourceTree = "<group>"; };
 		8B73D5C7B7C58F550B0229BD /* KakaoSDKNavi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKNavi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9267B6CB68959D438C0AEA61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		99177708B0957EF778D8E396 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		9965FD5E710FA3375EC0FF17 /* KakaoSDKFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9397DF586F2A46D0A95E77 /* NetworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "NetworkTests-Info.plist"; sourceTree = "<group>"; };
 		A0C2B4F3C81FDEA49A1A9D9C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A6169F9836A06EA01E501EE6 /* AuthControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllerError.swift; sourceTree = "<group>"; };
+		A9E61B6B281D26C3DE4D9688 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		AF0B2DAFEFDCD342C9E68E1B /* KakaoLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginHelper.swift; sourceTree = "<group>"; };
 		B01EF460F906B654AB544095 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		B49CF874FCCC8AA069C96A00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B647AFFC6255BFD875037253 /* AuthControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthControllable.swift; sourceTree = "<group>"; };
-		BA006693568F0115BCB8F9F6 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BB1A764BA18347406A7B9433 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		BE3399A9F97927880DE36C89 /* NetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BCDEDF03B4720902A49402 /* DependencyContainer+Previews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+Previews.swift"; sourceTree = "<group>"; };
 		C520A29F8A7F0B4B1D2C06DA /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C653DE1E85D739A5AC5341E6 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
-		C72EB085056EA1325D4F7CB9 /* NetworkProvidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvidable.swift; sourceTree = "<group>"; };
+		C74AD20AA88EF25A36AC5140 /* TokenStore+TokenStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenStore+TokenStorable.swift"; sourceTree = "<group>"; };
 		CE6BC94A7589B4118832525F /* LoginHelperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHelperFactory.swift; sourceTree = "<group>"; };
-		CF4761B1E97D047966C68142 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		D0882B318FCC28D8F53DC4EC /* ToastWindowWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastWindowWrapper.swift; sourceTree = "<group>"; };
+		D0A8F65B191F2DA33BFEAF47 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		D27013A0DED1029DFD3BD729 /* KakaoSDKShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B98728933871E9CA36BE05 /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3003C59B370EA3560E574EA /* KakaoSDKCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D302A4EFFD00542FD68F39E8 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D3F6A638609BA5AFA98EFD4F /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		D7680FE3ACE8EA4BC6E653AB /* KakaoSDKTalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKTalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D920170F5914D8F1FC5BC5D7 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		DEB2BF3250A7F73D414D2D47 /* NetworkConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurable.swift; sourceTree = "<group>"; };
 		E76BD08C986AAAF8A93AD5DE /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		EB83F53C64299DA69C4C2431 /* AppleLoginHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginHelper.swift; sourceTree = "<group>"; };
 		F08E6255C202D894F56257AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F302439508241DD6CC365FE2 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		F705168F0BA839CFDC3EA7F2 /* Network-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Network-Info.plist"; sourceTree = "<group>"; };
 		F800E3A1F6F07CA3FCF6D147 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		659CED8DFB3F330A90BC2B32 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7D7A5453A047A100B972545 /* XCTest.framework in Frameworks */,
+				4C691A1774D79C4E338188CD /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AC61A139FF628578E6B14F02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -214,20 +276,29 @@
 				589E1D2D21290C68D6615817 /* KakaoSDKTalk.framework in Frameworks */,
 				454E966A7E145B16F19FB0A0 /* KakaoSDKTemplate.framework in Frameworks */,
 				82D57B877977E06408718CC4 /* KakaoSDKUser.framework in Frameworks */,
+				95EFE872791C8BCE3E68D605 /* Network.framework in Frameworks */,
 				BB8A1D73D2A6D6CB0C94EB78 /* KakaoSDKCertCore.xcframework in Frameworks */,
 				3A9BBDF2EDD3A54F75395BFB /* KakaoSDKFriendCore.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD0548AF8F760657E377C3E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		02417A75C71631FD0E1068C7 /* APIs */ = {
+		0354BA7299907E84872ABBE4 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				99177708B0957EF778D8E396 /* AuthAPI.swift */,
+				A9E61B6B281D26C3DE4D9688 /* API.swift */,
+				796CEF7DD56A79CD83BF8E20 /* RefreshAPI.swift */,
 			);
-			path = APIs;
+			path = API;
 			sourceTree = "<group>";
 		};
 		09C25F44A091F3F52FBCE742 /* Environment */ = {
@@ -237,6 +308,15 @@
 				2DE87BF5D6D388F73C80AB14 /* EnvironmentValues+Extension.swift */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		1905D99380CC6AEE0BDF94AF /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				6BD8645E6BDEF3C902253704 /* NetworkProvidable.swift */,
+				D920170F5914D8F1FC5BC5D7 /* NetworkProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		19C49E3E2B9E3C89CB00748B /* kakao-ios-sdk */ = {
@@ -253,6 +333,7 @@
 				56BCEA3762509BAC77CEA434 /* Configurations */,
 				F344D8E8F4A4FA660C038C4B /* CryingDiary */,
 				C384BB3984E54AF6F8F0F41C /* Derived */,
+				E66F62D93A851D8417A6920D /* Network */,
 				A9C93BBDDB8EBA7ADAE2374D /* Tuist */,
 			);
 			name = Project;
@@ -261,7 +342,6 @@
 		3FA631FE417A6618DBEBDB00 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				02417A75C71631FD0E1068C7 /* APIs */,
 				BB9CEFB6C454F5D9953267AA /* Authentication */,
 				A2B3369716D0387AB668F88A /* Common */,
 				B331B21197E8428A10D7FE76 /* Dependency */,
@@ -274,6 +354,16 @@
 				C5607BC0B51FA9CFF5C73493 /* View */,
 				F8D094AD4173A49D4B937269 /* Views */,
 				6750F5F0F0B6C8A0EB42FAE8 /* CryingDiaryApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		4418A5CE11BE929C1DD1795C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0354BA7299907E84872ABBE4 /* API */,
+				5C437821262C1D4BA1061EF1 /* Common */,
+				1905D99380CC6AEE0BDF94AF /* Provider */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -303,6 +393,17 @@
 				E76BD08C986AAAF8A93AD5DE /* release.xcconfig */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		5C437821262C1D4BA1061EF1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D3F6A638609BA5AFA98EFD4F /* HttpMethod.swift */,
+				DEB2BF3250A7F73D414D2D47 /* NetworkConfigurable.swift */,
+				0F6F1258F2F0F61FD756DE73 /* NetworkError.swift */,
+				22102202CFF1AEC8D37123AF /* TokenStorable.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		65AFF9EE175ABB7585F446EE /* Toast */ = {
@@ -359,6 +460,8 @@
 				D7680FE3ACE8EA4BC6E653AB /* KakaoSDKTalk.framework */,
 				5752B527102B05AD7D9E0C60 /* KakaoSDKTemplate.framework */,
 				0814D9A813FC36F5B73E0DA1 /* KakaoSDKUser.framework */,
+				6E19611215A790F83F2421D0 /* Network.framework */,
+				BE3399A9F97927880DE36C89 /* NetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -461,6 +564,7 @@
 				A6169F9836A06EA01E501EE6 /* AuthControllerError.swift */,
 				CE6BC94A7589B4118832525F /* LoginHelperFactory.swift */,
 				83EA5C064A99D8CCD20A2B6B /* TokenStore.swift */,
+				C74AD20AA88EF25A36AC5140 /* TokenStore+TokenStorable.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -492,10 +596,19 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		CDB6FA8CAFF1E29054ABF9C3 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				339C77711BAD00F6AC5C913E /* NetworkProviderTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		D4C9DBAFE1BF745A38039CF5 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
-				7E00D142F1D6B3813E8E40D5 /* TokenAPI.swift */,
+				48883616D2A7A3267D4DFB9E /* API+Extension.swift */,
+				D0A8F65B191F2DA33BFEAF47 /* AuthAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -518,15 +631,20 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		E66F62D93A851D8417A6920D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4418A5CE11BE929C1DD1795C /* Sources */,
+				CDB6FA8CAFF1E29054ABF9C3 /* Tests */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E7612812B573227760A09C40 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				D4C9DBAFE1BF745A38039CF5 /* APIs */,
-				BA006693568F0115BCB8F9F6 /* API.swift */,
-				1C0299041B57308F9579B19D /* HttpMethod.swift */,
-				07A301E61F044821277734D8 /* NetworkError.swift */,
-				C72EB085056EA1325D4F7CB9 /* NetworkProvidable.swift */,
-				CF4761B1E97D047966C68142 /* NetworkProvider.swift */,
+				5AA60477C35CEE6A5F434F8D /* NetworkConfiguration.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -573,6 +691,8 @@
 			children = (
 				2D127F48D68FF7596F6B58C8 /* CryingDiary-Info.plist */,
 				73FA222D76E99672C6078446 /* CryingDiaryTests-Info.plist */,
+				F705168F0BA839CFDC3EA7F2 /* Network-Info.plist */,
+				9C9397DF586F2A46D0A95E77 /* NetworkTests-Info.plist */,
 			);
 			path = InfoPlists;
 			sourceTree = "<group>";
@@ -588,6 +708,27 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		20CDD7F440D284602200DF43 /* NetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4865525CD9A735DC097AD928 /* Build configuration list for PBXNativeTarget "NetworkTests" */;
+			buildPhases = (
+				816FBF19D0526A85CD49B6ED /* Sources */,
+				4436921B729C67FD41A1C54C /* Resources */,
+				659CED8DFB3F330A90BC2B32 /* Frameworks */,
+				45E2498E18D6419404CC98C6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70CA3D65D5B605B6AA911CC7 /* PBXTargetDependency */,
+			);
+			name = NetworkTests;
+			packageProductDependencies = (
+			);
+			productName = NetworkTests;
+			productReference = BE3399A9F97927880DE36C89 /* NetworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6ECA25F7B06236EB1A745B3D /* CryingDiary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE150DF22A6D3225D8316C25 /* Build configuration list for PBXNativeTarget "CryingDiary" */;
@@ -601,6 +742,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E93B8E1C9F19E807E4A8E2C9 /* PBXTargetDependency */,
 			);
 			name = CryingDiary;
 			packageProductDependencies = (
@@ -630,6 +772,26 @@
 			productReference = 7B3B0349DAD35F20CD1F8313 /* CryingDiaryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C1F53E36B9C5F31A54B013DC /* Network */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0D1C9416755A15CEA293CC6 /* Build configuration list for PBXNativeTarget "Network" */;
+			buildPhases = (
+				80549F8090D18B5E691E66F6 /* Sources */,
+				01CDA187E93DD49EAC3B3452 /* Resources */,
+				FD0548AF8F760657E377C3E6 /* Frameworks */,
+				C5621A744626BCE57DC54B1A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Network;
+			packageProductDependencies = (
+			);
+			productName = Network;
+			productReference = 6E19611215A790F83F2421D0 /* Network.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -658,11 +820,27 @@
 			targets = (
 				6ECA25F7B06236EB1A745B3D /* CryingDiary */,
 				B1C0BF53D0A4064CD8EEABC7 /* CryingDiaryTests */,
+				C1F53E36B9C5F31A54B013DC /* Network */,
+				20CDD7F440D284602200DF43 /* NetworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		01CDA187E93DD49EAC3B3452 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4436921B729C67FD41A1C54C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		46802E59BFC307184334A5D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -692,11 +870,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		80549F8090D18B5E691E66F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CDFA0CE9A495B4E833A3201 /* API.swift in Sources */,
+				357B40536E83E90F6C3880B0 /* RefreshAPI.swift in Sources */,
+				FE5A3D6D71CC510ADAA64257 /* HttpMethod.swift in Sources */,
+				A3B920DDB45FC6BD3ADAF02B /* NetworkConfigurable.swift in Sources */,
+				C0F42B40978DF4E75E0827F3 /* NetworkError.swift in Sources */,
+				D76844A3C5AB71656653D915 /* TokenStorable.swift in Sources */,
+				C912E2A4FB9346A6C2076800 /* NetworkProvidable.swift in Sources */,
+				328FCE8410A2B50018E74478 /* NetworkProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		816FBF19D0526A85CD49B6ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				697C221B15EFED085A84B90A /* NetworkProviderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C05EFE39E2C5688FE821FD18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6EDB88B4617BB6D97923435 /* AuthAPI.swift in Sources */,
 				4FE53B1C76DE4A0486AE8569 /* AuthControllable.swift in Sources */,
 				74FF17FDDD327235C0C4ED31 /* AuthController.swift in Sources */,
 				72111B0387CA24302CB0916D /* AuthControllerError.swift in Sources */,
@@ -706,6 +906,7 @@
 				BF33C1FE8740FC0DE7FBB310 /* ThirdPartyLoginError.swift in Sources */,
 				6CE79BE5503A23FC274052AB /* ThirdPartyLoginHelpable.swift in Sources */,
 				61261855BCF95ADA2658AFC6 /* ThirdPartyLoginType.swift in Sources */,
+				99D18E070CE2B4FFEC54FF40 /* TokenStore+TokenStorable.swift in Sources */,
 				BF089C54BD9464345A5C7C2E /* TokenStore.swift in Sources */,
 				CA8F1D8B6002DED74BE893F5 /* TouchPassThroughWindow.swift in Sources */,
 				2B3CB27A9A05AA05220F5AFB /* CryingDiaryApp.swift in Sources */,
@@ -721,12 +922,9 @@
 				5152ED5803BAB6E61566151C /* SignInResponse.swift in Sources */,
 				59B13C6709E2AABC6047353A /* Toast.swift in Sources */,
 				D92E5482CCCB3DB97ED78B88 /* User.swift in Sources */,
-				1B3AD6DFF72C5F48EF7C7617 /* API.swift in Sources */,
-				4859F8C9F40A255BFA4B7A98 /* TokenAPI.swift in Sources */,
-				EB930ED91FD01A051AD39302 /* HttpMethod.swift in Sources */,
-				9207F1F17BBE1561A407D120 /* NetworkError.swift in Sources */,
-				B2D80612903E26713EA854E8 /* NetworkProvidable.swift in Sources */,
-				FC99211DC0DB49E1F85BFF6E /* NetworkProvider.swift in Sources */,
+				91D5A7F4F1553577F924A168 /* API+Extension.swift in Sources */,
+				30CD6948FCBF04390C0A3079 /* AuthAPI.swift in Sources */,
+				5D64C1F687F5160D207BF83A /* NetworkConfiguration.swift in Sources */,
 				562843ED39BC82DC7D65ABDA /* LoginInfoRepository.swift in Sources */,
 				814E22FAAE18F46BC0C7362C /* RepositoryError.swift in Sources */,
 				16CF579733B501CA8192B11B /* CryptoUtil.swift in Sources */,
@@ -746,11 +944,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		70CA3D65D5B605B6AA911CC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Network;
+			target = C1F53E36B9C5F31A54B013DC /* Network */;
+			targetProxy = 0E8D7DF0EFE572FAC1380EC4 /* PBXContainerItemProxy */;
+		};
 		CCB7F8898F8FC89108A3FBCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CryingDiary;
 			target = 6ECA25F7B06236EB1A745B3D /* CryingDiary */;
 			targetProxy = 2ECAD0F063E9D35C11909739 /* PBXContainerItemProxy */;
+		};
+		E93B8E1C9F19E807E4A8E2C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Network;
+			target = C1F53E36B9C5F31A54B013DC /* Network */;
+			targetProxy = 0886F0847D9C3014F00CB853 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -821,25 +1031,99 @@
 			};
 			name = DEBUG;
 		};
+		0F1F61783E2EBE656D126FC3 /* DEBUG */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F4875160C1F09D01D34C862 /* debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "$(DEV_TEAM_ID)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/Network-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gtw.network;
+				PRODUCT_NAME = Network;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = DEBUG;
+		};
 		4016325A0718152862C422B9 /* RELEASE */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E76BD08C986AAAF8A93AD5DE /* release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "$(DEV_TEAM_ID)";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Tuist/.build/checkouts/kakao-ios-sdk/Sources/KakaoSDKCertCore",
 					"$(SRCROOT)/Tuist/.build/checkouts/kakao-ios-sdk/Sources/KakaoSDKFriendCore",
 				);
 				INFOPLIST_FILE = "Derived/InfoPlists/CryingDiary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gtw.cryingDiary;
 				PRODUCT_NAME = CryingDiary;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = RELEASE;
+		};
+		41E00ED7E37289EF6572F049 /* RELEASE */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/NetworkTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gtw.network.tests;
+				PRODUCT_NAME = NetworkTests;
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -850,35 +1134,106 @@
 			};
 			name = RELEASE;
 		};
+		88E2E3A8A1B1C90B5A062D99 /* RELEASE */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E76BD08C986AAAF8A93AD5DE /* release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "$(DEV_TEAM_ID)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/Network-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gtw.network;
+				PRODUCT_NAME = Network;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = RELEASE;
+		};
+		B37C62C23048126B7C93461C /* DEBUG */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				INFOPLIST_FILE = "Derived/InfoPlists/NetworkTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gtw.network.tests;
+				PRODUCT_NAME = NetworkTests;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = DEBUG;
+		};
 		BD0785728A67F449B18BDBA3 /* DEBUG */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F4875160C1F09D01D34C862 /* debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "$(DEV_TEAM_ID)";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Tuist/.build/checkouts/kakao-ios-sdk/Sources/KakaoSDKCertCore",
 					"$(SRCROOT)/Tuist/.build/checkouts/kakao-ios-sdk/Sources/KakaoSDKFriendCore",
 				);
 				INFOPLIST_FILE = "Derived/InfoPlists/CryingDiary-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gtw.cryingDiary;
 				PRODUCT_NAME = CryingDiary;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = DEBUG;
@@ -904,10 +1259,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-					"$(inherited)",
-					DEBUG,
-				);
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -987,6 +1339,7 @@
 				DEVELOPMENT_TEAM = "$(DEV_TEAM_ID)";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1008,11 +1361,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4865525CD9A735DC097AD928 /* Build configuration list for PBXNativeTarget "NetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B37C62C23048126B7C93461C /* DEBUG */,
+				41E00ED7E37289EF6572F049 /* RELEASE */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = RELEASE;
+		};
 		637F9463DABBD70569BCD873 /* Build configuration list for PBXNativeTarget "CryingDiaryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EE3B5E7D4C324A31FC8562AF /* DEBUG */,
 				F0088062A96E01D7E2981CA5 /* RELEASE */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = RELEASE;
+		};
+		A0D1C9416755A15CEA293CC6 /* Build configuration list for PBXNativeTarget "Network" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F1F61783E2EBE656D126FC3 /* DEBUG */,
+				88E2E3A8A1B1C90B5A062D99 /* RELEASE */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = RELEASE;

@@ -12,7 +12,9 @@ let project = Project(
     ),
     targets: [
         Targets.cryingDiary,
-        Targets.cryingDiaryTests
+        Targets.cryingDiaryTests,
+        Targets.network,
+        Targets.networkTests,
     ],
     schemes: [
         .scheme(
