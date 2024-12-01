@@ -13,17 +13,15 @@ public final actor NetworkProvider: NetworkProvidable {
     
     public init(
         session: URLSession = .shared,
-        configuration: NetworkConfigurable,
-        tokenStore: TokenStorable
+        configuration: NetworkConfigurable
     ) {
         self.session = session
         self.configuration = configuration
-        self.tokenStore = tokenStore
     }
     
     // MARK: Properties
     
-    private let tokenStore: TokenStorable
+    private(set) weak var tokenStore: TokenStorable?
     private let configuration: NetworkConfigurable
     private let session: URLSession
     
@@ -36,11 +34,15 @@ public final actor NetworkProvider: NetworkProvidable {
     public func request(api: API) async throws {
         _ = try await requestData(api: api, retry: true)
     }
+    
+    public func setTokenStore(_ store: TokenStorable) {
+        self.tokenStore = store
+    }
 }
 
 private extension NetworkProvider {
     func requestData(api: API, retry: Bool = true) async throws -> Data {
-        let accessToken = await tokenStore.accessToken
+        let accessToken = await tokenStore?.accessToken
         let request: URLRequest = try api.makeURLRequest(baseURLString: configuration.baseURLString, accessToken: accessToken)
         
         let (data, response): (Data, URLResponse)
@@ -82,12 +84,12 @@ private extension NetworkProvider {
     }
     
     func refreshTokens() async throws {
-        guard let currentRefreshToken = await tokenStore.refreshToken else { throw NetworkError.authenticationFailed }
+        guard let currentRefreshToken = await tokenStore?.refreshToken else { throw NetworkError.authenticationFailed }
 
         do {
             let api = RefreshAPI(refreshToken: currentRefreshToken)
             let response = try await request(api: api, decodingType: TokenResponse.self, retry: false)
-            await tokenStore.updateTokens(accessToken: response.accessToken, refreshToken: response.refreshToken)
+            await tokenStore?.updateTokens(accessToken: response.accessToken, refreshToken: response.refreshToken)
         } catch {
             throw NetworkError.authenticationFailed
         }

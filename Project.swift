@@ -15,6 +15,8 @@ let project = Project(
         Targets.cryingDiaryTests,
         Targets.network,
         Targets.networkTests,
+        Targets.thirdPartyAuth,
+        Targets.thirdPartyAuthTests,
     ],
     schemes: [
         .scheme(

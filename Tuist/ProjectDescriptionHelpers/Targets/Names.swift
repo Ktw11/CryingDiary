@@ -3,6 +3,7 @@ import ProjectDescription
 public enum Names {
     public static let cryingDiary = "CryingDiary"
     public static let network = "Network"
+    public static let thirdPartyAuth = "ThirdPartyAuth"
 }
 
 public enum ConfigurationNames {

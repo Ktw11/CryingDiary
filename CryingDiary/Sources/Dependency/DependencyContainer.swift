@@ -8,40 +8,52 @@
 import Foundation
 import SwiftUI
 import Network
+import ThirdPartyAuth
 
-struct DependencyContainer {
+@MainActor final class DependencyContainer {
     
     // MARK: Lifecycle
     
-    init(
-        tokenStore: TokenStorable,
-        loginInfoRepository: LoginInfoRepositoryType,
-        networkProvider: NetworkProvidable
-    ) {
-        self.tokenStore = tokenStore
-        self.loginInfoRepository = loginInfoRepository
-        self.networkProvider = networkProvider
-        self.authController = AuthController(
-            networkProvider: networkProvider,
-            loginInfoRepository: loginInfoRepository,
-            loginHelperFactory: LoginHelperFactory()
+    init() {
+        let tokenStore = TokenStore()
+        self.networkProvider = NetworkProvider(
+            configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL)
         )
+        self.tokenStore = tokenStore
+        self.signInInfoRepository = SignInInfoRepository()
+        
+        configureDependencies()
     }
     
     // MARK: Properties
     
-    private let tokenStore: TokenStorable
-    private let loginInfoRepository: LoginInfoRepositoryType
+    private let tokenStore: TokenStore
     private let networkProvider: NetworkProvidable
-    private let authController: AuthControllable
+    private let signInInfoRepository: SignInInfoRepositoryType
+}
+
+private extension DependencyContainer {
+    func configureDependencies() {
+        ThirdPartyAuthProvider.configure()
+        
+        Task {
+            await networkProvider.setTokenStore(tokenStore)
+        }
+    }
 }
 
 extension DependencyContainer: DependencyContainable {
-    @MainActor
+    func handleURL(_ url: URL) {
+        ThirdPartyAuthProvider.handleURL(url)
+    }
+
     func makeContentViewModel() -> ContentViewModelType {
         ContentViewModel(
-            authController: authController,
-            tokenStore: tokenStore
+            authService: AuthService(
+                networkProvider: networkProvider,
+                signInInfoRepository: signInInfoRepository,
+                tokenStore: tokenStore
+            )
         )
     }
 }

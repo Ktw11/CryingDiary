@@ -16,8 +16,13 @@ final actor TokenStore {
     
     // MARK: Methods
     
-    func updateTokens(accessToken: String, refreshToken: String) async {
+    func updateTokens(accessToken: String, refreshToken: String) {
         self.accessToken = accessToken
         self.refreshToken = refreshToken
+    }
+    
+    func reset() {
+        self.accessToken = nil
+        self.refreshToken = nil
     }
 }

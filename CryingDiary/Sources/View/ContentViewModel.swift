@@ -6,15 +6,13 @@
 //
 
 import Foundation
-#warning("todo: Network 의존 제거 필요")
-import Network
 
 @MainActor
 protocol ContentViewModelType: Observable {
     var showProgressView: Bool { get }
  
     func setAppStateUpdatable(_ appState: AppStateUpdatable)
-    func signIn(with type: ThirdPartyLoginType)
+    func signIn(with type: SignInType)
     func signInWithSavedToken()
     func signOut()
     func unlink()
@@ -26,9 +24,8 @@ final class ContentViewModel {
     
     // MARK: Lifecycle
     
-    init(authController: AuthControllable, tokenStore: TokenStorable) {
-        self.authController = authController
-        self.tokenStore = tokenStore
+    init(authService: AuthServiceProtocol) {
+        self.authService = authService
     }
     
     // MARK: Properties
@@ -36,8 +33,7 @@ final class ContentViewModel {
     private weak var appState: AppStateUpdatable?
     
     private(set) var showProgressView: Bool = false
-    private let authController: AuthControllable
-    private let tokenStore: TokenStorable
+    private let authService: AuthServiceProtocol
 }
 
 extension ContentViewModel: ContentViewModelType {
@@ -45,15 +41,14 @@ extension ContentViewModel: ContentViewModelType {
         self.appState = appState
     }
     
-    func signIn(with type: ThirdPartyLoginType) {
-        Task { [authController, weak self] in
+    func signIn(with type: SignInType) {
+        Task { [authService, weak self] in
             self?.showProgressView = true
             defer { self?.showProgressView = false }
             
             do {
-                let response = try await authController.signIn(with: type)
+                let response = try await authService.signIn(with: type)
                 self?.appState?.chageScene(to: .home(response.user))
-                await self?.updateTokens(with: response)
             } catch {
                 self?.appState?.appendToast(.init(message: "@@@ 에러가 발생했어요"))
             }
@@ -61,10 +56,9 @@ extension ContentViewModel: ContentViewModelType {
     }
     
     func signInWithSavedToken() {
-        Task { [authController, weak self] in
-            if let response = await authController.trySignIn() {
+        Task { [authService, weak self] in
+            if let response = await authService.trySignIn() {
                 self?.appState?.chageScene(to: .home(response.user))
-                await self?.updateTokens(with: response)
             } else {
                 self?.appState?.chageScene(to: .login)
             }
@@ -72,12 +66,12 @@ extension ContentViewModel: ContentViewModelType {
     }
     
     func signOut() {
-        Task { [authController, weak self] in
+        Task { [authService, weak self] in
             self?.showProgressView = true
             defer { self?.showProgressView = false }
             
             do {
-                try await authController.signOut()
+                try await authService.signOut()
                 self?.appState?.chageScene(to: .login)
             } catch {
                 self?.appState?.appendToast(.init(message: "@@@ 에러가 발생했어요"))
@@ -86,22 +80,16 @@ extension ContentViewModel: ContentViewModelType {
     }
     
     func unlink() {
-        Task { [authController, weak self] in
+        Task { [authService, weak self] in
             self?.showProgressView = true
             defer { self?.showProgressView = false }
             
             do {
-                try await authController.unlink()
+                try await authService.unlink()
                 self?.appState?.chageScene(to: .login)
             } catch {
                 self?.appState?.appendToast(.init(message: "@@@ 에러가 발생했어요"))
             }
         }
-    }
-}
-
-private extension ContentViewModel {
-    func updateTokens(with repsonse: SignInResponse) async {
-        await tokenStore.updateTokens(accessToken: repsonse.accessToken, refreshToken: repsonse.user.refreshToken)
     }
 }

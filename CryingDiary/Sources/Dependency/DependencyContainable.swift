@@ -8,5 +8,6 @@
 import SwiftUI
 
 protocol DependencyContainable {
+    @MainActor func handleURL(_ url: URL)
     @MainActor func makeContentViewModel() -> ContentViewModelType
 }

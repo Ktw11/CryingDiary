@@ -9,7 +9,7 @@ import Foundation
 import Network
 
 enum AuthAPI: API {
-    case signIn(token: String, type: ThirdPartyLoginType)
+    case signIn(token: String, type: SignInType)
     case autoSignIn(refreshToken: String)
     case signOut
     case unlink
@@ -18,8 +18,8 @@ enum AuthAPI: API {
 extension AuthAPI {
     var path: String {
         switch self {
-        case let .signIn(_, loginType):
-            "auth/signIn/\(loginType.rawValue)"
+        case let .signIn(_, signInType):
+            "auth/signIn/\(signInType.rawValue)"
         case .autoSignIn:
             "auth/autoSignIn"
         case .signOut:

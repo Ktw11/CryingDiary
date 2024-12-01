@@ -230,6 +230,34 @@
                ReferencedContainer = "container:CryingDiary.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A98159FA9D5054BD92651C91"
+               BuildableName = "ThirdPartyAuth.framework"
+               BlueprintName = "ThirdPartyAuth"
+               ReferencedContainer = "container:CryingDiary.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BC3654B0931AA3D751CA8C69"
+               BuildableName = "ThirdPartyAuthTests.xctest"
+               BlueprintName = "ThirdPartyAuthTests"
+               ReferencedContainer = "container:CryingDiary.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -255,6 +283,16 @@
                BlueprintIdentifier = "20CDD7F440D284602200DF43"
                BuildableName = "NetworkTests.xctest"
                BlueprintName = "NetworkTests"
+               ReferencedContainer = "container:CryingDiary.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BC3654B0931AA3D751CA8C69"
+               BuildableName = "ThirdPartyAuthTests.xctest"
+               BlueprintName = "ThirdPartyAuthTests"
                ReferencedContainer = "container:CryingDiary.xcodeproj">
             </BuildableReference>
          </TestableReference>

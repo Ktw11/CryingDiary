@@ -5,7 +5,7 @@ extension Targets {
         name: Names.cryingDiary,
         destinations: .iOS,
         product: .app,
-        bundleId: "com.gtw.cryingDiary",
+        bundleId: "gtw.CryingDiary",
         infoPlist: .extendingDefault(
             with: [
                 "UILaunchScreen": [
@@ -21,9 +21,10 @@ extension Targets {
         ),
         sources: ["\(Names.cryingDiary)/Sources/**"],
         resources: ["\(Names.cryingDiary)/Resources/**"],
+        entitlements: .file(path: .path("\(Names.cryingDiary)/CryingDiary.entitlements")),
         dependencies: [
-            .external(name: "KakaoSDK"),
             .target(name: Names.network),
+            .target(name: Names.thirdPartyAuth)
         ],
         settings: Settings.commonModule
     )

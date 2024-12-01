@@ -5,7 +5,7 @@ extension Targets {
         name: Names.network,
         destinations: .iOS,
         product: .staticFramework,
-        bundleId: "com.gtw.network",
+        bundleId: "gtw.Network",
         sources: ["\(Names.network)/Sources/**"],
         settings: Settings.commonModule
     )

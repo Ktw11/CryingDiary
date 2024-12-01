@@ -1,14 +1,14 @@
 //
-//  AppleLoginHelper.swift
-//  CryingDiary
+//  AppleAuthHelper.swift
+//  ThirdPartyAuth
 //
-//  Created by 공태웅 on 7/6/24.
+//  Created by 공태웅 on 11/29/24.
 //
 
 import Foundation
 import AuthenticationServices
 
-final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
+final class AppleAuthHelper: NSObject, ThirdPartyAuthHelpable {
     
     // MARK: Definitions
     
@@ -19,28 +19,35 @@ final class AppleLoginHelper: NSObject, ThirdPartyLoginHelpable {
             authContinuation = continuation
         }
     }
-
+    
     // MARK: Properties
-
     private let state: State = .init()
     
     // MARK: Methods
     
-    func getToken() async throws -> String {
-        let authorization = try await getAuthorizationFromApple()
-        return try await getLoginInfo(from: authorization)
-    }
-    
-    func signOut() async throws {
+    @MainActor func configure() {
         // do nothing
     }
     
-    func unlink() async throws {
+    @MainActor func handleURL(_ url: URL) -> Bool {
+        false
+    }
+    
+    func getToken() async throws -> String {
+        let authorization = try await getAuthorizationFromApple()
+        return try getTokenString(from: authorization)
+    }
+    
+    func signOut() throws {
+        // do nothing
+    }
+    
+    func unlink() throws {
         // do nothing
     }
 }
 
-private extension AppleLoginHelper {
+private extension AppleAuthHelper {
     func getAuthorizationFromApple() async throws -> ASAuthorization {
         try await withCheckedThrowingContinuation { continuation in
             Task {
@@ -61,18 +68,18 @@ private extension AppleLoginHelper {
         authorizationController.delegate = self
         authorizationController.performRequests()
     }
-
-    func getLoginInfo(from authorization: ASAuthorization) async throws -> String {
+    
+    func getTokenString(from authorization: ASAuthorization) throws -> String {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
               let authCodeData = credential.authorizationCode,
               let authCodeString = String(data: authCodeData, encoding: .utf8) else {
-            throw ThirdPartyLoginError.failedToAuthentication
+            throw ThirdPartyHelperError.failedToGetToken
         }
         return authCodeString
     }
 }
 
-extension AppleLoginHelper: ASAuthorizationControllerDelegate {
+extension AppleAuthHelper: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         Task {
             await self.state.authContinuation?.resume(returning: authorization)

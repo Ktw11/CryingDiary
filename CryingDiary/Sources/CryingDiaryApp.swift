@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-import KakaoSDKCommon
-import KakaoSDKAuth
-import Network
 
 @main
 struct CryingDiaryApp: App {
@@ -16,17 +13,7 @@ struct CryingDiaryApp: App {
     // MARK: Lifecycle
     
     init() {
-        KakaoSDK.initSDK(appKey: AppKeys.kakaoAppKey)
-        
-        let tokenStore = TokenStore()
-        let dependency = DependencyContainer(
-            tokenStore: tokenStore,
-            loginInfoRepository: LoginInfoRepository(),
-            networkProvider: NetworkProvider(
-                configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL),
-                tokenStore: tokenStore
-            )
-        )
+        let dependency = DependencyContainer()
         self.dependency = dependency
     }
     
@@ -52,10 +39,7 @@ struct CryingDiaryApp: App {
 
 private extension CryingDiaryApp {
     func handleURL(_ url: URL) {
-        if AuthApi.isKakaoTalkLoginUrl(url) {
-            _ = KakaoSDKAuth.AuthController.handleOpenUrl(url: url)
-            return
-        }
+        dependency.handleURL(url)
     }
     
     func setUpToastWindow() {

@@ -1,18 +1,31 @@
 //
-//  KakaoLoginHelper.swift
-//  CryingDiary
+//  KakaoAuthHelper.swift
+//  ThirdPartyAuth
 //
-//  Created by 공태웅 on 8/18/24.
+//  Created by 공태웅 on 11/29/24.
 //
 
 import Foundation
 import KakaoSDKAuth
 import KakaoSDKUser
- 
-@MainActor
-final class KakaoLoginHelper: ThirdPartyLoginHelpable {
+import KakaoSDKCommon
 
+@MainActor
+final class KakaoAuthHelper: ThirdPartyAuthHelpable {
+    
     // MARK: Methods
+    
+    func configure() {
+        KakaoSDK.initSDK(appKey: Environments.kakaoAppKey)
+    }
+    
+    func handleURL(_ url: URL) -> Bool {
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            _ = KakaoSDKAuth.AuthController.handleOpenUrl(url: url)
+            return true
+        }
+        return false
+    }
     
     func getToken() async throws -> String {
         return try await withCheckedThrowingContinuation { continuation in
@@ -52,7 +65,7 @@ final class KakaoLoginHelper: ThirdPartyLoginHelpable {
     }
 }
 
-private extension KakaoLoginHelper {
+private extension KakaoAuthHelper {
     func login(completion: @escaping (Result<String, Error>) -> Void) {
         if UserApi.isKakaoTalkLoginAvailable() {
             loginWithApp { completion($0) }
@@ -63,8 +76,13 @@ private extension KakaoLoginHelper {
     
     func loginWithApp(completion: @escaping (Result<String, Error>) -> Void) {
         UserApi.shared.loginWithKakaoTalk { token, error in
-            guard error == nil, let token else {
-                completion(.failure(ThirdPartyLoginError.failedToAuthentication))
+            if let error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let token else {
+                completion(.failure(ThirdPartyHelperError.failedToGetToken))
                 return
             }
             
@@ -74,8 +92,13 @@ private extension KakaoLoginHelper {
     
     func loginWithWeb(completion: @escaping (Result<String, Error>) -> Void) {
         UserApi.shared.loginWithKakaoAccount { token, error in
-            guard error == nil, let token else {
-                completion(.failure(ThirdPartyLoginError.failedToAuthentication))
+            if let error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let token else {
+                completion(.failure(ThirdPartyHelperError.failedToGetToken))
                 return
             }
             

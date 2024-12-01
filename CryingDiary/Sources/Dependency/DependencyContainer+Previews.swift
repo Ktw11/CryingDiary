@@ -6,19 +6,10 @@
 //
 
 import Foundation
-import Network
 
 extension DependencyContainer {
     @MainActor
-    static var previewDefault: Self {
-        let tokenStore = TokenStore()
-        return DependencyContainer(
-            tokenStore: tokenStore,
-            loginInfoRepository: LoginInfoRepository(),
-            networkProvider: NetworkProvider(
-                configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL),
-                tokenStore: tokenStore
-            )
-        )
+    static var previewDefault: DependencyContainer {
+        DependencyContainer()
     }
 }

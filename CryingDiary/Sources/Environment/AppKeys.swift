@@ -11,19 +11,11 @@ enum AppKeys {
     // MARK: Definitions
     
     private enum Key {
-        static let kakaoAppKey = "KakaoAppKey"
         static let baseURL = "BaseURL"
     }
     
     // MARK: Properties
-    
-    static let kakaoAppKey: String = {
-        guard let key = infoDictionary?[Key.kakaoAppKey] as? String else {
-            fatalError()
-        }
-        return key
-    }()
-    
+
     static let baseURL: String = {
         guard let key = infoDictionary?[Key.baseURL] as? String else {
             fatalError()

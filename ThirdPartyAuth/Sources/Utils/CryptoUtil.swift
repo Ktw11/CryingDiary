@@ -1,8 +1,8 @@
 //
 //  CryptoUtil.swift
-//  CryingDiary
+//  ThirdPartyAuth
 //
-//  Created by 공태웅 on 7/13/24.
+//  Created by 공태웅 on 11/29/24.
 //
 
 import Foundation

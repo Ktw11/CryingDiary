@@ -11,7 +11,7 @@ struct LoginView: View {
 
     // MARK: Properties
     
-    var tapLoginButton: (ThirdPartyLoginType) -> Void
+    var tapLoginButton: (SignInType) -> Void
     
     var body: some View {
         ZStack {
