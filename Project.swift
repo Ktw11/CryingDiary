@@ -6,8 +6,8 @@ let project = Project(
     settings: .settings(
         base: Settings.baseSettings,
         configurations: [
-            .debug(name: ConfigurationName.debugName),
-            .release(name: ConfigurationName.releaseName),
+            .debug(name: ConfigurationName.debugName, xcconfig: .relativeToRoot("CryingDiaryProject.xcconfig")),
+            .release(name: ConfigurationName.releaseName, xcconfig: .relativeToRoot("CryingDiaryProject.xcconfig"))
         ]
     ),
     targets: [
