@@ -1,7 +1,11 @@
 import ProjectDescription
 
 public enum TestTargets {
-    public static func make(from target: Target, dependencies: [ProjectDescription.TargetDependency] = []) -> Target {
+    public static func make(
+        from target: Target,
+        dependencies: [ProjectDescription.TargetDependency] = [],
+        sources: SourceFilesList? = nil
+    ) -> Target {
         var dependencies = dependencies
         
         dependencies.append(.target(name: target.name))
@@ -13,8 +17,8 @@ public enum TestTargets {
             destinations: .iOS,
             product: .unitTests,
             bundleId: "\(target.bundleId).tests",
-            sources: [
-                "\(target.name)/Tests/**"
+            sources: sources ?? [
+                "Tests/**"
             ],
             dependencies: dependencies
         )

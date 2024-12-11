@@ -2,10 +2,10 @@ import ProjectDescription
 
 extension Targets {
     public static let cryingDiary = Target.target(
-        name: Names.cryingDiary,
+        name: TargetNames.cryingDiary,
         destinations: .iOS,
         product: .app,
-        bundleId: "gtw.CryingDiary",
+        bundleId: "gtw.\(TargetNames.cryingDiary)",
         infoPlist: .extendingDefault(
             with: [
                 "UILaunchScreen": [
@@ -19,12 +19,18 @@ extension Targets {
                 ]
             ]
         ),
-        sources: ["\(Names.cryingDiary)/Sources/**"],
-        resources: ["\(Names.cryingDiary)/Resources/**"],
-        entitlements: .file(path: .path("\(Names.cryingDiary)/CryingDiary.entitlements")),
+        sources: ["Sources/**"],
+        resources: ["Resources/**"],
+        entitlements: .file(path: .relativeToManifest("CryingDiary.entitlements")),
         dependencies: [
-            .target(name: Names.network),
-            .target(name: Names.thirdPartyAuth)
+//            .project(target: Projects.feature.name, path: .relativeToRoot("Feature")),
+            Projects.feature.project,
+            .project(target: TargetNames.useCase, path: .relativeToRoot("Core")),
+            .project(target: TargetNames.repository, path: .relativeToRoot("Core")),
+            .project(target: Projects.thirdParty.name, path: .relativeToRoot("ThirdParty"))
+//            Projects.feature.project,
+//            Projects.core.project,
+//            Projects.thirdParty.project
         ],
         settings: Settings.commonModule
     )
