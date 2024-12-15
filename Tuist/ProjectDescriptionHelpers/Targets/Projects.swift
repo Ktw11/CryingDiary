@@ -24,6 +24,7 @@ public extension Projects {
 
 public enum FeatureProjects: String {
     case home = "Home"
+    case signIn = "SignIn"
 }
 
 public extension FeatureProjects {

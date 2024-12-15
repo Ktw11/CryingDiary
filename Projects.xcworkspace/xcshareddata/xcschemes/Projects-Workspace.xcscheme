@@ -98,6 +98,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F460539E99C605FE6AEECA95"
+               BuildableName = "SignIn.framework"
+               BlueprintName = "SignIn"
+               ReferencedContainer = "container:Feature/SignIn/SignIn.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "95E4DD90C3C00B88EDB856D7"
+               BuildableName = "SignIn_SignIn.bundle"
+               BlueprintName = "SignIn_SignIn"
+               ReferencedContainer = "container:Feature/SignIn/SignIn.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "5D711CEA43FFAD6AD6BDA3FC"
                BuildableName = "ThirdParty.framework"
                BlueprintName = "ThirdParty"

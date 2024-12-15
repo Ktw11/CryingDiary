@@ -6,7 +6,8 @@ extension Targets {
     public static func commonTarget(
         name: String,
         parentName: String? = nil,
-        sources: SourceFilesList,
+        sources: SourceFilesList?,
+        resources: ResourceFileElements? = nil,
         dependencies: [TargetDependency] = []
     ) -> Target {
         let parentBundleId: String = {
@@ -19,7 +20,8 @@ extension Targets {
             destinations: .iOS,
             product: .staticFramework,
             bundleId: "gtw.CryingDiary\(parentBundleId).\(name)",
-            sources: sources
+            sources: sources,
+            resources: resources ?? []
         )
     }
 }
