@@ -5,7 +5,7 @@ public enum Projects: String, CaseIterable {
     case feature = "Feature"
     case core = "Core"
     case thirdParty = "ThirdParty"
-    
+    case sharedResource = "SharedResource"
 }
 
 public extension Projects {
