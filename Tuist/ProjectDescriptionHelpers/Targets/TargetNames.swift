@@ -4,6 +4,7 @@ public enum TargetNames {
     public static let cryingDiary = "CryingDiary"
     public static let useCase = "UseCase"
     public static let repository = "Repository"
+    public static let network = "Network"
 }
 
 public enum ConfigurationNames {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UseCase
 
 @Observable
 @MainActor
@@ -13,13 +14,32 @@ public final class SignInViewModel {
     
     // MARK: Lifecycle
     
-    init(signInTypes: [SignInType]) {
-        self.signInTypes = signInTypes
+    init(signInTypes: [SignInType], useCase: SignInUseCase) {
+        self.buttonViewModels = signInTypes.map { SignInButtonViewModel(from: $0) }
+        self.useCase = useCase
     }
     
-    let signInTypes: [SignInType]
+    // MARK: Properties
     
-    func didTap(type: SignInType) {
-        #warning("sign in 로직 적용")
+    let buttonViewModels: [SignInButtonViewModel]
+    private(set) var showProgressView: Bool = false
+    private let useCase: SignInUseCase
+    
+    // MARK: Methods
+    
+    func didTap(id: String) {
+        guard let type = SignInType(rawValue: id) else { return }
+                
+        Task { [weak self, useCase] in
+            self?.showProgressView = true
+            defer { self?.showProgressView = false }
+            
+            do {
+                try await useCase.signIn(with: type)
+                // 앱 전체의 state 바꾸기
+            } catch {
+                // 앱 전체의 state 바꾸기
+            }
+        }
     }
 }

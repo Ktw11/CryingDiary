@@ -4,7 +4,10 @@ extension Targets {
     public static let repository = Targets.commonTarget(
         name: TargetNames.repository,
         parentName: Projects.core.name,
-        sources: ["\(TargetNames.repository)/Sources/**"]
+        sources: ["\(TargetNames.repository)/Sources/**"],
+        dependencies: [
+            .target(name: Targets.network.name)
+        ]
     )
     
     public static let repositoryTests = TestTargets.make(

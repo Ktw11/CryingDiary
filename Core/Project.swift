@@ -13,5 +13,7 @@ let project = Project(
         Targets.useCaseTests,
         Targets.repository,
         Targets.repositoryTests,
+        Targets.network,
+        Targets.networkTests
     ]
 )

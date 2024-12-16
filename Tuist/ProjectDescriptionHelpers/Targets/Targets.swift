@@ -21,7 +21,8 @@ extension Targets {
             product: .staticFramework,
             bundleId: "gtw.CryingDiary\(parentBundleId).\(name)",
             sources: sources,
-            resources: resources ?? []
+            resources: resources ?? [],
+            dependencies: dependencies
         )
     }
 }

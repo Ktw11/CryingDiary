@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import UseCase
 
-struct SignInButtonViewModel: Equatable {
-    let type: SignInType
+struct SignInButtonViewModel: Identifiable {
+    let id: String
     let icon: Image
     let backgroundColor: Color
-    
-    init(type: SignInType) {
-        self.type = type
-        self.icon = type.icon
+
+    init(from type: SignInType) {
+        self.id = type.rawValue
         self.backgroundColor = type.backgroundColor
+        self.icon = type.icon
     }
 }
 
