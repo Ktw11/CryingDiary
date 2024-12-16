@@ -5,9 +5,7 @@ let name = Projects.thirdParty.name
 
 let project = Project(
     name: name,
-    settings: .settings(
-        base: Settings.baseSettings
-    ),
+    settings: Settings.commonModule,
     targets: [
         Targets.commonTarget(
             name: name,

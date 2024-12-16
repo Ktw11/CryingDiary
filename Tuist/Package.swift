@@ -6,13 +6,13 @@
     import ProjectDescriptionHelpers
 
     let packageSettings = PackageSettings(
-        productTypes: ["KakaoSDK": .staticFramework]
-//        baseSettings: .settings(
-//            configurations: [
-//                .debug(name: ConfigurationName.debugName),
-//                .release(name: ConfigurationName.releaseName),
-//            ]
-//        )
+        productTypes: ["KakaoSDK": .staticFramework],
+        baseSettings: .settings(
+            configurations: [
+                .debug(name: ConfigurationName.debugName),
+                .release(name: ConfigurationName.releaseName),
+            ]
+        )
     )
 #endif
 

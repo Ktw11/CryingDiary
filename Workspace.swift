@@ -7,6 +7,7 @@ let workspace = Workspace(
         "App",
         "Core",
         "Feature/**",
+        "SharedResource",
         "ThirdParty",
     ]
 )
