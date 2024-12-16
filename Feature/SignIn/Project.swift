@@ -3,6 +3,10 @@ import ProjectDescriptionHelpers
 
 let project = Project(
     name: FeatureProjects.signIn.name,
+    options: .options(
+        defaultKnownRegions: ["ko", "en"],
+        developmentRegion: "ko"
+    ),
     settings: .settings(
         base: Settings.baseSettings
     ),

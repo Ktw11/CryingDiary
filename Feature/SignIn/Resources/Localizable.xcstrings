@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "ko",
+  "strings" : {
+    "SNS 계정으로 간편 로그인" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign in with SNS account"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SNS 계정으로 간편 로그인"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
