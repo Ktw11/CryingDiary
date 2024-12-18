@@ -7,9 +7,7 @@ let project = Project(
         defaultKnownRegions: ["ko", "en"],
         developmentRegion: "ko"
     ),
-    settings: .settings(
-        base: Settings.baseSettings
-    ),
+    settings: Settings.commonModule,
     targets: [
         .target(
             name: FeatureProjects.signIn.name,
@@ -19,7 +17,8 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .project(target: TargetNames.useCase, path: .relativeToRoot("Core"))
+                .project(target: TargetNames.domain, path: .relativeToRoot("Core")),
+                Projects.thirdParty.project
             ]
         )
     ]

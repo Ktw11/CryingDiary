@@ -70,6 +70,34 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "34465D799C1D92E5A2A1C76C"
+               BuildableName = "Domain.framework"
+               BlueprintName = "Domain"
+               ReferencedContainer = "container:Core/Core.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "148DF078E29AE000B9E3828C"
+               BuildableName = "DomainTests.xctest"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Core/Core.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "889701595646A30881D30ED8"
                BuildableName = "Feature.framework"
                BlueprintName = "Feature"
@@ -356,38 +384,10 @@
                ReferencedContainer = "container:ThirdParty/ThirdParty.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40DB3F1A70EEEDCC25B9A7FB"
-               BuildableName = "UseCase.framework"
-               BlueprintName = "UseCase"
-               ReferencedContainer = "container:Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1EA531CFB7FE99E6ED3F29A6"
-               BuildableName = "UseCaseTests.xctest"
-               BlueprintName = "UseCaseTests"
-               ReferencedContainer = "container:Core/Core.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "DEBUG"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -400,6 +400,16 @@
                BuildableName = "CryingDiaryTests.xctest"
                BlueprintName = "CryingDiaryTests"
                ReferencedContainer = "container:App/App.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "148DF078E29AE000B9E3828C"
+               BuildableName = "DomainTests.xctest"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Core/Core.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -419,16 +429,6 @@
                BlueprintIdentifier = "62939DE6212D2969C6998234"
                BuildableName = "RepositoryTests.xctest"
                BlueprintName = "RepositoryTests"
-               ReferencedContainer = "container:Core/Core.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1EA531CFB7FE99E6ED3F29A6"
-               BuildableName = "UseCaseTests.xctest"
-               BlueprintName = "UseCaseTests"
                ReferencedContainer = "container:Core/Core.xcodeproj">
             </BuildableReference>
          </TestableReference>

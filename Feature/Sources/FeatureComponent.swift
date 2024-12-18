@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-//public protocol FeatureComponentType: Sendable {
-////    associatedtype SomeView: View
-//    
-//    @ViewBuilder @MainActor func buildHome(userId: String) -> some View
-//}
-
 final public class FeatureComponent {
     public init() { }
 }

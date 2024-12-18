@@ -2,7 +2,7 @@ import ProjectDescription
 
 public enum TargetNames {
     public static let cryingDiary = "CryingDiary"
-    public static let useCase = "UseCase"
+    public static let domain = "Domain"
     public static let repository = "Repository"
     public static let network = "Network"
 }

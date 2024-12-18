@@ -6,10 +6,14 @@
 //
 
 import Foundation
-import UseCase
+import Domain
 
 actor SignInUseCaseMock: SignInUseCase {
-    func signIn(with type: SignInType) async throws {
+    func signIn(type: String, token: String) async throws -> SignInResponse {
         try await Task.sleep(for: .seconds(2))
+        return SignInResponse(
+            user: .init(id: "ID", loginType: "apple", refreshToken: "TOKEN"),
+            accessToken: "TOKEN2"
+        )
     }
 }

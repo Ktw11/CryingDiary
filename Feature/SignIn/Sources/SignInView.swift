@@ -9,6 +9,10 @@ import SwiftUI
 
 public struct SignInView: View {
     
+    public init(viewModel: SignInViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var viewModel: SignInViewModel
     
     public var body: some View {
@@ -28,9 +32,9 @@ public struct SignInView: View {
                     .foregroundStyle(SignInAsset.Color.description.swiftUIColor)
 
                 HStack(spacing: 18) {
-                    ForEach(viewModel.buttonViewModels, id: \.id) { vm in
+                    ForEach(viewModel.buttonViewModels, id: \.type) { vm in
                         Button(action: {
-                            viewModel.didTap(id: vm.id)
+                            viewModel.didTap(type: vm.type)
                         }, label: {
                             SignInButton(viewModel: vm)
                         })

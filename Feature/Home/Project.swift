@@ -3,9 +3,7 @@ import ProjectDescriptionHelpers
 
 let project = Project(
     name: FeatureProjects.home.name,
-    settings: .settings(
-        base: Settings.baseSettings
-    ),
+    settings: Settings.commonModule,
     targets: [
         .target(
             name: FeatureProjects.home.name,
@@ -14,7 +12,7 @@ let project = Project(
             bundleId: "gtw.CryingDiary.Feature.Home",
             sources: ["Sources/**"],
             dependencies: [
-                .project(target: TargetNames.useCase, path: .relativeToRoot("Core"))
+                .project(target: TargetNames.domain, path: .relativeToRoot("Core"))
             ]
         )
     ]

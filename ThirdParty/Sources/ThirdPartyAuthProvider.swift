@@ -25,8 +25,11 @@ public enum ThirdPartyAuthProvider {
         return iterResult == nil ? false : true
     }
     
-    public static func getToken(type: ThirdPartyType) async throws -> String {
-        try await getHelper(type: type).getToken()
+    public static func getToken(type: String) async throws -> String {
+        guard let thirdPartyType = ThirdPartyType(rawValue: type) else {
+            throw ThirdPartyAuthError.invalidThirdPartyType
+        }
+        return try await getHelper(type: thirdPartyType).getToken()
     }
     
     public static func signOut(type: ThirdPartyType) async throws {

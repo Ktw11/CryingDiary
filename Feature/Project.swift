@@ -5,9 +5,7 @@ let name = Projects.feature.name
 
 let project = Project(
     name: name,
-    settings: .settings(
-        base: Settings.baseSettings
-    ),
+    settings: Settings.commonModule,
     targets: [
         .target(
             name: name,
@@ -16,7 +14,8 @@ let project = Project(
             bundleId: "gtw.CryingDiary.\(name)",
             sources: ["Sources/**"],
             dependencies: [
-                FeatureProjects.home.project
+                FeatureProjects.home.project,
+                FeatureProjects.signIn.project
             ]
         )
     ]

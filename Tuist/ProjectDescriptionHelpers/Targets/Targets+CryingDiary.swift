@@ -23,14 +23,9 @@ extension Targets {
         resources: ["Resources/**"],
         entitlements: .file(path: .relativeToManifest("CryingDiary.entitlements")),
         dependencies: [
-//            .project(target: Projects.feature.name, path: .relativeToRoot("Feature")),
             Projects.feature.project,
-            .project(target: TargetNames.useCase, path: .relativeToRoot("Core")),
             .project(target: TargetNames.repository, path: .relativeToRoot("Core")),
-            .project(target: Projects.thirdParty.name, path: .relativeToRoot("ThirdParty"))
-//            Projects.feature.project,
-//            Projects.core.project,
-//            Projects.thirdParty.project
+            Projects.thirdParty.project
         ],
         settings: Settings.commonModule
     )

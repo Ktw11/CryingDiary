@@ -6,7 +6,8 @@ extension Targets {
         parentName: Projects.core.name,
         sources: ["\(TargetNames.repository)/Sources/**"],
         dependencies: [
-            .target(name: Targets.network.name)
+            .target(name: Targets.network.name),
+            .target(name: Targets.domain.name)
         ]
     )
     

@@ -8,7 +8,7 @@
 import Foundation
 import Network
 
-final class NetworkConfiguration {
+final class NetworkConfiguration: NetworkConfigurable, Sendable {
     init(baseURLString: String) {
         self.baseURLString = baseURLString
     }

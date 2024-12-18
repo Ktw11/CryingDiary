@@ -5,12 +5,10 @@ let name = Projects.core.name
 
 let project = Project(
     name: name,
-    settings: .settings(
-        base: Settings.baseSettings
-    ),
+    settings: Settings.commonModule,
     targets: [
-        Targets.useCase,
-        Targets.useCaseTests,
+        Targets.domain,
+        Targets.domainTests,
         Targets.repository,
         Targets.repositoryTests,
         Targets.network,

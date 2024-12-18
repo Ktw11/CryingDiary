@@ -18,7 +18,7 @@ public extension Projects {
     }
     
     var project: TargetDependency {
-        return TargetDependency.project(target: name, path: "../\(name)")
+        return TargetDependency.project(target: name, path: .relativeToRoot(name))
     }
 }
 

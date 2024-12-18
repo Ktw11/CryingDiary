@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import Domain
 
-public struct UserDTO: Decodable, Sendable {
-    public let id: String
-    public let loginType: String
-    public let refreshToken: String
+struct UserDTO: Decodable, Sendable {
+    let id: String
+    let loginType: String
+    let refreshToken: String
+}
+
+extension UserDTO {
+    var toDomain: User {
+        .init(id: id, loginType: loginType, refreshToken: refreshToken)
+    }
 }

@@ -8,4 +8,4 @@
 import Foundation
 import Network
 
-//extension TokenStore: TokenStorable { }
+extension TokenStore: TokenStorable { }

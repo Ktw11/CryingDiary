@@ -14,13 +14,13 @@ struct ContentView: View {
 
     var viewModel: ContentViewModelType
     @Environment(GlobalAppState.self) var appState
-    @State private var component: FeatureComponent = FeatureComponent()
 
     var body: some View {
         ZStack {
             switch appState.scene {
             case .home(let user):
-                component.buildHome(userId: user.id)
+//                component.buildHome(userId: user.id)
+                Text("")
             case .login:
                 Text("")
             case .splash:

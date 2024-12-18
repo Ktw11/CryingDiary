@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import UseCase
+import Domain
+import ThirdParty
 
 @Observable
 @MainActor
@@ -14,7 +15,7 @@ public final class SignInViewModel {
     
     // MARK: Lifecycle
     
-    init(signInTypes: [SignInType], useCase: SignInUseCase) {
+    public init(signInTypes: [SignInType], useCase: SignInUseCase) {
         self.buttonViewModels = signInTypes.map { SignInButtonViewModel(from: $0) }
         self.useCase = useCase
     }
@@ -27,18 +28,17 @@ public final class SignInViewModel {
     
     // MARK: Methods
     
-    func didTap(id: String) {
-        guard let type = SignInType(rawValue: id) else { return }
-                
+    func didTap(type: String) {
         Task { [weak self, useCase] in
             self?.showProgressView = true
             defer { self?.showProgressView = false }
             
             do {
-                try await useCase.signIn(with: type)
-                // 앱 전체의 state 바꾸기
+                let token = try await ThirdPartyAuthProvider.getToken(type: type)
+                let result = try await useCase.signIn(type: type, token: token)
+                #warning("앱 전체의 state 바꾸기")
             } catch {
-                // 앱 전체의 state 바꾸기
+                #warning("앱 전체의 state 바꾸기")
             }
         }
     }

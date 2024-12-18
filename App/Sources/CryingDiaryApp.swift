@@ -10,22 +10,15 @@ import SwiftUI
 @main
 struct CryingDiaryApp: App {
     
-    // MARK: Lifecycle
-    
-    init() {
-//        let dependency = DependencyContainer()
-//        self.dependency = dependency
-    }
-    
     // MARK: Properties
     
     @State private var toastWindow: UIWindow?
     private var appState: GlobalAppState = .init()
-//    private let dependency: DependencyContainable
+    private let dependency: DependencyContainer = DependencyContainer()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ContentViewModel())
+            dependency.signInView()
             .onOpenURL { url in
                 handleURL(url)
             }
