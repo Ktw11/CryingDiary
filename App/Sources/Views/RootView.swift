@@ -30,7 +30,9 @@ struct RootView<Builder: SignInBuilder>: View {
                 Text("@@@ SPLASH")
                     .font(.largeTitle)
             case .signIn:
-                signInBuilder.signInView()
+                signInBuilder.signInView() { response in
+                    viewModel.setScene(to: .home(response))
+                }
             case .home:
                 #warning("홈 화면 교체 필요")
                 Text("@@@ HOME")

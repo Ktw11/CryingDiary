@@ -15,9 +15,14 @@ public final class SignInViewModel {
     
     // MARK: Lifecycle
     
-    public init(signInTypes: [SignInType], useCase: SignInUseCase) {
+    public init(
+        signInTypes: [SignInType],
+        useCase: SignInUseCase,
+        didSignIn: @escaping ((SignInResponse) -> Void)
+    ) {
         self.buttonViewModels = signInTypes.map { SignInButtonViewModel(from: $0) }
         self.useCase = useCase
+        self.didSignIn = didSignIn
     }
     
     // MARK: Properties
@@ -25,6 +30,7 @@ public final class SignInViewModel {
     let buttonViewModels: [SignInButtonViewModel]
     private(set) var showProgressView: Bool = false
     private let useCase: SignInUseCase
+    private let didSignIn: ((SignInResponse) -> Void)
     
     // MARK: Methods
     
@@ -35,10 +41,10 @@ public final class SignInViewModel {
             
             do {
                 let token = try await ThirdPartyAuthProvider.getToken(type: type)
-                let result = try await useCase.signIn(type: type, token: token)
-                #warning("앱 전체의 state 바꾸기")
+                let response = try await useCase.signIn(type: type, token: token)
+                self?.didSignIn(response)
             } catch {
-                #warning("앱 전체의 state 바꾸기")
+                #warning("Toast 노출")
             }
         }
     }

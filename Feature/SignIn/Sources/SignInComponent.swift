@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Domain
 
 public protocol SignInBuilder {
     associatedtype SomeView: View
     
     @MainActor
     @ViewBuilder
-    func signInView() -> SomeView
+    func signInView(didSignIn: @escaping ((SignInResponse) -> Void)) -> SomeView
 }

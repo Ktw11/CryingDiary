@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import Domain
 import SignIn
 
 extension DependencyContainer: SignInBuilder {
-    @ViewBuilder func signInView() -> some View {
+    @ViewBuilder func signInView(didSignIn: @escaping ((SignInResponse) -> Void)) -> some View {
         let viewModel = SignInViewModel(
             signInTypes: [.apple, .kakao],
-            useCase: signInUseCase
+            useCase: signInUseCase,
+            didSignIn: didSignIn
         )
         SignInView(viewModel: viewModel)
     }

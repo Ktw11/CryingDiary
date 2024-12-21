@@ -30,4 +30,8 @@ final class RootViewModel {
             }
         }
     }
+    
+    func setScene(to scene: AppScene) {
+        self.scene = scene
+    }
 }
