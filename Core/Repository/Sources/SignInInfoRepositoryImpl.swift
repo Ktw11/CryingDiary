@@ -10,7 +10,7 @@ import SwiftData
 import Domain
 
 @ModelActor
-public final actor SignInInfoRepositoryImpl {
+public final actor SignInInfoRepositoryImpl: SignInInfoRepository {
     
     // MARK: Lifecycle
     

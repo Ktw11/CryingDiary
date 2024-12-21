@@ -21,9 +21,16 @@ import Domain
         AuthRepositoryImpl(networkProvider: networkProvider)
     }
     
+    private var signInInfoRepository: SignInInfoRepository {
+        SignInInfoRepositoryImpl()
+    }
+    
     // UseCases
     var signInUseCase: SignInUseCase {
-        SignInUseCaseImpl(repository: authRepository)
+        SignInUseCaseImpl(
+            authRepository: authRepository,
+            signInInfoRepository: signInInfoRepository
+        )
     }
     
     // MARK: Methods
