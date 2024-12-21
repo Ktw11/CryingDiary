@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct SignInInfo {
+public struct SignInInfo: Sendable {
     public let refreshToken: String
     public let signInType: String
     
