@@ -6,16 +6,28 @@
 //
 
 import Foundation
+import Domain
 
 @Observable
 @MainActor
 final class RootViewModel {
+    
+    public init(useCase: SignInUseCase) {
+        self.useCase = useCase
+    }
 
     // MARK: Properties
     
     private(set) var scene: AppScene = .splash
+    private let useCase: SignInUseCase
     
-    func signInWithSavedToken() {
-        
+    func trySignIn() {
+        Task { [weak self, useCase] in
+            if let result = await useCase.signInWithSavedToken() {
+                self?.scene = .home(result)
+            } else {
+                self?.scene = .signIn
+            }
+        }
     }
 }

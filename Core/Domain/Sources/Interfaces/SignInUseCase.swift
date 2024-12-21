@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol SignInUseCase {
+    func signInWithSavedToken() async -> SignInResponse?
     func signIn(type: String, token: String) async throws -> SignInResponse
 }

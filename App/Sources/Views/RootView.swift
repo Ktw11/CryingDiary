@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Feature
 import SignIn
 
 struct RootView<Builder: SignInBuilder>: View {
@@ -38,9 +37,15 @@ struct RootView<Builder: SignInBuilder>: View {
                     .font(.largeTitle)
             }
         }
+        .onAppear {
+            viewModel.trySignIn()
+        }
     }
 }
 
 #Preview {
-    RootView(viewModel: RootViewModel(), signInBuilder: DependencyContainer.previewDefault)
+    RootView(
+        viewModel: RootViewModel(useCase: SignInUseCaseMock()),
+        signInBuilder: DependencyContainer.previewDefault
+    )
 }

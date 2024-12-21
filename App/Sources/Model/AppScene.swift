@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Domain
 
 enum AppScene {
-    case home
+    case home(SignInResponse)
     case signIn
     case splash
 }
