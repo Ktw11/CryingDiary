@@ -7,16 +7,16 @@
 
 import Foundation
 
-@MainActor
-protocol ContentViewModelType: Observable {
-    var showProgressView: Bool { get }
- 
-    func setAppStateUpdatable(_ appState: AppStateUpdatable)
-//    func signIn(with type: SignInType)
-    func signInWithSavedToken()
-    func signOut()
-    func unlink()
-}
+//@MainActor
+//protocol ContentViewModelType: Observable {
+//    var showProgressView: Bool { get }
+// 
+//    func setAppStateUpdatable(_ appState: AppStateUpdatable)
+////    func signIn(with type: SignInType)
+//    func signInWithSavedToken()
+//    func signOut()
+//    func unlink()
+//}
 
 @Observable
 @MainActor
@@ -30,16 +30,16 @@ final class ContentViewModel {
     
     // MARK: Properties
 
-    private weak var appState: AppStateUpdatable?
+//    private weak var appState: AppStateUpdatable?
     
     private(set) var showProgressView: Bool = false
 //    private let authService: AuthServiceProtocol
 }
 
-extension ContentViewModel: ContentViewModelType {
-    func setAppStateUpdatable(_ appState: AppStateUpdatable) {
-        self.appState = appState
-    }
+//extension ContentViewModel: ContentViewModelType {
+//    func setAppStateUpdatable(_ appState: AppStateUpdatable) {
+//        self.appState = appState
+//    }
     
 //    func signIn(with type: SignInType) {
 //        Task { [authService, weak self] in
@@ -92,4 +92,4 @@ extension ContentViewModel: ContentViewModelType {
 //            }
 //        }
     }
-}
+//}

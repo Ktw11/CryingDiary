@@ -2,19 +2,20 @@
 //  GlobalAppState.swift
 //  CryingDiary
 //
-//  Created by 공태웅 on 11/10/24.
+//  Created by 공태웅 on 12/21/24.
 //
 
-import SwiftUI
+import Foundation
+import Domain
 
-@MainActor
 @Observable
+@MainActor
 final class GlobalAppState {
-    var toasts: [Toast] = []
-}
-
-protocol AppStateUpdatable: AnyObject {
-    @MainActor func appendToast(_ toast: Toast)
+    var toasts: [Toast]
+    
+    init(toasts: [Toast] = []) {
+        self.toasts = toasts
+    }
 }
 
 extension GlobalAppState: AppStateUpdatable {

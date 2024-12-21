@@ -17,6 +17,17 @@
           }
         }
       }
+    },
+    "에러가 발생했습니다. 잠시 후 시도해주세요." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An error occurred. Please try again later."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

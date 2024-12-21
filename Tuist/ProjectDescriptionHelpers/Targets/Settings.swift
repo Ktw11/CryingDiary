@@ -9,7 +9,8 @@ public enum Settings {
         "DEVELOPMENT_TEAM": "$(DEV_TEAM_ID)",
         "PROVISIONING_PROFILE_SPECIFIER": "",
         "CODE_SIGN_STYLE": "Automatic",
-        "ENABLE_TESTABILITY": "YES"
+        "ENABLE_TESTABILITY": "YES",
+        "SWIFT_EMIT_LOC_STRINGS": "YES"
     ]
     
     public static let commonModule: ProjectDescription.Settings = .settings(

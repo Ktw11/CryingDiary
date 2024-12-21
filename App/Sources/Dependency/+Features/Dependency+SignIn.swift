@@ -14,6 +14,7 @@ extension DependencyContainer: SignInBuilder {
         let viewModel = SignInViewModel(
             signInTypes: [.apple, .kakao],
             useCase: signInUseCase,
+            appState: appState,
             didSignIn: didSignIn
         )
         SignInView(viewModel: viewModel)

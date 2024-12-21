@@ -105,6 +105,7 @@ private struct SignInButton: View {
         viewModel: .init(
             signInTypes: [.apple, .kakao],
             useCase: SignInUseCaseMock(),
+            appState: AppStateMock(),
             didSignIn: { _ in }
         )
     )

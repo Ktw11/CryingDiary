@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Domain
 
 @main
 struct CryingDiaryApp: App {
@@ -13,7 +14,6 @@ struct CryingDiaryApp: App {
     // MARK: Properties
     
     @State private var toastWindow: UIWindow?
-    private var appState: GlobalAppState = .init()
     private let dependency = DependencyContainer()
     
     var body: some Scene {
@@ -25,7 +25,6 @@ struct CryingDiaryApp: App {
             .onOpenURL { url in
                 handleURL(url)
             }
-            .environment(appState)
             .onAppear {
                 setUpToastWindow()
             }
@@ -43,7 +42,7 @@ private extension CryingDiaryApp {
         guard toastWindow == nil else { return }
         
         let window = TouchPassThroughWindow(windowScene: scene)
-        @Bindable var bindableState = appState
+        @Bindable var bindableState = dependency.appState
         let rootViewController = UIHostingController(rootView: ToastsView(toasts: $bindableState.toasts))
         rootViewController.view.frame = window.windowScene?.keyWindow?.frame ?? .zero
         rootViewController.view.backgroundColor = .clear

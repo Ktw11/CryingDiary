@@ -18,10 +18,12 @@ public final class SignInViewModel {
     public init(
         signInTypes: [SignInType],
         useCase: SignInUseCase,
+        appState: AppStateUpdatable,
         didSignIn: @escaping ((SignInResponse) -> Void)
     ) {
         self.buttonViewModels = signInTypes.map { SignInButtonViewModel(from: $0) }
         self.useCase = useCase
+        self.appState = appState
         self.didSignIn = didSignIn
     }
     
@@ -29,8 +31,10 @@ public final class SignInViewModel {
     
     let buttonViewModels: [SignInButtonViewModel]
     private(set) var showProgressView: Bool = false
+    
     private let useCase: SignInUseCase
     private let didSignIn: ((SignInResponse) -> Void)
+    private let appState: AppStateUpdatable
     
     // MARK: Methods
     
@@ -44,7 +48,7 @@ public final class SignInViewModel {
                 let response = try await useCase.signIn(type: type, token: token)
                 self?.didSignIn(response)
             } catch {
-                #warning("Toast 노출")
+                self?.appState.appendToast(Toast(message: String(localized: "에러가 발생했습니다. 잠시 후 시도해주세요.")))
             }
         }
     }

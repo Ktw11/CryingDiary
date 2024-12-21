@@ -14,6 +14,7 @@ import Domain
     
     // MARK: Properties
     
+    let appState: GlobalAppState = .init()
     private let networkProvider: NetworkProvidable = NetworkProvider(configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL))
     
     // Repositories
