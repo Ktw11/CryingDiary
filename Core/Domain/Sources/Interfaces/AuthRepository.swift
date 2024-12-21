@@ -9,4 +9,5 @@ import Foundation
 
 public protocol AuthRepository: Sendable {
     func signIn(token: String, type: String) async throws -> SignInResponse
+    func signIn(refreshToken: String) async throws -> SignInResponse
 }

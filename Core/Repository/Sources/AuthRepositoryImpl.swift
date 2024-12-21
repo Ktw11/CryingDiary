@@ -23,6 +23,15 @@ public actor AuthRepositoryImpl: AuthRepository {
     
     public func signIn(token: String, type: String) async throws -> SignInResponse {
         let api = AuthAPI.signIn(token: token, type: type)
-        return try await networkProvider.request(api: api, decodingType: SignInResponseDTO.self).toDomain
+        return try await networkProvider
+            .request(api: api, decodingType: SignInResponseDTO.self)
+            .toDomain
+    }
+    
+    public func signIn(refreshToken: String) async throws -> SignInResponse {
+        let api = AuthAPI.autoSignIn(refreshToken: refreshToken)
+        return try await networkProvider
+            .request(api: api, decodingType: SignInResponseDTO.self)
+            .toDomain
     }
 }
