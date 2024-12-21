@@ -31,9 +31,9 @@ struct RootView<Builder: SignInBuilder>: View {
                     .font(.largeTitle)
             case .signIn:
                 signInBuilder.signInView() { response in
-                    viewModel.setScene(to: .home(response))
+                    viewModel.setScene(to: .main(response))
                 }
-            case .home:
+            case .main:
                 #warning("홈 화면 교체 필요")
                 Text("@@@ HOME")
                     .font(.largeTitle)

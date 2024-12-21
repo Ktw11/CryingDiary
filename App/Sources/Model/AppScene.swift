@@ -9,7 +9,7 @@ import Foundation
 import Domain
 
 enum AppScene {
-    case home(SignInResponse)
+    case main(SignInResponse)
     case signIn
     case splash
 }
