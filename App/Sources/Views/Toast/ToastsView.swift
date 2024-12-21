@@ -31,7 +31,7 @@ struct ToastsView: View {
                                 DragGesture()
                                     .onEnded { dragGestureEnded(at: toast.id, value: $0) }
                             )
-                            .frame(maxWidth: size.width * 0.7)
+                            .frame(maxWidth: size.width * 0.8)
                     }
                     .transition(.asymmetric(insertion: .move(edge: .bottom).combined(with: .opacity), removal: .opacity.animation(.easeInOut(duration: 1.0))))
                 }
