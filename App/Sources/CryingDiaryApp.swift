@@ -14,18 +14,18 @@ struct CryingDiaryApp: App {
     
     @State private var toastWindow: UIWindow?
     private var appState: GlobalAppState = .init()
-    private let dependency: DependencyContainer = DependencyContainer()
+    private let dependency = DependencyContainer()
     
     var body: some Scene {
         WindowGroup {
-            dependency.signInView()
-            .onOpenURL { url in
-                handleURL(url)
-            }
-            .environment(appState)
-            .onAppear {
-                setUpToastWindow()
-            }
+            RootView(viewModel: RootViewModel(), signInBuilder: dependency)
+                .onOpenURL { url in
+                    handleURL(url)
+                }
+                .environment(appState)
+                .onAppear {
+                    setUpToastWindow()
+                }
         }
     }
 }

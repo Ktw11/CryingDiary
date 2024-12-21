@@ -7,9 +7,9 @@
 
 import Foundation
 
-//extension DependencyContainer {
-//    @MainActor
-//    static var previewDefault: DependencyContainer {
-//        DependencyContainer()
-//    }
-//}
+extension DependencyContainer {
+    @MainActor
+    static var previewDefault: DependencyContainer {
+        DependencyContainer()
+    }
+}

@@ -9,7 +9,6 @@ import SwiftUI
 import Repository
 import Network
 import Domain
-import SignIn
 
 @MainActor final class DependencyContainer {
     
@@ -17,8 +16,14 @@ import SignIn
     
     private let networkProvider: NetworkProvidable = NetworkProvider(configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL))
     
+    // Repositories
     private var authRepository: AuthRepository {
         AuthRepositoryImpl(networkProvider: networkProvider)
+    }
+    
+    // UseCases
+    var signInUseCase: SignInUseCase {
+        SignInUseCaseImpl(repository: authRepository)
     }
     
     // MARK: Methods
@@ -27,14 +32,5 @@ import SignIn
         Task {
             await networkProvider.setTokenStore(tokenStore)
         }
-    }
-
-    @ViewBuilder
-    func signInView() -> some View {
-        let viewModel = SignInViewModel(
-            signInTypes: [.apple, .kakao],
-            useCase: SignInUseCaseImpl(repository: authRepository)
-        )
-        SignInView(viewModel: viewModel)
     }
 }

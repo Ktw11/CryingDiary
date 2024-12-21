@@ -8,7 +8,7 @@
 import Foundation
 
 enum AppScene {
-    case home(User)
-    case login
+    case home
+    case signIn
     case splash
 }
