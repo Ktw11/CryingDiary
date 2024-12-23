@@ -31,6 +31,9 @@ struct CalendarView: View {
             }
             .padding(.horizontal, 10)
             .padding(.bottom, 25)
+            .transaction { transaction in
+                transaction.disablesAnimations = true
+            }
             
             LazyVGrid(columns: columns, spacing: Constants.gridSpacing) {
                 ForEach(viewModel.weekDays, id: \.self) { weekday in
@@ -48,9 +51,6 @@ struct CalendarView: View {
                     spacing: Constants.gridSpacing
                 )
             )
-        }
-        .transaction { transaction in
-            transaction.disablesAnimations = true
         }
     }
 }
