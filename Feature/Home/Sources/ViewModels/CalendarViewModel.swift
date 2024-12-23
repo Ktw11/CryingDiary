@@ -73,7 +73,24 @@ final class CalendarViewModel {
     
     // MARK: Methods
     
-    private func dayCellViewModels(in month: Date) -> [DayCellViewModel?] {
+    func changeMonth(to direction: MonthDirection) {
+        let value: Int = {
+            switch direction {
+            case .next:
+                return 1
+            case .previous:
+                return -1
+            }
+        }()
+        
+        guard let newMonth = Self.calendar.date(byAdding: .month, value: value, to: currentMonth) else { return }
+        
+        self.currentMonth = newMonth
+    }
+}
+
+private extension CalendarViewModel {
+    func dayCellViewModels(in month: Date) -> [DayCellViewModel?] {
         dates(in: month)
             .map { date in
                 guard let date else { return nil }
@@ -87,7 +104,7 @@ final class CalendarViewModel {
             }
     }
     
-    private func dates(in month: Date) -> [Date?] {
+    func dates(in month: Date) -> [Date?] {
         guard let range = Self.calendar.range(of: .day, in: .month, for: month) else { return [] }
         let dateComponents = Self.calendar.dateComponents([.year, .month], from: month)
         guard let firstDay = Self.calendar.date(from: dateComponents) else { return [] }

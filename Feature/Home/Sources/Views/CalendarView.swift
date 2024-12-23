@@ -24,7 +24,9 @@ struct CalendarView: View {
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                YearMonthView(monthString: viewModel.monthString, yearString: viewModel.yearString)
+                YearMonthView(monthString: viewModel.monthString, yearString: viewModel.yearString) { direction in
+                    viewModel.changeMonth(to: direction)
+                }
                 Spacer()
             }
             .padding(.horizontal, 10)

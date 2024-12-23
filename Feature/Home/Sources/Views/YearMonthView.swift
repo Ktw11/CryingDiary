@@ -11,21 +11,27 @@ struct YearMonthView: View {
     
     // MARK: Lifecycle
     
-    init(monthString: String, yearString: String) {
+    init(
+        monthString: String,
+        yearString: String,
+        changeMonth: @escaping (MonthDirection) -> Void
+    ) {
         self.monthString = monthString
         self.yearString = yearString
+        self.changeMonth = changeMonth
     }
     
     // MARK: Properties
     
     private let monthString: String
     private let yearString: String
+    private let changeMonth: (MonthDirection) -> Void
     
     var body: some View {
         HStack(alignment: .center, spacing: 20) {
             Button(
                 action: {
-    //                changeMonth(by: -1)
+                    changeMonth(.previous)
                 },
                 label: {
                     Image(systemName: "chevron.left")
@@ -45,7 +51,7 @@ struct YearMonthView: View {
             
             Button(
                 action: {
-//                    changeMonth(by: 1)
+                    changeMonth(.next)
                 },
                 label: {
                     Image(systemName: "chevron.right")
@@ -60,5 +66,5 @@ struct YearMonthView: View {
 }
 
 #Preview {
-    YearMonthView(monthString: "September", yearString: "2025")
+    YearMonthView(monthString: "September", yearString: "2025") { _ in }
 }
