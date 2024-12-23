@@ -13,7 +13,7 @@ public struct SignInView: View {
         self.viewModel = viewModel
     }
     
-    var viewModel: SignInViewModel
+    private let viewModel: SignInViewModel
     
     public var body: some View {
         ZStack {
