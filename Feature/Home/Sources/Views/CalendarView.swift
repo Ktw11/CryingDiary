@@ -49,6 +49,9 @@ struct CalendarView: View {
                 )
             )
         }
+        .transaction { transaction in
+            transaction.disablesAnimations = true
+        }
     }
 }
 
