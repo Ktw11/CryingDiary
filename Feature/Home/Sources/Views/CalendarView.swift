@@ -43,7 +43,7 @@ struct CalendarView: View {
 
             CalendarGridView(
                 viewModel: .init(
-                    cellViewModels: viewModel.cellViewModels,
+                    cellViewModelTypes: viewModel.cellViewModelTypes,
                     columns: columns,
                     spacing: Constants.gridSpacing
                 )

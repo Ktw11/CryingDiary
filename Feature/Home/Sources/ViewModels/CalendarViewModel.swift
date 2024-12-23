@@ -53,8 +53,8 @@ final class CalendarViewModel {
         String(Self.calendar.component(.year, from: currentMonth))
     }
     
-    var cellViewModels: [DayCellViewModel?] {
-        dayCellViewModels(in: currentMonth)
+    var cellViewModelTypes: [DayCellViewModelType] {
+        dayCellViewModelTypes(in: currentMonth)
     }
     
     let weekDays: [Weekday] = WeekdaySymbol.allCases.map(Weekday.init)
@@ -83,24 +83,27 @@ final class CalendarViewModel {
             }
         }()
         
-        guard let newMonth = Self.calendar.date(byAdding: .month, value: value, to: currentMonth) else { return }
-        
-        self.currentMonth = newMonth
+        if let newMonth = Self.calendar.date(byAdding: .month, value: value, to: currentMonth) {
+            self.currentMonth = newMonth
+        }
     }
 }
 
 private extension CalendarViewModel {
-    func dayCellViewModels(in month: Date) -> [DayCellViewModel?] {
+    func dayCellViewModelTypes(in month: Date) -> [DayCellViewModelType] {
         dates(in: month)
             .map { date in
-                guard let date else { return nil }
-                let day = Self.calendar.component(.day, from: date)
-
-                return DayCellViewModel(
-                    day: day,
-                    isTapped: tappedDate == date,
-                    isToday: day == Self.calendar.component(.day, from: Date())
-                )
+                if let date {
+                    let day = Self.calendar.component(.day, from: date)
+                    let viewModel = DayCellViewModel(
+                        day: day,
+                        isTapped: tappedDate == date,
+                        isToday: day == Self.calendar.component(.day, from: Date())
+                    )
+                    return .general(viewModel)
+                } else {
+                    return .empty(UUID().uuidString)
+                }
             }
     }
     

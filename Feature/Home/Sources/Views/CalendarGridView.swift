@@ -25,9 +25,16 @@ struct CalendarGridView: View {
             LazyVGrid(columns: viewModel.columns, spacing: viewModel.spacing) {
                 let cellWidth = viewModel.cellWidth(totalWidth: geometry.size.width)
                 
-                ForEach(viewModel.cellViewModels.compactMap { $0 }, id: \.self) { viewModel in
-                    DayCellView(viewModel: viewModel)
-                        .frame(height: cellWidth * (66 / 45))
+                ForEach(viewModel.cellViewModelTypes, id: \.self) { viewModelType in
+                    Group {
+                        switch viewModelType {
+                        case let .general(viewModel):
+                            DayCellView(viewModel: viewModel)
+                        case .empty:
+                            Color.clear
+                        }
+                    }
+                    .frame(height: cellWidth * (66 / 45))
                 }
             }
         }

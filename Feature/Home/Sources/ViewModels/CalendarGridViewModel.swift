@@ -14,15 +14,15 @@ final class CalendarGridViewModel {
     
     // MARK: Lifecycle
     
-    init(cellViewModels: [DayCellViewModel?], columns: [GridItem], spacing: CGFloat) {
-        self.cellViewModels = cellViewModels
+    init(cellViewModelTypes: [DayCellViewModelType], columns: [GridItem], spacing: CGFloat) {
+        self.cellViewModelTypes = cellViewModelTypes
         self.columns = columns
         self.spacing = spacing
     }
     
     // MARK: Properties
     
-    let cellViewModels: [DayCellViewModel?]
+    let cellViewModelTypes: [DayCellViewModelType]
     let columns: [GridItem]
     let spacing: CGFloat
     

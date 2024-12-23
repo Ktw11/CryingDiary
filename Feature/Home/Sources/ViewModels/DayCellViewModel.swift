@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DayCellViewModel: Hashable, Equatable {
+struct DayCellViewModel: Equatable, Hashable {
     let day: Int
     let isTapped: Bool
     let isToday: Bool
