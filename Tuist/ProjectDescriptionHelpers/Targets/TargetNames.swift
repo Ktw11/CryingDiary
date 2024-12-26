@@ -5,6 +5,7 @@ public enum TargetNames {
     public static let domain = "Domain"
     public static let repository = "Repository"
     public static let network = "Network"
+    public static let sharedResource = "SharedResource"
 }
 
 public enum ConfigurationNames {
