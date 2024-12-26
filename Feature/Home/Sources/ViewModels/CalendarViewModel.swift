@@ -14,32 +14,51 @@ final class CalendarViewModel {
     
     // MARK: Deifinitions
     
-    enum WeekdaySymbol: String, CaseIterable {
-        case sunday = "Sun"
-        case monday = "Mon"
-        case tuesday = "Tue"
-        case wednesday = "Wed"
-        case thursday = "Thu"
-        case friday = "Fri"
-        case saturday = "Sat"
+    enum WeekdaySymbol: CaseIterable {
+        case sunday
+        case monday
+        case tuesday
+        case wednesday
+        case thursday
+        case friday
+        case saturday
+        
+        var stringValue: String {
+            switch self {
+             case .sunday, .saturday:
+                return "S"
+            case .monday:
+                return "M"
+            case .tuesday, .thursday:
+                return "T"
+            case .wednesday:
+                return "W"
+            case .friday:
+                return "F"
+            }
+        }
     }
     
     struct Weekday: Hashable, Equatable {
-        let title: String
-        let foregroundColor: Color
+        var title: String {
+            symbol.stringValue
+        }
+        
+        var foregroundColor: Color {
+            switch symbol {
+            case .sunday:
+                return Color.red
+            case .saturday:
+                return Color.blue
+            default:
+                return Color.gray
+            }
+        }
+        
+        private let symbol: WeekdaySymbol
         
         init(symbol: WeekdaySymbol) {
-            self.title = symbol.rawValue
-            self.foregroundColor = {
-                switch symbol {
-                case .sunday:
-                    return Color.red
-                case .saturday:
-                    return Color.blue
-                default:
-                    return Color.gray
-                }
-            }()
+            self.symbol = symbol
         }
     }
 

@@ -1,7 +1,23 @@
 {
   "sourceLanguage" : "ko",
   "strings" : {
-
+    "Calendar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calendar"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calendar"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }

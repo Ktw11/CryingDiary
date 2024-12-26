@@ -28,39 +28,44 @@ struct YearMonthView: View {
     private let changeMonth: (MonthDirection) -> Void
     
     var body: some View {
-        HStack(alignment: .center, spacing: 20) {
-            Button(
-                action: {
-                    changeMonth(.previous)
-                },
-                label: {
-                    Image(systemName: "chevron.left")
-                        .resizable()
-                        .foregroundStyle(.gray)
-                        .frame(width: 12, height: 25)
-                }
-            )
-    //        .disabled(!canMoveToPreviousMonth())
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Calendar")
+                .font(.system(size: 35, weight: .regular))
             
-            VStack(alignment: .leading, spacing: 3) {
-                Text(monthString)
-                    .font(.title.bold())
+            HStack(alignment: .center, spacing: 7) {
+                Button(
+                    action: {
+                        changeMonth(.previous)
+                    },
+                    label: {
+                        ZStack {
+                            HomeAsset.Image.icChevronLeft.swiftUIImage
+                                .resizable()
+                                .frame(width: 6, height: 12)
+                                .padding(.trailing, 10)
+                                .padding(.vertical, 2.5)
+                        }
+                    }
+                )
+
+                Text("\(monthString), \(yearString)")
+                    .font(.system(size: 17, weight: .regular))
                 
-                Text("diary | \(yearString)")
+                Button(
+                    action: {
+                        changeMonth(.next)
+                    },
+                    label: {
+                        ZStack {
+                            HomeAsset.Image.icChevronRight.swiftUIImage
+                                .resizable()
+                                .frame(width: 6, height: 12)
+                                .padding(.leading, 10)
+                                .padding(.vertical, 2.5)
+                        }
+                    }
+                )
             }
-            
-            Button(
-                action: {
-                    changeMonth(.next)
-                },
-                label: {
-                    Image(systemName: "chevron.right")
-                        .resizable()
-                        .foregroundStyle(.gray)
-                        .frame(width: 12, height: 25)
-                }
-            )
-//            .disabled(!canMoveToNextMonth())
         }
     }
 }

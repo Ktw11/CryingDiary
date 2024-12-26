@@ -52,11 +52,23 @@ private struct DayCellView: View, Equatable {
     private let viewModel: DayCellViewModel
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            Color.gray.opacity(0.3)
-            
+        VStack(spacing: 5) {
             Text("\(viewModel.day)")
-                .foregroundStyle(viewModel.isToday ? Color.blue : Color.black)
+                .font(.system(size: 13, weight: viewModel.isBold ? .bold : .regular))
+                .foregroundStyle(viewModel.foregroundColor)
+                .background {
+                    Capsule()
+                        .foregroundStyle(.red)
+                        .frame(width: 31, height: 19)
+                        .opacity(viewModel.isTapped ? 1.0 : 0)
+                }
+            
+            EmptyView()
+                .frame(height: 35)
         }
     }
+}
+
+#Preview {
+    DayCellView(viewModel: .init(day: 15, isTapped: false, isToday: false))
 }
