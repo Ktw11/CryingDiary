@@ -52,14 +52,17 @@ struct CalendarView: View {
                     columns: columns,
                     spacing: Constants.gridSpacing
                 )
-            )
+            ) { day in
+                viewModel.didTapDay(at: day)
+            }
         }
     }
 }
 
 #Preview {
-   ZStack {
+    VStack {
         CalendarView()
-            .padding()
+        Spacer()
     }
+    .padding()
 }

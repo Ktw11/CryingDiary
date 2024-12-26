@@ -106,6 +106,13 @@ final class CalendarViewModel {
             self.currentMonth = newMonth
         }
     }
+    
+    func didTapDay(at day: Int) {
+        let dates: [Date] = dates(in: currentMonth).compactMap { $0 }
+        guard let theDay = dates.first(where: { Self.calendar.component(.day, from: $0) == day }) else { return }
+        
+        self.tappedDate = theDay
+    }
 }
 
 private extension CalendarViewModel {

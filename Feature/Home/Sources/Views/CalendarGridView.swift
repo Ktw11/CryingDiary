@@ -13,30 +13,34 @@ struct CalendarGridView: View {
     
     // MARK: Lifecycle
     
-    init(viewModel: CalendarGridViewModel) {
+    init(viewModel: CalendarGridViewModel, didTapDay: @escaping ((Int) -> Void)) {
         self.viewModel = viewModel
+        self.didTapDay = didTapDay
     }
 
     // MARK: Properties
     
     private let viewModel: CalendarGridViewModel
+    private let didTapDay: ((Int) -> Void)
     
     var body: some View {
-        GeometryReader { geometry in
-            LazyVGrid(columns: viewModel.columns, spacing: viewModel.spacing) {
-                let cellWidth = viewModel.cellWidth(totalWidth: geometry.size.width)
-                
-                ForEach(viewModel.cellViewModelTypes, id: \.self) { viewModelType in
-                    Group {
-                        switch viewModelType {
-                        case let .general(viewModel):
-                            DayCellView(viewModel: viewModel)
-                        case .empty:
-                            Color.clear
+        LazyVGrid(columns: viewModel.columns, spacing: viewModel.spacing) {
+            ForEach(viewModel.cellViewModelTypes, id: \.self) { viewModelType in
+                Button(
+                    action: {
+                        guard case let .general(viewModel) = viewModelType else { return }
+                        didTapDay(viewModel.day)
+                    }, label: {
+                        Group {
+                            switch viewModelType {
+                            case let .general(viewModel):
+                                DayCellView(viewModel: viewModel)
+                            case .empty:
+                                Color.clear
+                            }
                         }
-                    }
-                    .frame(height: cellWidth * (66 / 45))
-                }
+                        .frame(height: 44)
+                    })
             }
         }
     }
@@ -60,12 +64,12 @@ private struct DayCellView: View, Equatable {
                 .background {
                     Capsule()
                         .foregroundStyle(.red)
-                        .frame(width: 31, height: 19)
+                        .frame(width: 31)
                         .opacity(viewModel.isTapped ? 1.0 : 0)
                 }
+                .frame(height: 19)
             
             EmptyView()
-                .frame(height: 35)
         }
     }
 }
