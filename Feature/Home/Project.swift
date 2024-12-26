@@ -11,6 +11,7 @@ let project = Project(
             product: .staticFramework,
             bundleId: "gtw.CryingDiary.Feature.Home",
             sources: ["Sources/**"],
+            resources: ["Resources/**"],
             dependencies: [
                 .project(target: TargetNames.domain, path: .relativeToRoot("Core"))
             ]

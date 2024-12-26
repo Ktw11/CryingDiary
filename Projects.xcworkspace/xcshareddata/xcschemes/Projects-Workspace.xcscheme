@@ -126,6 +126,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "384409AB4B87F80160BD4099"
+               BuildableName = "Home_Home.bundle"
+               BlueprintName = "Home_Home"
+               ReferencedContainer = "container:Feature/Home/Home.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "141A87512EEB9E82909D15D1"
                BuildableName = "KakaoOpenSDK_KakaoSDKCommon.bundle"
                BlueprintName = "KakaoOpenSDK_KakaoSDKCommon"
