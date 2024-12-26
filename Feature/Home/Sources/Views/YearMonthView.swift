@@ -30,8 +30,8 @@ struct YearMonthView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Calendar")
-                .font(SharedFont.bigJohnPRO(size: 35, weight: .regular))
+            Text("Calendar, \(yearString)")
+                .font(SharedFont.bigJohnPRO(size: 17, weight: .regular))
             
             HStack(alignment: .center, spacing: 7) {
                 Button(
@@ -49,8 +49,8 @@ struct YearMonthView: View {
                     }
                 )
 
-                Text("\(monthString), \(yearString)")
-                    .font(SharedFont.bigJohnPRO(size: 17, weight: .regular))
+                Text("\(monthString)")
+                    .font(SharedFont.bigJohnPRO(size: 35, weight: .regular))
                 
                 Button(
                     action: {
