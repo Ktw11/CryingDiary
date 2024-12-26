@@ -13,7 +13,8 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .project(target: TargetNames.domain, path: .relativeToRoot("Core"))
+                .project(target: TargetNames.domain, path: .relativeToRoot("Core")),
+                .project(target: TargetNames.sharedResource, path: .relativeToRoot(TargetNames.sharedResource))
             ]
         )
     ]

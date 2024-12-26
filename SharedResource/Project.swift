@@ -21,9 +21,11 @@ let project = Project(
             destinations: .iOS,
             product: .staticFramework,
             bundleId: "gtw.CryingDiary.\(name)",
+            deploymentTargets: .iOS("18.0"),
             infoPlist: .extendingDefault(with: infoPlist),
-            sources: nil,
-            resources: ["Resources/**"]
+            sources: ["Sources/**"],
+            resources: ["Resources/**"],
+            settings: Settings.commonModule
         )
     ]
 )

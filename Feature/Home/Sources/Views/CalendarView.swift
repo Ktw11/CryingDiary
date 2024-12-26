@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SharedResource
 
 struct CalendarView: View {
 
@@ -38,6 +39,7 @@ struct CalendarView: View {
             LazyVGrid(columns: columns, spacing: Constants.gridSpacing) {
                 ForEach(viewModel.weekDays, id: \.self) { weekday in
                     Text(weekday.title)
+                        .font(SharedFont.bigJohnPRO(size: 13, weight: .regular))
                         .foregroundStyle(weekday.foregroundColor)
                         .frame(maxWidth: .infinity)
                 }

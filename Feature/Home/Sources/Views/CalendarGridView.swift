@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SharedResource
 
 struct CalendarGridView: View {
     
@@ -54,7 +55,7 @@ private struct DayCellView: View, Equatable {
     var body: some View {
         VStack(spacing: 5) {
             Text("\(viewModel.day)")
-                .font(.system(size: 13, weight: viewModel.isBold ? .bold : .regular))
+                .font(SharedFont.bigJohnPRO(size: 13, weight: viewModel.isBold ? .bold : .regular))
                 .foregroundStyle(viewModel.foregroundColor)
                 .background {
                     Capsule()

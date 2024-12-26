@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SharedResource
 
 struct YearMonthView: View {
     
@@ -30,7 +31,7 @@ struct YearMonthView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("Calendar")
-                .font(.system(size: 35, weight: .regular))
+                .font(SharedFont.bigJohnPRO(size: 35, weight: .regular))
             
             HStack(alignment: .center, spacing: 7) {
                 Button(
@@ -49,7 +50,7 @@ struct YearMonthView: View {
                 )
 
                 Text("\(monthString), \(yearString)")
-                    .font(.system(size: 17, weight: .regular))
+                    .font(SharedFont.bigJohnPRO(size: 17, weight: .regular))
                 
                 Button(
                     action: {
