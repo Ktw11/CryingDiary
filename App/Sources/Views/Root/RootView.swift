@@ -7,20 +7,27 @@
 
 import SwiftUI
 import SignInInterface
+import HomeInterface
 
-struct RootView<Builder: SignInBuilder>: View {
+struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: View {
     
     // MARK: Lifecycle
     
-    init(viewModel: RootViewModel, signInBuilder: Builder) {
+    init(
+        viewModel: RootViewModel,
+        signInBuilder: SignInComponent,
+        homeBuilder: HomeComponent
+    ) {
         self.viewModel = viewModel
         self.signInBuilder = signInBuilder
+        self.homeBuilder = homeBuilder
     }
 
     // MARK: Properties
 
     private let viewModel: RootViewModel
-    private let signInBuilder: Builder
+    private let signInBuilder: SignInComponent
+    private let homeBuilder: HomeComponent
     
     var body: some View {
         ZStack {
@@ -34,9 +41,7 @@ struct RootView<Builder: SignInBuilder>: View {
                     viewModel.setScene(to: .main(response))
                 }
             case .main:
-                #warning("홈 화면 교체 필요")
-                Text("@@@ HOME")
-                    .font(.largeTitle)
+                homeBuilder.homeView()
             }
         }
         .onAppear {
@@ -48,6 +53,7 @@ struct RootView<Builder: SignInBuilder>: View {
 #Preview {
     RootView(
         viewModel: RootViewModel(useCase: SignInUseCaseMock()),
-        signInBuilder: DependencyContainer().featureComponent.signInBuilder()
+        signInBuilder: DependencyContainer().featureComponent.signInBuilder(),
+        homeBuilder: DependencyContainer().featureComponent.homeBuilder()
     )
 }

@@ -7,11 +7,10 @@
 
 import SwiftUI
 import Home
+import HomeInterface
 
-public extension FeatureComponent {
-    @ViewBuilder
-    @MainActor
-    func buildHome(userId: String) -> some View {
-        HomeView(userId: userId)
+extension FeatureComponent {
+    public func homeBuilder() -> some HomeBuilder {
+        HomeComponent()
     }
 }

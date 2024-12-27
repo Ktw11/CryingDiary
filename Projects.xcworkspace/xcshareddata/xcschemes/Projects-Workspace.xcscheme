@@ -126,6 +126,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A9EED54876D44D485F1EEB8D"
+               BuildableName = "HomeInterface.framework"
+               BlueprintName = "HomeInterface"
+               ReferencedContainer = "container:Feature/Home/Home.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "384409AB4B87F80160BD4099"
                BuildableName = "Home_Home.bundle"
                BlueprintName = "Home_Home"

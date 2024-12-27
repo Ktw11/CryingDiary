@@ -3,6 +3,7 @@ import ProjectDescriptionHelpers
 
 let name = Projects.feature.name
 
+#warning("Add Helper methods at dependencies")
 let project = Project(
     name: name,
     settings: Settings.commonModule,
@@ -15,6 +16,7 @@ let project = Project(
             sources: ["Sources/**"],
             dependencies: [
                 FeatureProjects.home.project,
+                TargetDependency.project(target: "HomeInterface", path: "../Feature/Home"),
                 FeatureProjects.signIn.project,
                 TargetDependency.project(target: "SignInInterface", path: "../Feature/SignIn")
             ]

@@ -36,7 +36,11 @@ import Network
     @ViewBuilder
     func buildRootView() -> some View {
         let viewModel = RootViewModel(useCase: useCaseBuilder.signInUseCase)
-        RootView(viewModel: viewModel, signInBuilder: featureComponent.signInBuilder())
+        RootView(
+            viewModel: viewModel,
+            signInBuilder: featureComponent.signInBuilder(),
+            homeBuilder: featureComponent.homeBuilder()
+        )
     }
     
     func configure(tokenStore: TokenStorable) {

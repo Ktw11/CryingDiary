@@ -10,7 +10,7 @@ let target: Target = .target(
     resources: ["Resources/**"],
     dependencies: [
         .project(target: TargetNames.domain, path: .relativeToRoot("Core")),
-        Projects.thirdParty.project
+        Projects.thirdParty.project,
     ]
 )
 

@@ -6,20 +6,23 @@
 //
 
 import SwiftUI
+import HomeInterface
 
 public struct HomeView: View {
     
-    public init(userId: String) {
-        self.userId = userId
+    public init(
+        viewModel: HomeViewModel
+    ) {
+        self.viewModel = viewModel
     }
     
-    private let userId: String
+    private let viewModel: HomeViewModel
     
     public var body: some View {
-        Text("@@@ 로그인 햇음: \(userId)")
+        CalendarView()
     }
 }
 
 #Preview {
-    HomeView(userId: "Dummy_ID")
+    HomeView(viewModel: .init())
 }
