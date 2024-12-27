@@ -14,16 +14,15 @@ import ThirdParty
 public final class SignInViewModel {
     
     // MARK: Lifecycle
-    
+
     public init(
-        signInTypes: [SignInType],
-        useCase: SignInUseCase,
-        appState: AppStateUpdatable,
+        dependency: SignInDependency,
         didSignIn: @escaping ((SignInResponse) -> Void)
-    ) {
-        self.buttonViewModels = signInTypes.map { SignInButtonViewModel(from: $0) }
-        self.useCase = useCase
-        self.appState = appState
+    ){
+        self.buttonViewModels = dependency.signInTypes
+            .map { SignInButtonViewModel(from: $0) }
+        self.useCase = dependency.useCase
+        self.appState = dependency.appState
         self.didSignIn = didSignIn
     }
     

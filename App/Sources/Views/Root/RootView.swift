@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SignIn
+import SignInInterface
 
 struct RootView<Builder: SignInBuilder>: View {
     
@@ -48,6 +48,6 @@ struct RootView<Builder: SignInBuilder>: View {
 #Preview {
     RootView(
         viewModel: RootViewModel(useCase: SignInUseCaseMock()),
-        signInBuilder: DependencyContainer.previewDefault
+        signInBuilder: DependencyContainer().featureComponent.signInBuilder()
     )
 }

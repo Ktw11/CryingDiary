@@ -19,6 +19,18 @@ public extension Projects {
     var project: TargetDependency {
         return TargetDependency.project(target: name, path: .relativeToRoot(name))
     }
+    
+    static func makeFeatureProj(name: String, targets: [Target]) -> Project {
+        Project(
+            name: name,
+            options: .options(
+                defaultKnownRegions: ["ko", "en"],
+                developmentRegion: "ko"
+            ),
+            settings: Settings.commonModule,
+            targets: targets
+        )
+    }
 }
 
 public enum FeatureProjects: String {

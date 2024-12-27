@@ -18,16 +18,13 @@ struct CryingDiaryApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView(
-                viewModel: RootViewModel(useCase: dependency.signInUseCase),
-                signInBuilder: dependency
-            )
-            .onOpenURL { url in
-                handleURL(url)
-            }
-            .onAppear {
-                setUpToastWindow()
-            }
+            dependency.buildRootView()
+                .onOpenURL { url in
+                    handleURL(url)
+                }
+                .onAppear {
+                    setUpToastWindow()
+                }
         }
     }
 }

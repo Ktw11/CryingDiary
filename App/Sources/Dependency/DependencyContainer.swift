@@ -6,35 +6,38 @@
 //
 
 import SwiftUI
+import Feature
+import Domain
 import Repository
 import Network
-import Domain
 
 @MainActor final class DependencyContainer {
     
     // MARK: Properties
     
     let appState: GlobalAppState = .init()
+    
+    lazy var featureComponent = FeatureComponent(
+        useCaseBuilder: useCaseBuilder,
+        repositoryBuilder: repositoryBuilder,
+        appState: appState
+    )
+
+    private lazy var useCaseBuilder: UseCaseBuilder = {
+        UseCaseComponent(repositoryBuilder: repositoryBuilder)
+    }()
+    private lazy var repositoryBuilder: RepositoryBuilder = {
+        RepositoryComponent(networkProvider: networkProvider)
+    }()
     private let networkProvider: NetworkProvidable = NetworkProvider(configuration: NetworkConfiguration(baseURLString: AppKeys.baseURL))
     
-    // Repositories
-    private var authRepository: AuthRepository {
-        AuthRepositoryImpl(networkProvider: networkProvider)
-    }
-    
-    private var signInInfoRepository: SignInInfoRepository {
-        SignInInfoRepositoryImpl()
-    }
-    
-    // UseCases
-    var signInUseCase: SignInUseCase {
-        SignInUseCaseImpl(
-            authRepository: authRepository,
-            signInInfoRepository: signInInfoRepository
-        )
-    }
-    
     // MARK: Methods
+    
+    @ViewBuilder
+    func buildRootView() -> some View {
+        let viewModel = RootViewModel(useCase: useCaseBuilder.signInUseCase)
+        RootView(viewModel: viewModel, signInBuilder: featureComponent.signInBuilder())
+    }
     
     func configure(tokenStore: TokenStorable) {
         Task {

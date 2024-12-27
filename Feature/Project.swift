@@ -15,7 +15,8 @@ let project = Project(
             sources: ["Sources/**"],
             dependencies: [
                 FeatureProjects.home.project,
-                FeatureProjects.signIn.project
+                FeatureProjects.signIn.project,
+                TargetDependency.project(target: "SignInInterface", path: "../Feature/SignIn")
             ]
         )
     ]

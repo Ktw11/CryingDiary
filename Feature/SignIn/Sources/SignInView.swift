@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SignInInterface
 
 public struct SignInView: View {
     
@@ -103,9 +104,11 @@ private struct SignInButton: View {
 #Preview {
     SignInView(
         viewModel: .init(
-            signInTypes: [.apple, .kakao],
-            useCase: SignInUseCaseMock(),
-            appState: AppStateMock(),
+            dependency: .init(
+                signInTypes: [.apple, .kakao],
+                useCase: SignInUseCaseMock(),
+                appState: AppStateMock()
+            ),
             didSignIn: { _ in }
         )
     )

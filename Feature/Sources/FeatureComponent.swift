@@ -6,7 +6,25 @@
 //
 
 import SwiftUI
+import Domain
 
 final public class FeatureComponent {
-    public init() { }
+    
+    // MARK: Lifecycle
+    
+    public init(
+        useCaseBuilder: UseCaseBuilder,
+        repositoryBuilder: RepositoryBuilder,
+        appState: AppStateUpdatable
+    ) {
+        self.useCaseBuilder = useCaseBuilder
+        self.repositoryBuilder = repositoryBuilder
+        self.appState = appState
+    }
+    
+    // MARK: Properties
+    
+    let useCaseBuilder: UseCaseBuilder
+    let repositoryBuilder: RepositoryBuilder
+    let appState: AppStateUpdatable
 }
