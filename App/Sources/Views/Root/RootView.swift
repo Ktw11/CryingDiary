@@ -51,9 +51,10 @@ struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: Vie
 }
 
 #Preview {
+    let featureComponent = DependencyContainer().featureComponent
     RootView(
         viewModel: RootViewModel(useCase: SignInUseCaseMock()),
-        signInBuilder: DependencyContainer().featureComponent.signInBuilder(),
-        homeBuilder: DependencyContainer().featureComponent.homeBuilder()
+        signInBuilder: featureComponent.signInBuilder(),
+        homeBuilder: featureComponent.homeBuilder()
     )
 }
