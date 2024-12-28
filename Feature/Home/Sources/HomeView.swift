@@ -21,15 +21,16 @@ public struct HomeView: View {
     public var body: some View {
         ScrollView {
             VStack {
-                CalendarView()
+                CalendarView(viewModel: viewModel.calendarViewModel)
                     .padding(.horizontal, 10)
                 
                 Divider()
                     .frame(maxWidth: .infinity, maxHeight: 1)
                     .padding(.vertical, 10)
                 
-//                CalendarDetailView()
+                CalendarDetailView(viewModel: viewModel.calendarDetailViewModel)
             }
+            .environment(viewModel)
         }
     }
 }

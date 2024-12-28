@@ -10,6 +10,10 @@ import SwiftUI
 import SharedResource
 
 struct CalendarView: View {
+    
+    init(viewModel: CalendarViewModel) {
+        self.viewModel = viewModel
+    }
 
     // MARK: Definitions
     
@@ -19,15 +23,15 @@ struct CalendarView: View {
     
     // MARK: Properties
     
-    @State private var viewModel: CalendarViewModel = .init()
+    @Environment(HomeViewModel.self) private var homeViewModel
+    private let viewModel: CalendarViewModel
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 7)
     
     var body: some View {
         VStack(spacing: 10) {
             HStack {
-                YearMonthView(monthString: viewModel.monthString, yearString: viewModel.yearString) { direction in
-                    viewModel.changeMonth(to: direction)
-                }
+                YearMonthView(monthString: viewModel.monthString, yearString: viewModel.yearString)
+                
                 Spacer()
             }
             .padding(.horizontal, 10)
@@ -45,23 +49,27 @@ struct CalendarView: View {
                 }
             }
             .padding(.bottom, 5)
-
+            
             CalendarGridView(
                 viewModel: .init(
                     cellViewModelTypes: viewModel.cellViewModelTypes,
                     columns: columns,
                     spacing: Constants.gridSpacing
                 )
-            ) { day in
-                viewModel.didTapDay(at: day)
-            }
+            )
         }
     }
 }
 
 #Preview {
     VStack {
-        CalendarView()
+        CalendarView(
+            viewModel: .init(
+                monthString: "12",
+                yearString: "2024",
+                cellViewModelTypes: []
+            )
+        )
         Spacer()
     }
     .padding()

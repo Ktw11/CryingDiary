@@ -13,15 +13,14 @@ struct CalendarGridView: View {
     
     // MARK: Lifecycle
     
-    init(viewModel: CalendarGridViewModel, didTapDay: @escaping ((Int) -> Void)) {
+    init(viewModel: CalendarGridViewModel) {
         self.viewModel = viewModel
-        self.didTapDay = didTapDay
     }
 
     // MARK: Properties
     
+    @Environment(HomeViewModel.self) private var homeViewModel
     private let viewModel: CalendarGridViewModel
-    private let didTapDay: ((Int) -> Void)
     
     var body: some View {
         LazyVGrid(columns: viewModel.columns, spacing: viewModel.spacing) {
@@ -29,7 +28,7 @@ struct CalendarGridView: View {
                 Button(
                     action: {
                         guard case let .general(viewModel) = viewModelType else { return }
-                        didTapDay(viewModel.day)
+                        homeViewModel.didTapDay(at: viewModel.day)
                     }, label: {
                         Group {
                             switch viewModelType {

@@ -14,19 +14,17 @@ struct YearMonthView: View {
     
     init(
         monthString: String,
-        yearString: String,
-        changeMonth: @escaping (MonthDirection) -> Void
+        yearString: String
     ) {
         self.monthString = monthString
         self.yearString = yearString
-        self.changeMonth = changeMonth
     }
     
     // MARK: Properties
     
+    @Environment(HomeViewModel.self) private var homeViewModel
     private let monthString: String
     private let yearString: String
-    private let changeMonth: (MonthDirection) -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -36,7 +34,7 @@ struct YearMonthView: View {
             HStack(alignment: .center, spacing: 7) {
                 Button(
                     action: {
-                        changeMonth(.previous)
+                        homeViewModel.changeMonth(to: .previous)
                     },
                     label: {
                         ZStack {
@@ -54,7 +52,7 @@ struct YearMonthView: View {
                 
                 Button(
                     action: {
-                        changeMonth(.next)
+                        homeViewModel.changeMonth(to: .next)
                     },
                     label: {
                         ZStack {
@@ -72,5 +70,5 @@ struct YearMonthView: View {
 }
 
 #Preview {
-    YearMonthView(monthString: "September", yearString: "2025") { _ in }
+    YearMonthView(monthString: "September", yearString: "2025")
 }
