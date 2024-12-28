@@ -24,7 +24,7 @@ final class RootViewModel {
     func trySignIn() {
         Task { [weak self, useCase] in
             if let result = await useCase.signInWithSavedToken() {
-                self?.scene = .main(result)
+                self?.scene = .tabs(result)
             } else {
                 self?.scene = .signIn
             }

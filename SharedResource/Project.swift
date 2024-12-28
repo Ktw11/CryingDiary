@@ -15,6 +15,7 @@ let infoPlist: [String: Plist.Value] = [
 
 let project = Project(
     name: name,
+    settings: Settings.commonModule,
     targets: [
         Target.target(
             name: name,
@@ -24,8 +25,7 @@ let project = Project(
             deploymentTargets: .iOS("18.0"),
             infoPlist: .extendingDefault(with: infoPlist),
             sources: ["Sources/**"],
-            resources: ["Resources/**"],
-            settings: Settings.commonModule
+            resources: ["Resources/**"]
         )
     ]
 )

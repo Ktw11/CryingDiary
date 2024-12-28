@@ -25,7 +25,8 @@ extension Targets {
         dependencies: [
             Projects.feature.project,
             .project(target: TargetNames.repository, path: .relativeToRoot("Core")),
-            Projects.thirdParty.project
+            Projects.thirdParty.project,
+            .project(target: TargetNames.sharedResource, path: .relativeToRoot(TargetNames.sharedResource)),
         ],
         settings: Settings.commonModule
     )

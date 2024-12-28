@@ -38,10 +38,10 @@ struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: Vie
                     .font(.largeTitle)
             case .signIn:
                 signInBuilder.signInView() { response in
-                    viewModel.setScene(to: .main(response))
+                    viewModel.setScene(to: .tabs(response))
                 }
-            case .main:
-                homeBuilder.homeView()
+            case .tabs:
+                RootTabView(homeBuilder: homeBuilder)
             }
         }
         .onAppear {

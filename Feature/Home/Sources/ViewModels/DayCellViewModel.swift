@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import SharedResource
 
 struct DayCellViewModel: Equatable, Hashable {
     
@@ -35,7 +36,7 @@ struct DayCellViewModel: Equatable, Hashable {
         guard !isTapped else { return Color.white }
         
         if isToday {
-            return HomeAsset.Color.accentColor.swiftUIColor
+            return SharedResourceAsset.primaryColor.swiftUIColor
         } else {
             return Color.black
         }
