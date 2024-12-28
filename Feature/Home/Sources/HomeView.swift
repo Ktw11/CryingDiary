@@ -19,10 +19,22 @@ public struct HomeView: View {
     private let viewModel: HomeViewModel
     
     public var body: some View {
-        CalendarView()
+        ScrollView {
+            VStack {
+                CalendarView()
+                    .padding(.horizontal, 10)
+                
+                Divider()
+                    .frame(maxWidth: .infinity, maxHeight: 1)
+                    .padding(.vertical, 10)
+                
+//                CalendarDetailView()
+            }
+        }
     }
 }
 
 #Preview {
     HomeView(viewModel: .init())
+        .padding()
 }
