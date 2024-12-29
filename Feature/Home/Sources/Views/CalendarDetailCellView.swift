@@ -24,11 +24,11 @@ struct CalendarDetailCellView: View {
                     image
                 } else {
                     Rectangle()
-                        .foregroundStyle(SharedResourceAsset.secondaryColor.swiftUIColor.opacity(0.2))
+                        .foregroundStyle(SharedResourceAsset.Color.secondaryColor.swiftUIColor.opacity(0.2))
                         .overlay {
                             Text("new")
                                 .font(.system(size: 12))
-                                .foregroundStyle(SharedResourceAsset.primaryColor.swiftUIColor)
+                                .foregroundStyle(SharedResourceAsset.Color.primaryColor.swiftUIColor)
                         }
                 }
             }
@@ -38,7 +38,7 @@ struct CalendarDetailCellView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text(viewModel.dateText)
                     .font(.system(size: 12))
-                    .foregroundStyle(SharedResourceAsset.primaryColor.swiftUIColor)
+                    .foregroundStyle(SharedResourceAsset.Color.primaryColor.swiftUIColor)
                 
                 Text(viewModel.title)
                     .font(.system(size: 15))

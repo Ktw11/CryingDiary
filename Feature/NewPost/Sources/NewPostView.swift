@@ -21,8 +21,18 @@ public struct NewPostView: View {
     private let viewModel: NewPostViewModel
     
     public var body: some View {
-        VStack(spacing: 35) {
+        VStack {
+            HStack {
+                Spacer()
+                
+                SharedResourceAsset.Image.icExit.swiftUIImage
+                    .resizable()
+                    .frame(width: 28, height: 28)
+                    .padding(.trailing, 28)
+            }
+            
             DateHeaderView(viewModel: viewModel.headerViewModel)
+                .padding(.bottom, 30)
             
             GeometryReader { geometry in
                 HStack {
@@ -34,8 +44,9 @@ public struct NewPostView: View {
                     Spacer()
                 }
             }
+            .padding(.bottom, 50)
         }
-        .background(SharedResourceAsset.backgroundGray.swiftUIColor)
+        .background(SharedResourceAsset.Color.backgroundGray.swiftUIColor)
     }
 }
 

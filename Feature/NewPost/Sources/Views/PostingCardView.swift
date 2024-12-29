@@ -26,14 +26,14 @@ struct PostingCardView: View {
         GeometryReader { geometry in
             VStack(spacing: 16) {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(SharedResourceAsset.placeholderColor.swiftUIColor)
-                    .frame(height: geometry.size.height * 0.4)
+                    .fill(SharedResourceAsset.Color.placeholderColor.swiftUIColor)
+                    .frame(height: geometry.size.height * 0.5)
                     .padding(10)
                 
                 Group {
                     Text(viewModel.dateText)
                         .font(.system(size: 14, weight: .regular))
-                        .foregroundStyle(SharedResourceAsset.primaryColor.swiftUIColor)
+                        .foregroundStyle(SharedResourceAsset.Color.primaryColor.swiftUIColor)
                     
                     TextField("제목을 입력하세요", text: $viewModel.title)
                         .font(.system(size: 25))

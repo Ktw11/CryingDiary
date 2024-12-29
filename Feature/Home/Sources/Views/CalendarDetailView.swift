@@ -25,7 +25,7 @@ struct CalendarDetailView: View {
             ZStack(alignment: .topLeading) {
                 Text("\(viewModel.day)")
                     .font(SharedFont.bigJohnPRO(size: 15, weight: .bold))
-                    .foregroundStyle(SharedResourceAsset.primaryColor.swiftUIColor)
+                    .foregroundStyle(SharedResourceAsset.Color.primaryColor.swiftUIColor)
             }
             .frame(width: 50)
             

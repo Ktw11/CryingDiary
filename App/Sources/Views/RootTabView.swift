@@ -78,7 +78,7 @@ private struct CustomTabView: View {
                 CryingDiaryAsset.Image.icCalendarTab.swiftUIImage
                     .renderingMode(.template)
                     .resizable()
-                    .tint(selected == .home ? SharedResourceAsset.primaryColor.swiftUIColor : Color.gray)
+                    .tint(selected == .home ? SharedResourceAsset.Color.primaryColor.swiftUIColor : Color.gray)
                     .frame(width: 27, height: 27)
             }
            
@@ -103,7 +103,7 @@ private struct CustomTabView: View {
                 CryingDiaryAsset.Image.icProfileTab.swiftUIImage
                     .renderingMode(.template)
                     .resizable()
-                    .tint(selected == .profile ? SharedResourceAsset.primaryColor.swiftUIColor : Color.gray)
+                    .tint(selected == .profile ? SharedResourceAsset.Color.primaryColor.swiftUIColor : Color.gray)
                     .frame(width: 27, height: 27)
             }
             

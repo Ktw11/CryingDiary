@@ -38,7 +38,7 @@ struct DayCellViewModel: Equatable, Hashable {
         guard !isTapped else { return Color.white }
         
         if isToday {
-            return SharedResourceAsset.primaryColor.swiftUIColor
+            return SharedResourceAsset.Color.primaryColor.swiftUIColor
         } else {
             return Color.black
         }
@@ -55,9 +55,9 @@ struct DayCellViewModel: Equatable, Hashable {
 private extension DayCellViewModel {
     func diaryStackColors() -> [Color] {
         let colors: [Color] = [
-            SharedResourceAsset.primaryColor.swiftUIColor,
-            SharedResourceAsset.secondaryColor.swiftUIColor,
-            SharedResourceAsset.thirdColor.swiftUIColor
+            SharedResourceAsset.Color.primaryColor.swiftUIColor,
+            SharedResourceAsset.Color.secondaryColor.swiftUIColor,
+            SharedResourceAsset.Color.thirdColor.swiftUIColor
         ]
         
         return (0..<3).map { index in
