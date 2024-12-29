@@ -36,6 +36,7 @@ public extension Projects {
 public enum FeatureProjects: String {
     case home = "Home"
     case signIn = "SignIn"
+    case newPost = "NewPost"
 }
 
 public extension FeatureProjects {

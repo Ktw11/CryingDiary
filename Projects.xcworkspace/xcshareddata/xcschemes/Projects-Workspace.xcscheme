@@ -322,6 +322,48 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "841B9DB3E57496C5B4D7A916"
+               BuildableName = "NewPost.framework"
+               BlueprintName = "NewPost"
+               ReferencedContainer = "container:Feature/NewPost/NewPost.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "47851AB6EB0AA9376295AA6C"
+               BuildableName = "NewPostInterface.framework"
+               BlueprintName = "NewPostInterface"
+               ReferencedContainer = "container:Feature/NewPost/NewPost.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1D0794272FDEBEA09C469872"
+               BuildableName = "NewPost_NewPost.bundle"
+               BlueprintName = "NewPost_NewPost"
+               ReferencedContainer = "container:Feature/NewPost/NewPost.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2AA8AA5E94500419AFB2DAC8"
                BuildableName = "Repository.framework"
                BlueprintName = "Repository"
