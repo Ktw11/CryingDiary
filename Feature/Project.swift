@@ -18,7 +18,9 @@ let project = Project(
                 FeatureProjects.home.project,
                 TargetDependency.project(target: "HomeInterface", path: "../Feature/Home"),
                 FeatureProjects.signIn.project,
-                TargetDependency.project(target: "SignInInterface", path: "../Feature/SignIn")
+                TargetDependency.project(target: "SignInInterface", path: "../Feature/SignIn"),
+                FeatureProjects.newPost.project,
+                TargetDependency.project(target: "NewPostInterface", path: "../Feature/NewPost"),
             ]
         )
     ]

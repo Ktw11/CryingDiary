@@ -10,10 +10,10 @@ import SwiftUI
 
 @MainActor
 @Observable
-final class NewPostViewModel {
+public final class NewPostViewModel {
     // MARK: Lifecycle
     
-    init(postingDate: Date) {
+    public init(postingDate: Date) {
         self.postingDate = postingDate
     }
 

@@ -8,11 +8,11 @@
 import SwiftUI
 import SharedResource
 
-struct NewPostView: View {
+public struct NewPostView: View {
     
     // MARK: Lifecycle
     
-    init(viewModel: NewPostViewModel) {
+    public init(viewModel: NewPostViewModel) {
         self.viewModel = viewModel
     }
     
@@ -20,7 +20,7 @@ struct NewPostView: View {
     
     private let viewModel: NewPostViewModel
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 35) {
             DateHeaderView(viewModel: viewModel.headerViewModel)
             
