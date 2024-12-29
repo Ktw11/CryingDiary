@@ -38,7 +38,7 @@ struct CalendarDetailView: View {
             
             Spacer()
         }
-        .padding()
+        .padding(.vertical)
     }
 }
 
