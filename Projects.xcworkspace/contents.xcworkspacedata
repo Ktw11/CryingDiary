@@ -17,6 +17,9 @@
          location = "group:Home/Home.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:NewPost/NewPost.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:SignIn/SignIn.xcodeproj">
       </FileRef>
    </Group>
