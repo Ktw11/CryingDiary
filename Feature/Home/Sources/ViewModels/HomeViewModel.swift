@@ -55,12 +55,10 @@ public final class HomeViewModel {
         #warning("더미 데이터")
         let newDiaries = [
             Diary(
+                id: "123",
                 title: "Title",
                 content: "content content content",
-                year: page.year,
-                month: page.month,
-                day: 11,
-                timeStamp: 123
+                timestamp: 123
             ),
 //            Diary(
 //                title: "Title2",
@@ -117,8 +115,17 @@ private extension HomeViewModel {
     }
     
     func calendarDetailCellViewModels() -> [CalendarDetailCellViewModel] {
-        #warning("TODO: make calendarDetailCellViewModels")
-        return []
+        #warning("더미 데이터")
+        let newDiaries = [
+            Diary(
+                id: "ID",
+                title: "Title",
+                content: "content content content",
+                timestamp: 1735447621
+            ),
+        ]
+        
+        return newDiaries.map(CalendarDetailCellViewModel.init)
     }
     
     func dates(in month: Date) -> [Date?] {

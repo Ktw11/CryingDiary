@@ -8,12 +8,10 @@
 import Foundation
 
 struct Diary: Equatable {
+    let id: String
     let title: String
     #warning("Image 반영 필요")
 //    let image: Image
     let content: String
-    let year: Int
-    let month: Int
-    let day: Int
-    let timeStamp: TimeInterval
+    let timestamp: TimeInterval
 }

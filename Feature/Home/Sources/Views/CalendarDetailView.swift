@@ -22,12 +22,12 @@ struct CalendarDetailView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Text("\(viewModel.day)")
-                .font(SharedFont.bigJohnPRO(size: 15, weight: .bold))
-                .foregroundStyle(SharedResourceAsset.primaryColor.swiftUIColor)
-            
-            Spacer()
-                .frame(maxWidth: 40)
+            ZStack(alignment: .topLeading) {
+                Text("\(viewModel.day)")
+                    .font(SharedFont.bigJohnPRO(size: 15, weight: .bold))
+                    .foregroundStyle(SharedResourceAsset.primaryColor.swiftUIColor)
+            }
+            .frame(width: 50)
             
             VStack(alignment: .leading, spacing: 15) {
                 ForEach(viewModel.cellViewModels, id: \.id) { viewModel in
@@ -51,16 +51,20 @@ struct CalendarDetailView: View {
                 day: 12,
                 cellViewModels: [
                     CalendarDetailCellViewModel(
-                        id: "1",
-                        image: nil,
-                        dateText: "2025.1.12 11:30am",
-                        title: "오늘의 소소한 Flex"
+                        diary: .init(
+                            id: "1",
+                            title: "title",
+                            content: "description11",
+                            timestamp: Date().timeIntervalSince1970
+                        )
                     ),
                     CalendarDetailCellViewModel(
-                        id: "2",
-                        image: nil,
-                        dateText: "2025.1.12 11:30am",
-                        title: "오늘의 소소한 Fldjfjsljklsfjlsex"
+                        diary: .init(
+                            id: "2",
+                            title: "title",
+                            content: "description11",
+                            timestamp: Date().timeIntervalSince1970
+                        )
                     )
                 ]
             )

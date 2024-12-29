@@ -54,10 +54,7 @@ struct CalendarDetailCellView: View {
 #Preview {
     CalendarDetailCellView(
         viewModel: CalendarDetailCellViewModel(
-            id: "21",
-            image: nil,
-            dateText: "2025.1.12 11:30am",
-            title: "오늘의 소소한 Flex"
+            diary: .init(id: "", title: "title", content: "content", timestamp: 123)
         )
     )
 }
