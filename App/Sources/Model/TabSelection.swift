@@ -10,5 +10,4 @@ import Foundation
 enum TabSelection: Equatable, Hashable {
     case home
     case profile
-    case card
 }

@@ -39,7 +39,8 @@ import Network
         RootView(
             viewModel: viewModel,
             signInBuilder: featureComponent.signInBuilder(),
-            homeBuilder: featureComponent.homeBuilder()
+            homeBuilder: featureComponent.homeBuilder(),
+            newPostBuilder: featureComponent.newPostBuilder()
         )
     }
     

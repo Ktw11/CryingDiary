@@ -8,19 +8,27 @@
 import SwiftUI
 import SignInInterface
 import HomeInterface
+import NewPostInterface
 
-struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: View {
+struct RootView<
+    SignInComponent: SignInBuilder,
+    HomeComponent: HomeBuilder,
+    NewPostComponent: NewPostBuilder
+>: View {
     
     // MARK: Lifecycle
     
     init(
         viewModel: RootViewModel,
         signInBuilder: SignInComponent,
-        homeBuilder: HomeComponent
+        homeBuilder: HomeComponent,
+        newPostBuilder: NewPostComponent
+        
     ) {
         self.viewModel = viewModel
         self.signInBuilder = signInBuilder
         self.homeBuilder = homeBuilder
+        self.newPostBuilder = newPostBuilder
     }
 
     // MARK: Properties
@@ -28,6 +36,7 @@ struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: Vie
     private let viewModel: RootViewModel
     private let signInBuilder: SignInComponent
     private let homeBuilder: HomeComponent
+    private let newPostBuilder: NewPostComponent
     
     var body: some View {
         ZStack {
@@ -41,7 +50,7 @@ struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: Vie
                     viewModel.setScene(to: .tabs(response))
                 }
             case .tabs:
-                RootTabView(homeBuilder: homeBuilder)
+                RootTabView(homeBuilder: homeBuilder, newPostBuilder: newPostBuilder)
             }
         }
         .onAppear {
@@ -55,6 +64,7 @@ struct RootView<SignInComponent: SignInBuilder, HomeComponent: HomeBuilder>: Vie
     RootView(
         viewModel: RootViewModel(useCase: SignInUseCaseMock()),
         signInBuilder: featureComponent.signInBuilder(),
-        homeBuilder: featureComponent.homeBuilder()
+        homeBuilder: featureComponent.homeBuilder(),
+        newPostBuilder: featureComponent.newPostBuilder()
     )
 }

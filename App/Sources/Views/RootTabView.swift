@@ -8,62 +8,108 @@
 import SwiftUI
 import SharedResource
 import HomeInterface
+import NewPostInterface
 
-struct RootTabView<HomeComponent: HomeBuilder>: View {
+struct RootTabView<HomeComponent: HomeBuilder, NewPostComponent: NewPostBuilder>: View {
     
     // MARK: Lifecycle
     
-    init(homeBuilder: HomeComponent) {
+    init(
+        homeBuilder: HomeComponent,
+        newPostBuilder: NewPostComponent
+    ) {
         self.homeBuilder = homeBuilder
+        self.newPostBuilder = newPostBuilder
     }
     
     // MARK: Properties
 
     @State private var selected: TabSelection = .home
+    @State private var showingNewPost = false
     private let homeBuilder: HomeComponent
+    private let newPostBuilder: NewPostComponent
 
     var body: some View {
-        TabView(selection: $selected) {
-            Tab(
-                value: .home,
-                content: { homeBuilder.homeView() },
-                label: {
-                    CryingDiaryAsset.Image.icCalendarTab.swiftUIImage
-                        .renderingMode(.template)
-                        .resizable()
-                        .frame(width: 24, height: 24)
+        VStack(spacing: 0) {
+            switch selected {
+            case .home:
+                homeBuilder.homeView()
+            case .profile:
+                VStack {
+                    Spacer()
+                    Text("PROFILE VIEW")
+                    Spacer()
                 }
-            )
+            }
             
-            Tab(
-                value: .card,
-                content: { Text("CARD VIEW") },
-                label: {
-                    Image(systemName: "pencil")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                }
-            )
-            
-            Tab(
-                value: .profile,
-                content: { Text("PROFILE VIEW") },
-                label: {
-                    Image(systemName: "pencil.circle")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                }
-            )
+            CustomTabView(selected: $selected, showingNewPost: $showingNewPost)
+                .padding(.bottom, 15)
         }
         .edgesIgnoringSafeArea(.bottom)
-        .tint(SharedResourceAsset.primaryColor.swiftUIColor)
-        .onAppear {
-            UITabBar.appearance().unselectedItemTintColor = .gray
+        .padding(.top, 20)
+        .fullScreenCover(isPresented: $showingNewPost) {
+            newPostBuilder.newPostView(postingDate: Date())
         }
     }
 }
 
 #Preview {
     let featureComponent = DependencyContainer().featureComponent
-    RootTabView(homeBuilder: featureComponent.homeBuilder())
+    RootTabView(
+        homeBuilder: featureComponent.homeBuilder(),
+        newPostBuilder: featureComponent.newPostBuilder()
+    )
+}
+
+private struct CustomTabView: View {
+    
+    @Binding var selected: TabSelection
+    @Binding var showingNewPost: Bool
+
+    var body: some View {
+        HStack(alignment: .center) {
+            
+            Color.clear
+                .frame(width: 50)
+    
+            Button {
+                selected = .home
+            } label: {
+                CryingDiaryAsset.Image.icCalendarTab.swiftUIImage
+                    .renderingMode(.template)
+                    .resizable()
+                    .tint(selected == .home ? SharedResourceAsset.primaryColor.swiftUIColor : Color.gray)
+                    .frame(width: 27, height: 27)
+            }
+           
+            Spacer()
+            
+            Button {
+                showingNewPost = true
+            } label: {
+                CryingDiaryAsset.Image.icAddTab.swiftUIImage
+                    .renderingMode(.template)
+                    .resizable()
+                    .scaledToFit()
+                    .tint(Color.gray)
+                    .frame(width: 30, height: 30)
+            }
+            
+            Spacer()
+            
+            Button {
+                selected = .profile
+            } label: {
+                CryingDiaryAsset.Image.icProfileTab.swiftUIImage
+                    .renderingMode(.template)
+                    .resizable()
+                    .tint(selected == .profile ? SharedResourceAsset.primaryColor.swiftUIColor : Color.gray)
+                    .frame(width: 27, height: 27)
+            }
+            
+            Color.clear
+                .frame(width: 50)
+        }
+        .frame(height: 85)
+    }
 }
