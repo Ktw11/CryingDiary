@@ -56,7 +56,7 @@ private struct DayCellView: View, Equatable {
     private let viewModel: DayCellViewModel
     
     var body: some View {
-        VStack(spacing: 5) {
+        VStack(spacing: 3) {
             Text("\(viewModel.day)")
                 .font(SharedFont.bigJohnPRO(size: 13, weight: viewModel.isBold ? .bold : .regular))
                 .foregroundStyle(viewModel.foregroundColor)
@@ -68,11 +68,21 @@ private struct DayCellView: View, Equatable {
                 }
                 .frame(height: 19)
             
-            EmptyView()
+            VStack(spacing: 2) {
+                ForEach(viewModel.stackColors, id: \.self) { color in
+                    Capsule()
+                        .foregroundStyle(color)
+                        .frame(height: 5)
+                }
+            }
+            .padding(.horizontal, 10)
+            .padding(.bottom, 10)
         }
     }
 }
 
 #Preview {
-    DayCellView(viewModel: .init(day: 15, isTapped: false, isToday: false))
+    ZStack(alignment: .center) {
+        DayCellView(viewModel: .init(day: 15, isTapped: false, isToday: false, numberOfDiaries: 3))
+    }
 }

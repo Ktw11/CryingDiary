@@ -58,6 +58,9 @@ struct CalendarView: View {
                 )
             )
         }
+        .onChange(of: viewModel.page, initial: true) {
+            homeViewModel.loadDiaries(at: viewModel.page)
+        }
     }
 }
 
@@ -65,8 +68,8 @@ struct CalendarView: View {
     VStack {
         CalendarView(
             viewModel: .init(
-                monthString: "12",
-                yearString: "2024",
+                page: .init(year: 2024, month: 12),
+                monthString: "December",
                 cellViewModelTypes: []
             )
         )

@@ -65,20 +65,23 @@ final class CalendarViewModel {
     // MARK: Lifecycle
     
     init(
+        page: CalendarPage,
         monthString: String,
-        yearString: String,
         cellViewModelTypes: [DayCellViewModelType]
     ) {
+        self.page = page
         self.monthString = monthString
-        self.yearString = yearString
         self.cellViewModelTypes = cellViewModelTypes
     }
 
     // MARK: Properties
     
+    var yearString: String {
+        String(page.year)
+    }
     
     let monthString: String
-    let yearString: String
+    let page: CalendarPage
     let cellViewModelTypes: [DayCellViewModelType]
     let weekDays: [Weekday] = WeekdaySymbol.allCases.map(Weekday.init)
 }
