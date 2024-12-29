@@ -25,7 +25,7 @@ struct RootTabView<HomeComponent: HomeBuilder, NewPostComponent: NewPostBuilder>
     // MARK: Properties
 
     @State private var selected: TabSelection = .home
-    @State private var showingNewPost = false
+    @State private var presentingNewPost = false
     private let homeBuilder: HomeComponent
     private let newPostBuilder: NewPostComponent
 
@@ -42,12 +42,12 @@ struct RootTabView<HomeComponent: HomeBuilder, NewPostComponent: NewPostBuilder>
                 }
             }
             
-            CustomTabView(selected: $selected, showingNewPost: $showingNewPost)
+            CustomTabView(selected: $selected, presentingNewPost: $presentingNewPost)
                 .padding(.bottom, 15)
         }
         .edgesIgnoringSafeArea(.bottom)
         .padding(.top, 20)
-        .fullScreenCover(isPresented: $showingNewPost) {
+        .fullScreenCover(isPresented: $presentingNewPost) {
             newPostBuilder.newPostView(postingDate: Date())
         }
     }
@@ -64,7 +64,7 @@ struct RootTabView<HomeComponent: HomeBuilder, NewPostComponent: NewPostBuilder>
 private struct CustomTabView: View {
     
     @Binding var selected: TabSelection
-    @Binding var showingNewPost: Bool
+    @Binding var presentingNewPost: Bool
 
     var body: some View {
         HStack(alignment: .center) {
@@ -85,7 +85,7 @@ private struct CustomTabView: View {
             Spacer()
             
             Button {
-                showingNewPost = true
+                presentingNewPost = true
             } label: {
                 CryingDiaryAsset.Image.icAddTab.swiftUIImage
                     .renderingMode(.template)

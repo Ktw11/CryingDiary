@@ -18,6 +18,7 @@ public struct NewPostView: View {
     
     // MARK: Properties
     
+    @Environment(\.dismiss) var dismiss
     private let viewModel: NewPostViewModel
     
     public var body: some View {
@@ -25,10 +26,14 @@ public struct NewPostView: View {
             HStack {
                 Spacer()
                 
-                SharedResourceAsset.Image.icExit.swiftUIImage
-                    .resizable()
-                    .frame(width: 28, height: 28)
-                    .padding(.trailing, 28)
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    SharedResourceAsset.Image.icExit.swiftUIImage
+                        .resizable()
+                        .frame(width: 28, height: 28)
+                        .padding(.trailing, 28)
+                })
             }
             
             DateHeaderView(viewModel: viewModel.headerViewModel)
