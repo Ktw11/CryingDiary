@@ -2,13 +2,13 @@ import ProjectDescription
 
 extension Targets {
     public static let network = Targets.commonTarget(
-        name: TargetNames.network,
-        parentName: Projects.core.name,
-        sources: ["\(TargetNames.network)/Sources/**"]
+        name: Names.network,
+        parentName: Names.core,
+        sources: ["\(Names.network)/Sources/**"]
     )
 
     public static let networkTests = TestTargets.make(
         from: Targets.network,
-        sources: ["\(TargetNames.network)/Tests/**"]
+        sources: ["\(Names.network)/Tests/**"]
     )
 }

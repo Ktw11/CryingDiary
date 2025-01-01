@@ -1,9 +1,15 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = Projects.feature.name
+let name: String = Names.feature
 
-#warning("Add Helper methods at dependencies")
+let featureNames: [String] = Names.Feature.allCases.map(\.rawValue)
+
+let dependencies: [TargetDependency] = featureNames.reduce(into: []) { result, name in
+    result.append(.project(target: name, path: "../Feature/\(name)"))
+    result.append(.project(target: "\(name)Interface", path: "../Feature/\(name)"))
+}
+
 let project = Project(
     name: name,
     settings: Settings.commonModule,
@@ -14,14 +20,7 @@ let project = Project(
             product: .staticFramework,
             bundleId: "gtw.CryingDiary.\(name)",
             sources: ["Sources/**"],
-            dependencies: [
-                FeatureProjects.home.project,
-                TargetDependency.project(target: "HomeInterface", path: "../Feature/Home"),
-                FeatureProjects.signIn.project,
-                TargetDependency.project(target: "SignInInterface", path: "../Feature/SignIn"),
-                FeatureProjects.newPost.project,
-                TargetDependency.project(target: "NewPostInterface", path: "../Feature/NewPost"),
-            ]
+            dependencies: dependencies
         )
     ]
 )

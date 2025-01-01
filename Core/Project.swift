@@ -1,7 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = Projects.core.name
+let name = Names.core
 
 let project = Project(
     name: name,

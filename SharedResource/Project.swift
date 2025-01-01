@@ -1,7 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = TargetNames.sharedResource
+let name = Names.sharedResource
 
 let fonts = [
     "BigJohnPRO-Bold.otf",

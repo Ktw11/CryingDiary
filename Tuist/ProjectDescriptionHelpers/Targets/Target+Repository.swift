@@ -2,17 +2,17 @@ import ProjectDescription
 
 extension Targets {
     public static let repository = Targets.commonTarget(
-        name: TargetNames.repository,
-        parentName: Projects.core.name,
-        sources: ["\(TargetNames.repository)/Sources/**"],
+        name: Names.repository,
+        parentName: Names.core,
+        sources: ["\(Names.repository)/Sources/**"],
         dependencies: [
-            .target(name: Targets.network.name),
-            .target(name: Targets.domain.name)
+            .target(name: Names.network),
+            .target(name: Names.domain)
         ]
     )
     
     public static let repositoryTests = TestTargets.make(
         from: Self.repository,
-        sources: ["\(TargetNames.repository)/Tests/**"]
+        sources: ["\(Names.repository)/Tests/**"]
     )
 }

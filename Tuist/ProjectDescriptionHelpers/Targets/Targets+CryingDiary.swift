@@ -2,10 +2,10 @@ import ProjectDescription
 
 extension Targets {
     public static let cryingDiary = Target.target(
-        name: TargetNames.cryingDiary,
+        name: Names.cryingDiary,
         destinations: .iOS,
         product: .app,
-        bundleId: "gtw.\(TargetNames.cryingDiary)",
+        bundleId: "gtw.\(Names.cryingDiary)",
         infoPlist: .extendingDefault(
             with: [
                 "UILaunchScreen": [
@@ -23,10 +23,10 @@ extension Targets {
         resources: ["Resources/**"],
         entitlements: .file(path: .relativeToManifest("CryingDiary.entitlements")),
         dependencies: [
-            Projects.feature.project,
-            .project(target: TargetNames.repository, path: .relativeToRoot("Core")),
-            Projects.thirdParty.project,
-            .project(target: TargetNames.sharedResource, path: .relativeToRoot(TargetNames.sharedResource)),
+            .project(target: Names.feature, path: .relativeToRoot(Names.feature)),
+            .project(target: Names.repository, path: .relativeToRoot(Names.core)),
+            .project(target: Names.thirdParty, path: .relativeToRoot(Names.thirdParty)),
+            .project(target: Names.sharedResource, path: .relativeToRoot(Names.sharedResource)),
         ],
         settings: Settings.commonModule
     )

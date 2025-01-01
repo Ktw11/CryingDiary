@@ -1,21 +1,18 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let target: Target = .target(
-    name: FeatureProjects.newPost.name,
-    destinations: .iOS,
-    product: Environment.forPreview.getBoolean(default: false) ? .framework : .staticFramework,
-    bundleId: "gtw.CryingDiary.Feature.NewPost",
-    sources: ["Sources/**"],
-    resources: ["Resources/**"],
+let name: String = Names.Feature.newPost.rawValue
+
+let target = Target.feature(
+    name: name,
     dependencies: [
-        .project(target: TargetNames.domain, path: .relativeToRoot("Core")),
-        .project(target: TargetNames.sharedResource, path: .relativeToRoot(TargetNames.sharedResource)),
+        .project(target: Names.domain, path: .relativeToRoot(Names.core)),
+        .project(target: Names.sharedResource, path: .relativeToRoot(Names.sharedResource)),
     ]
 )
 
-let project = Projects.makeFeatureProj(
-    name: FeatureProjects.newPost.name,
+let project = Project.makeFeatureProj(
+    name: name,
     targets: [
         target,
         Target.featureInterface(from: target)

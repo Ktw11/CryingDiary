@@ -1,7 +1,7 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let name = Projects.thirdParty.name
+let name = Names.thirdParty
 
 let project = Project(
     name: name,

@@ -1,26 +1,23 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-let target: Target = .target(
-    name: FeatureProjects.signIn.name,
-    destinations: .iOS,
-    product: Environment.forPreview.getBoolean(default: false) ? .framework : .staticFramework,
-    bundleId: "gtw.CryingDiary.Feature.SignIn",
-    sources: ["Sources/**"],
-    resources: ["Resources/**"],
+let name: String = Names.Feature.signIn.rawValue
+
+let target = Target.feature(
+    name: name,
     dependencies: [
-        .project(target: TargetNames.domain, path: .relativeToRoot("Core")),
-        Projects.thirdParty.project,
+        .project(target: Names.domain, path: .relativeToRoot(Names.core)),
+        .project(target: Names.thirdParty, path: .relativeToRoot(Names.thirdParty))
     ]
 )
 
-let project = Projects.makeFeatureProj(
-    name: FeatureProjects.signIn.name,
+let project = Project.makeFeatureProj(
+    name: name,
     targets: [
         target,
         Target.featureInterface(
             from: target,
-            dependencies: [.project(target: TargetNames.domain, path: .relativeToRoot("Core"))]
+            dependencies: [.project(target: Names.domain, path: .relativeToRoot(Names.core))]
         )
     ]
 )
